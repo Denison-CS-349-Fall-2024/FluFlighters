@@ -1,0 +1,105 @@
+﻿@page "/quizcard"
+@inherits QuizCardBase
+@using Quizzing.Components
+@using Quizzing.Pages
+
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        box-sizing: border-box;
+    }
+
+    .app-title {
+        margin: 30px auto;
+        padding: 10px;
+        font-size: 40pt;
+        width: 100%;
+        text-align: center;
+    }
+
+    .quiz {
+        margin: 10px auto;
+        width: 50%;
+        background-color: #f5f6f6;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: -20px 20px 30px rgba(0,0,0,0.3);
+    }
+
+    .quiz-header {
+        text-align: center;
+        font-size: 18pt;
+        margin-bottom: 10px;
+    }
+
+    .quiz-body {
+        padding-top: 15px;
+        text-align: center;
+    }
+
+    .quiz-footer {
+        display: flex;
+        justify-content: center;
+    }
+
+    .next-btn {
+        width: 200px;
+        padding: 5px;
+        background-color: #28a745;
+        color: #fff;
+        font-size: 14pt;
+        border-radius: 3px;
+        border: none;
+        margin-top: 5px;
+        cursor: pointer;
+    }
+
+    .next-btn:hover {
+        box-shadow: -1.5px 1.5px 10px rgba(0,0,0,0.3);
+    }
+</style>
+
+<div class="container">
+    <div class="quiz">
+        @if (questionIndex < Questions.Count())
+        {
+            <div class="app-title">
+                Quizzing!
+            </div>
+            <div class="quiz-header">
+                @Questions[questionIndex].QuestionTitle
+            </div>
+            <div class="quiz-body">
+                @foreach (var option in Questions[questionIndex].Options)
+                {
+                    <OptionCard Option="@option" OnOptionSelected="OptionSelected"></OptionCard>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="app-title">
+                @if (score > (Questions.Count / 2))
+                {
+                    <img src="https://img.icons8.com/ios/100/000000/prize--v1.png" />
+                }
+                else
+                {
+                    <img src="https://img.icons8.com/color/96/000000/lose.png" />
+                }
+            </div>
+            <div class="app-title">
+                @(score > (Questions.Count() / 2) ? "Congratulation" : "Better Luck Next Time")
+            </div>
+            <div class="quiz-header">
+                <b>You scored @score points!</b>
+            </div>
+            <div class="quiz-footer">
+                <button class="next-btn" @onclick="@RestartQuiz">Play Again</button>
+            </div>
+        }
+    </div>
+</div>
+

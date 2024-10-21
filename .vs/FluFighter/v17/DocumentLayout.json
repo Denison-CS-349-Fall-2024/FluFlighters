@@ -1,0 +1,116 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8767E921-FF63-4C63-ABEF-BCC9E3C84D3A}|FluFighter\\FluFighter.csproj|c:\\users\\hbgyufu\\source\\repos\\flufighter\\flufighter\\components\\pages\\about.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8767E921-FF63-4C63-ABEF-BCC9E3C84D3A}|FluFighter\\FluFighter.csproj|solutionrelative:flufighter\\components\\pages\\about.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8767E921-FF63-4C63-ABEF-BCC9E3C84D3A}|FluFighter\\FluFighter.csproj|c:\\users\\hbgyufu\\source\\repos\\flufighter\\flufighter\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8767E921-FF63-4C63-ABEF-BCC9E3C84D3A}|FluFighter\\FluFighter.csproj|solutionrelative:flufighter\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8767E921-FF63-4C63-ABEF-BCC9E3C84D3A}|FluFighter\\FluFighter.csproj|c:\\users\\hbgyufu\\source\\repos\\flufighter\\flufighter\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8767E921-FF63-4C63-ABEF-BCC9E3C84D3A}|FluFighter\\FluFighter.csproj|solutionrelative:flufighter\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8767E921-FF63-4C63-ABEF-BCC9E3C84D3A}|FluFighter\\FluFighter.csproj|c:\\users\\hbgyufu\\source\\repos\\flufighter\\flufighter\\components\\pages\\module.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8767E921-FF63-4C63-ABEF-BCC9E3C84D3A}|FluFighter\\FluFighter.csproj|solutionrelative:flufighter\\components\\pages\\module.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "About.razor",
+              "DocumentMoniker": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Pages\\About.razor",
+              "RelativeDocumentMoniker": "FluFighter\\Components\\Pages\\About.razor",
+              "ToolTip": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Pages\\About.razor",
+              "RelativeToolTip": "FluFighter\\Components\\Pages\\About.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-21T06:36:08.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "FluFighter\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "FluFighter\\Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACIAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-21T06:30:12.911Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Module.razor",
+              "DocumentMoniker": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Pages\\Module.razor",
+              "RelativeDocumentMoniker": "FluFighter\\Components\\Pages\\Module.razor",
+              "ToolTip": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Pages\\Module.razor",
+              "RelativeToolTip": "FluFighter\\Components\\Pages\\Module.razor",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAAAAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-21T06:29:39.909Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Home.razor",
+              "DocumentMoniker": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "FluFighter\\Components\\Pages\\Home.razor",
+              "ToolTip": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Pages\\Home.razor",
+              "RelativeToolTip": "FluFighter\\Components\\Pages\\Home.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-21T06:27:08.974Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+﻿@page "/about"
+
+@* About Page for Flu Awareness Hub *@
+
+<PageTitle>About Us</PageTitle>
+
+<div class="container-fluid text-center">
+    <header class="p-5" style="background-color: #4A90E2; color: white;">
+        <h1>Meet the Developers Behind Flu Fighters</h1>
+        <p>Our passionate team of developers is dedicated to bringing you a fun and informative app to help you stay healthy!</p>
+    </header>
+
+    <section class="p-5" style="background-color: #F9F9F9;">
+        <div class="row justify-content-center">
+            @foreach (var dev in developers)
+            {
+                <div class="col-md-3 p-4">
+                    <div class="card shadow" style="border-top: 5px solid #4A90E2;">
+                        <img src="images/@dev.ImageFile" alt="@dev.Name" class="card-img-top rounded-circle mx-auto d-block" style="width: 150px; height: 150px; object-fit: cover; margin-top: 15px;">
+                        <div class="card-body">
+                            <h4 class="card-title" style="color: #4A90E2;">@dev.Name</h4>
+                            <p class="card-text">@dev.Role</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center p-3 mt-5">
+        <p>&copy; 2024 Flu Fighters Denison. All Rights Reserved.</p>
+    </footer>
+</div>
+
+@code {
+    private List<Developer> developers = new List<Developer>
+    {
+        new Developer
+        {
+            Name = "Viet Dao",
+            Role = "Lead Developer",
+            ImageFile = "tho.jpg" // Assuming the image is in wwwroot/images/alice.jpg
+        },
+        new Developer
+        {
+            Name = "Utsav",
+            Role = "Frontend Developer",
+            ImageFile = "utsav.jpg" // Assuming the image is in wwwroot/images/john.jpg
+        },
+        new Developer
+        {
+            Name = "Luka",
+            Role = "Backend Developer",
+            ImageFile = "luka.jpg" // Assuming the image is in wwwroot/images/emma.jpg
+        },
+        new Developer
+        {
+            Name = "Ichhit",
+            Role = "UI/UX Designer",
+            ImageFile = "ichit.jpg" // Assuming the image is in wwwroot/images/michael.jpg
+        },
+        new Developer
+        {
+            Name = "Grant",
+            Role = "Math Lead",
+            ImageFile = "grant.jpg" // Assuming the image is in wwwroot/images/michael.jpg
+        },
+        new Developer
+        {
+            Name = "Thomas",
+            Role = "Algorithm Lead",
+            ImageFile = "thomas.jpg" // Assuming the image is in wwwroot/images/michael.jpg
+        }
+    };
+
+    public class Developer
+    {
+        public string Name { get; set; }
+        public string Role { get; set; }
+        public string ImageFile { get; set; } // Store the file name of the image
+    }
+}

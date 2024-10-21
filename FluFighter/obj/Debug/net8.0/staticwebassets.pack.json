@@ -1,0 +1,105 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FluFighter.bundle.scp.css",
+      "PackagePath": "staticwebassets\\FluFighter.ayi7pfyk54.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\bacteria.png",
+      "PackagePath": "staticwebassets\\images\\bacteria.png"
+    },
+    {
+      "Id": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\grant.jpg",
+      "PackagePath": "staticwebassets\\images\\grant.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\graph.png",
+      "PackagePath": "staticwebassets\\images\\graph.png"
+    },
+    {
+      "Id": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\ichit.jpg",
+      "PackagePath": "staticwebassets\\images\\ichit.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\luka.jpg",
+      "PackagePath": "staticwebassets\\images\\luka.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\model.png",
+      "PackagePath": "staticwebassets\\images\\model.png"
+    },
+    {
+      "Id": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\pill.png",
+      "PackagePath": "staticwebassets\\images\\pill.png"
+    },
+    {
+      "Id": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\protection.png",
+      "PackagePath": "staticwebassets\\images\\protection.png"
+    },
+    {
+      "Id": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\question.png",
+      "PackagePath": "staticwebassets\\images\\question.png"
+    },
+    {
+      "Id": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\recover.png",
+      "PackagePath": "staticwebassets\\images\\recover.png"
+    },
+    {
+      "Id": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\sneezing.png",
+      "PackagePath": "staticwebassets\\images\\sneezing.png"
+    },
+    {
+      "Id": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\tho.JPG",
+      "PackagePath": "staticwebassets\\images\\tho.JPG"
+    },
+    {
+      "Id": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\thomas.jpg",
+      "PackagePath": "staticwebassets\\images\\thomas.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\utsav.jpg",
+      "PackagePath": "staticwebassets\\images\\utsav.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\vaccine.png",
+      "PackagePath": "staticwebassets\\images\\vaccine.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.FluFighter.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.FluFighter.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.FluFighter.props",
+      "PackagePath": "build\\FluFighter.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.FluFighter.props",
+      "PackagePath": "buildMultiTargeting\\FluFighter.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.FluFighter.props",
+      "PackagePath": "buildTransitive\\FluFighter.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

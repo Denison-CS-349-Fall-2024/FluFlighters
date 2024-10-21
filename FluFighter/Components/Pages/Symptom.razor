@@ -1,0 +1,81 @@
+﻿@page "/flu-education/symptoms"
+
+<div class="content-container">
+    <div class="header-section">
+        <img src="/images/bacteria.png" alt="Symptoms Icon" class="flu-icon" />
+        <h1>Flu Symptoms</h1>
+    </div>
+    <p>
+        Flu symptoms often come on suddenly. People who have the flu often feel some or all of these symptoms:
+    </p>
+    <ul class="symptom-list">
+        <li>Fever or feeling feverish/chills</li>
+        <li>Cough</li>
+        <li>Sore throat</li>
+        <li>Runny or stuffy nose</li>
+        <li>Muscle or body aches</li>
+        <li>Headaches</li>
+        <li>Fatigue (tiredness)</li>
+        <li>Some people may have vomiting and diarrhea, though this is more common in children than adults.</li>
+    </ul>
+</div>
+
+<style>
+    /* Overall Page Background */
+    body {
+        background-color: #F0F8FF; /* Soft light blue background */
+    }
+
+    /* Content Container */
+    .content-container {
+        background-color: #FFFFFF; /* White background */
+        padding: 40px; /* Increased padding */
+        border-radius: 15px; /* Softer edges */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+        max-width: 1000px; /* Wider container */
+        margin: 100px auto; /* More space above and below */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Header Section */
+    .header-section {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Center content horizontally */
+        margin-bottom: 30px; /* More space between header and paragraph */
+    }
+
+    .flu-icon {
+        width: 80px; /* Larger icon */
+        height: 80px;
+        margin-right: 20px; /* Increased space between icon and title */
+    }
+
+    /* Title Styling */
+    h1 {
+        font-size: 2.5rem; /* Larger font size for main title */
+        color: #333;
+    }
+
+    /* Paragraph Styling */
+    p {
+        font-size: 1.3rem; /* Increased font size */
+        line-height: 1.8; /* More line height for better readability */
+        color: #555;
+        margin-bottom: 20px; /* Larger margin between paragraphs */
+        text-align: center; /* Center-align text */
+    }
+
+    /* Symptom List Styling */
+    .symptom-list {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: #555;
+        padding-left: 20px;
+        text-align: left; /* Align list items to the left */
+    }
+
+    .symptom-list li {
+        margin-bottom: 10px; /* Space between list items */
+    }
+</style>

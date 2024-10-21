@@ -1,0 +1,81 @@
+﻿@page "/flu-education/treatment"
+
+<div class="content-container">
+    <div class="header-section">
+        <img src="/images/vaccine.png" alt="Treatment Icon" class="flu-icon" />
+        <h1>Flu Treatment</h1>
+    </div>
+    <p>
+        If you get the flu, antiviral drugs may be a treatment option. Antiviral drugs can make illness milder and shorten the time you are sick.
+    </p>
+    <p>
+        Here are some general steps to treat the flu:
+    </p>
+    <ul class="treatment-list">
+        <li>Take antiviral drugs if prescribed by a doctor.</li>
+        <li>Get plenty of rest.</li>
+        <li>Drink lots of fluids to prevent dehydration.</li>
+        <li>Take over-the-counter pain relievers for fever and body aches.</li>
+        <li>Avoid contact with others as much as possible to prevent spreading the virus.</li>
+    </ul>
+</div>
+
+<style>
+    /* Overall Page Background */
+    body {
+        background-color: #F0F8FF; /* Soft light blue background */
+    }
+
+    /* Content Container */
+    .content-container {
+        background-color: #FFFFFF; /* White background */
+        padding: 40px; /* Increased padding */
+        border-radius: 15px; /* Softer edges */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+        max-width: 1000px; /* Wider container */
+        margin: 100px auto; /* More space above and below */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Header Section */
+    .header-section {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Center content horizontally */
+        margin-bottom: 30px; /* More space between header and paragraph */
+    }
+
+    .flu-icon {
+        width: 80px; /* Larger icon */
+        height: 80px;
+        margin-right: 20px; /* Increased space between icon and title */
+    }
+
+    /* Title Styling */
+    h1 {
+        font-size: 2.5rem; /* Larger font size for main title */
+        color: #333;
+    }
+
+    /* Paragraph Styling */
+    p {
+        font-size: 1.3rem; /* Increased font size */
+        line-height: 1.8; /* More line height for better readability */
+        color: #555;
+        margin-bottom: 20px; /* Larger margin between paragraphs */
+        text-align: center; /* Center-align text */
+    }
+
+    /* Treatment List Styling */
+    .treatment-list {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: #555;
+        padding-left: 20px;
+        text-align: left; /* Align list items to the left */
+    }
+
+    .treatment-list li {
+        margin-bottom: 10px; /* Space between list items */
+    }
+</style>

@@ -1,0 +1,2243 @@
+{
+  "Version": 1,
+  "Hash": "kgeN6QlPG5o+7mzcF2JtO9qo62Xv06aaZFOLIDk+v5w=",
+  "Source": "FluFighter",
+  "BasePath": "_content/FluFighter",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "FluFighter\\wwwroot",
+      "Source": "FluFighter",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\",
+      "BasePath": "_content/FluFighter",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\hbgyufu\\.nuget\\packages\\blazor.extensions.canvas\\1.1.1\\staticwebassets\\blazor.extensions.canvas.js",
+      "SourceId": "Blazor.Extensions.Canvas",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\hbgyufu\\.nuget\\packages\\blazor.extensions.canvas\\1.1.1\\staticwebassets\\",
+      "BasePath": "_content/Blazor.Extensions.Canvas",
+      "RelativePath": "blazor.extensions.canvas.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "rkaaoxtw3d",
+      "Integrity": "9Z/+MBCfTH/eE5e5aYMGZ+WzaJLk8tl2MwD/AGVvifc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\hbgyufu\\.nuget\\packages\\blazor.extensions.canvas\\1.1.1\\staticwebassets\\blazor.extensions.canvas.js"
+    },
+    {
+      "Identity": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\obj\\Release\\net8.0\\scopedcss\\bundle\\FluFighter.styles.css",
+      "SourceId": "FluFighter",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\obj\\Release\\net8.0\\scopedcss\\bundle\\",
+      "BasePath": "_content/FluFighter",
+      "RelativePath": "FluFighter#[.{fingerprint}]?.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ApplicationBundle",
+      "Fingerprint": "ayi7pfyk54",
+      "Integrity": "stB3oQm4YKAdKHKNUkpPuG3HAB7Sg+7VkJ654Po/AOU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\obj\\Release\\net8.0\\scopedcss\\bundle\\FluFighter.styles.css"
+    },
+    {
+      "Identity": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\FluFighter.bundle.scp.css",
+      "SourceId": "FluFighter",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\",
+      "BasePath": "_content/FluFighter",
+      "RelativePath": "FluFighter#[.{fingerprint}]!.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "Fingerprint": "ayi7pfyk54",
+      "Integrity": "stB3oQm4YKAdKHKNUkpPuG3HAB7Sg+7VkJ654Po/AOU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\FluFighter.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\app.css",
+      "SourceId": "FluFighter",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\",
+      "BasePath": "_content/FluFighter",
+      "RelativePath": "app#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "da95v2qkru",
+      "Integrity": "u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\app.css"
+    },
+    {
+      "Identity": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "SourceId": "FluFighter",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\",
+      "BasePath": "_content/FluFighter",
+      "RelativePath": "bootstrap/bootstrap.min#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bpk8xqwxhs",
+      "Integrity": "z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "SourceId": "FluFighter",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\",
+      "BasePath": "_content/FluFighter",
+      "RelativePath": "bootstrap/bootstrap.min.css#[.{fingerprint}]?.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8inm30yfxf",
+      "Integrity": "gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Identity": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\favicon.png",
+      "SourceId": "FluFighter",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\",
+      "BasePath": "_content/FluFighter",
+      "RelativePath": "favicon#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ifv42okdf2",
+      "Integrity": "4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\bacteria.png",
+      "SourceId": "FluFighter",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\",
+      "BasePath": "_content/FluFighter",
+      "RelativePath": "images/bacteria#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "gb6fx15d2v",
+      "Integrity": "RD1Kp92QPKOhQ5J+kxQiJ6idaAHvOWTPOAEbx3/essE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\bacteria.png"
+    },
+    {
+      "Identity": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\grant.jpg",
+      "SourceId": "FluFighter",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\",
+      "BasePath": "_content/FluFighter",
+      "RelativePath": "images/grant#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "4h4elw5apf",
+      "Integrity": "KJNH6yNdwdkUzR28wozLDHBLCkYfb/Z2GdqkgCbbaLU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\grant.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\graph.png",
+      "SourceId": "FluFighter",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\",
+      "BasePath": "_content/FluFighter",
+      "RelativePath": "images/graph#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "87uczm9r5n",
+      "Integrity": "HHFSVZi1xrjRUiDBAX4rBoFxt/cw/uMRu5D5fvwd0pI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\graph.png"
+    },
+    {
+      "Identity": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\ichit.jpg",
+      "SourceId": "FluFighter",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\",
+      "BasePath": "_content/FluFighter",
+      "RelativePath": "images/ichit#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "6e6fyf9sb9",
+      "Integrity": "4qOY1UoG0WCJrbh+L6WZwFq5MRvGcmmFg1TjabZPNVA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ichit.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\luka.jpg",
+      "SourceId": "FluFighter",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\",
+      "BasePath": "_content/FluFighter",
+      "RelativePath": "images/luka#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bs2l14k6e2",
+      "Integrity": "pQ00gPFu95KvMlrTuq1wMrtnxuguuwSsZ5feVXbvbgI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\luka.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\model.png",
+      "SourceId": "FluFighter",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\",
+      "BasePath": "_content/FluFighter",
+      "RelativePath": "images/model#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ya83ry1ilh",
+      "Integrity": "yp8YDmloL+BV+rvGKZUnAvIaRxYRw4sZzep9BYE6qA4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\model.png"
+    },
+    {
+      "Identity": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\pill.png",
+      "SourceId": "FluFighter",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\",
+      "BasePath": "_content/FluFighter",
+      "RelativePath": "images/pill#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "z2clrak9nf",
+      "Integrity": "lezRMotc2S6IeDQaawYKHrIxWF6aV9SsJR1pxQZUoe0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\pill.png"
+    },
+    {
+      "Identity": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\protection.png",
+      "SourceId": "FluFighter",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\",
+      "BasePath": "_content/FluFighter",
+      "RelativePath": "images/protection#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "k189h9u28y",
+      "Integrity": "CJrVPeKi/VKdlgeWQ8p6nirxC8JzeMHWfvn0IQbbmzQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\protection.png"
+    },
+    {
+      "Identity": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\question.png",
+      "SourceId": "FluFighter",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\",
+      "BasePath": "_content/FluFighter",
+      "RelativePath": "images/question#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "0g7faq9qnq",
+      "Integrity": "cNUY3kALIKMCCWoSgfIGhvg90eKnS0h5M13G4AzINws=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\question.png"
+    },
+    {
+      "Identity": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\recover.png",
+      "SourceId": "FluFighter",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\",
+      "BasePath": "_content/FluFighter",
+      "RelativePath": "images/recover#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bfpgadawn9",
+      "Integrity": "Sd3/j0OvenCmBlq97IKoOL1omAX3LwhgJQsE2Zn/f+4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\recover.png"
+    },
+    {
+      "Identity": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\sneezing.png",
+      "SourceId": "FluFighter",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\",
+      "BasePath": "_content/FluFighter",
+      "RelativePath": "images/sneezing#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "auv52ct7cd",
+      "Integrity": "crLfVLIoNrctfSyQGnMifuGBrOrzXhMh9suvHs49zxo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\sneezing.png"
+    },
+    {
+      "Identity": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\tho.JPG",
+      "SourceId": "FluFighter",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\",
+      "BasePath": "_content/FluFighter",
+      "RelativePath": "images/tho#[.{fingerprint}]?.JPG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "j9ozayvfl1",
+      "Integrity": "lyelVDMwgNdK4HN5mNh+h6j+OAAPogrmEBmLq2KxK4s=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\tho.JPG"
+    },
+    {
+      "Identity": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\thomas.jpg",
+      "SourceId": "FluFighter",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\",
+      "BasePath": "_content/FluFighter",
+      "RelativePath": "images/thomas#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "flxh6b8yl7",
+      "Integrity": "rWlGIqRAL/uVZbtHE9Rqwliqymn0B5Z5vz6D5wvJnDU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\thomas.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\utsav.jpg",
+      "SourceId": "FluFighter",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\",
+      "BasePath": "_content/FluFighter",
+      "RelativePath": "images/utsav#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "zefb3atzvo",
+      "Integrity": "y/0FqK3Ecj4upum8CMn5e8pp3Vh5N9GJ2eI+zTRnkYY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\utsav.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\vaccine.png",
+      "SourceId": "FluFighter",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\",
+      "BasePath": "_content/FluFighter",
+      "RelativePath": "images/vaccine#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ebtvf90fo7",
+      "Integrity": "1mYverhRWDq9r4YI/bZPv3ccFM4L10XfmWhDKxcvsWU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\vaccine.png"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "_content/Blazor.Extensions.Canvas/blazor.extensions.canvas.js",
+      "AssetFile": "C:\\Users\\hbgyufu\\.nuget\\packages\\blazor.extensions.canvas\\1.1.1\\staticwebassets\\blazor.extensions.canvas.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "74717"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9Z/+MBCfTH/eE5e5aYMGZ+WzaJLk8tl2MwD/AGVvifc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Feb 2021 04:13:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9Z/+MBCfTH/eE5e5aYMGZ+WzaJLk8tl2MwD/AGVvifc="
+        }
+      ]
+    },
+    {
+      "Route": "app.css",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\app.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2591"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 00:46:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE="
+        }
+      ]
+    },
+    {
+      "Route": "app.da95v2qkru.css",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\app.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2591"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 00:46:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "da95v2qkru"
+        },
+        {
+          "Name": "label",
+          "Value": "app.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE="
+        }
+      ]
+    },
+    {
+      "Route": "bootstrap/bootstrap.min.bpk8xqwxhs.css",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "162720"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 00:46:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bpk8xqwxhs"
+        },
+        {
+          "Name": "label",
+          "Value": "bootstrap/bootstrap.min.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg="
+        }
+      ]
+    },
+    {
+      "Route": "bootstrap/bootstrap.min.css",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "162720"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 00:46:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg="
+        }
+      ]
+    },
+    {
+      "Route": "bootstrap/bootstrap.min.css.8inm30yfxf.map",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "449111"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 00:46:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8inm30yfxf"
+        },
+        {
+          "Name": "label",
+          "Value": "bootstrap/bootstrap.min.css.map"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ="
+        }
+      ]
+    },
+    {
+      "Route": "bootstrap/bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "449111"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 00:46:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.ifv42okdf2.png",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\favicon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 00:46:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ifv42okdf2"
+        },
+        {
+          "Name": "label",
+          "Value": "favicon.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.png",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\favicon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 00:46:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg="
+        }
+      ]
+    },
+    {
+      "Route": "FluFighter.ayi7pfyk54.bundle.scp.css",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\FluFighter.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5903"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"stB3oQm4YKAdKHKNUkpPuG3HAB7Sg+7VkJ654Po/AOU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 09:21:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ayi7pfyk54"
+        },
+        {
+          "Name": "label",
+          "Value": "FluFighter.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-stB3oQm4YKAdKHKNUkpPuG3HAB7Sg+7VkJ654Po/AOU="
+        }
+      ]
+    },
+    {
+      "Route": "FluFighter.ayi7pfyk54.styles.css",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\obj\\Release\\net8.0\\scopedcss\\bundle\\FluFighter.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5903"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"stB3oQm4YKAdKHKNUkpPuG3HAB7Sg+7VkJ654Po/AOU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 09:21:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ayi7pfyk54"
+        },
+        {
+          "Name": "label",
+          "Value": "FluFighter.styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-stB3oQm4YKAdKHKNUkpPuG3HAB7Sg+7VkJ654Po/AOU="
+        }
+      ]
+    },
+    {
+      "Route": "FluFighter.bundle.scp.css",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\FluFighter.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5903"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"stB3oQm4YKAdKHKNUkpPuG3HAB7Sg+7VkJ654Po/AOU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 09:21:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-stB3oQm4YKAdKHKNUkpPuG3HAB7Sg+7VkJ654Po/AOU="
+        }
+      ]
+    },
+    {
+      "Route": "FluFighter.styles.css",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\obj\\Release\\net8.0\\scopedcss\\bundle\\FluFighter.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5903"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"stB3oQm4YKAdKHKNUkpPuG3HAB7Sg+7VkJ654Po/AOU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 09:21:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-stB3oQm4YKAdKHKNUkpPuG3HAB7Sg+7VkJ654Po/AOU="
+        }
+      ]
+    },
+    {
+      "Route": "images/bacteria.gb6fx15d2v.png",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\bacteria.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "27897"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RD1Kp92QPKOhQ5J+kxQiJ6idaAHvOWTPOAEbx3/essE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 04:44:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "gb6fx15d2v"
+        },
+        {
+          "Name": "label",
+          "Value": "images/bacteria.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-RD1Kp92QPKOhQ5J+kxQiJ6idaAHvOWTPOAEbx3/essE="
+        }
+      ]
+    },
+    {
+      "Route": "images/bacteria.png",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\bacteria.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "27897"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RD1Kp92QPKOhQ5J+kxQiJ6idaAHvOWTPOAEbx3/essE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 04:44:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-RD1Kp92QPKOhQ5J+kxQiJ6idaAHvOWTPOAEbx3/essE="
+        }
+      ]
+    },
+    {
+      "Route": "images/grant.4h4elw5apf.jpg",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\grant.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "300418"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KJNH6yNdwdkUzR28wozLDHBLCkYfb/Z2GdqkgCbbaLU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Oct 2024 06:46:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4h4elw5apf"
+        },
+        {
+          "Name": "label",
+          "Value": "images/grant.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-KJNH6yNdwdkUzR28wozLDHBLCkYfb/Z2GdqkgCbbaLU="
+        }
+      ]
+    },
+    {
+      "Route": "images/grant.jpg",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\grant.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "300418"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KJNH6yNdwdkUzR28wozLDHBLCkYfb/Z2GdqkgCbbaLU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Oct 2024 06:46:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-KJNH6yNdwdkUzR28wozLDHBLCkYfb/Z2GdqkgCbbaLU="
+        }
+      ]
+    },
+    {
+      "Route": "images/graph.87uczm9r5n.png",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\graph.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "138655"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HHFSVZi1xrjRUiDBAX4rBoFxt/cw/uMRu5D5fvwd0pI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 09:01:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "87uczm9r5n"
+        },
+        {
+          "Name": "label",
+          "Value": "images/graph.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-HHFSVZi1xrjRUiDBAX4rBoFxt/cw/uMRu5D5fvwd0pI="
+        }
+      ]
+    },
+    {
+      "Route": "images/graph.png",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\graph.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "138655"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HHFSVZi1xrjRUiDBAX4rBoFxt/cw/uMRu5D5fvwd0pI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 09:01:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-HHFSVZi1xrjRUiDBAX4rBoFxt/cw/uMRu5D5fvwd0pI="
+        }
+      ]
+    },
+    {
+      "Route": "images/ichit.6e6fyf9sb9.jpg",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\ichit.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "73717"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4qOY1UoG0WCJrbh+L6WZwFq5MRvGcmmFg1TjabZPNVA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Oct 2024 06:46:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6e6fyf9sb9"
+        },
+        {
+          "Name": "label",
+          "Value": "images/ichit.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4qOY1UoG0WCJrbh+L6WZwFq5MRvGcmmFg1TjabZPNVA="
+        }
+      ]
+    },
+    {
+      "Route": "images/ichit.jpg",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\ichit.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "73717"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4qOY1UoG0WCJrbh+L6WZwFq5MRvGcmmFg1TjabZPNVA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Oct 2024 06:46:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4qOY1UoG0WCJrbh+L6WZwFq5MRvGcmmFg1TjabZPNVA="
+        }
+      ]
+    },
+    {
+      "Route": "images/luka.bs2l14k6e2.jpg",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\luka.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "116751"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pQ00gPFu95KvMlrTuq1wMrtnxuguuwSsZ5feVXbvbgI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Oct 2024 06:46:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bs2l14k6e2"
+        },
+        {
+          "Name": "label",
+          "Value": "images/luka.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pQ00gPFu95KvMlrTuq1wMrtnxuguuwSsZ5feVXbvbgI="
+        }
+      ]
+    },
+    {
+      "Route": "images/luka.jpg",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\luka.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "116751"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pQ00gPFu95KvMlrTuq1wMrtnxuguuwSsZ5feVXbvbgI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Oct 2024 06:46:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-pQ00gPFu95KvMlrTuq1wMrtnxuguuwSsZ5feVXbvbgI="
+        }
+      ]
+    },
+    {
+      "Route": "images/model.png",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\model.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "92435"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"yp8YDmloL+BV+rvGKZUnAvIaRxYRw4sZzep9BYE6qA4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 09:03:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-yp8YDmloL+BV+rvGKZUnAvIaRxYRw4sZzep9BYE6qA4="
+        }
+      ]
+    },
+    {
+      "Route": "images/model.ya83ry1ilh.png",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\model.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "92435"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"yp8YDmloL+BV+rvGKZUnAvIaRxYRw4sZzep9BYE6qA4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 09:03:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ya83ry1ilh"
+        },
+        {
+          "Name": "label",
+          "Value": "images/model.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-yp8YDmloL+BV+rvGKZUnAvIaRxYRw4sZzep9BYE6qA4="
+        }
+      ]
+    },
+    {
+      "Route": "images/pill.png",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\pill.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12230"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lezRMotc2S6IeDQaawYKHrIxWF6aV9SsJR1pxQZUoe0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 04:55:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-lezRMotc2S6IeDQaawYKHrIxWF6aV9SsJR1pxQZUoe0="
+        }
+      ]
+    },
+    {
+      "Route": "images/pill.z2clrak9nf.png",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\pill.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12230"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lezRMotc2S6IeDQaawYKHrIxWF6aV9SsJR1pxQZUoe0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 04:55:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "z2clrak9nf"
+        },
+        {
+          "Name": "label",
+          "Value": "images/pill.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-lezRMotc2S6IeDQaawYKHrIxWF6aV9SsJR1pxQZUoe0="
+        }
+      ]
+    },
+    {
+      "Route": "images/protection.k189h9u28y.png",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\protection.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "39143"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CJrVPeKi/VKdlgeWQ8p6nirxC8JzeMHWfvn0IQbbmzQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 04:48:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "k189h9u28y"
+        },
+        {
+          "Name": "label",
+          "Value": "images/protection.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-CJrVPeKi/VKdlgeWQ8p6nirxC8JzeMHWfvn0IQbbmzQ="
+        }
+      ]
+    },
+    {
+      "Route": "images/protection.png",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\protection.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "39143"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CJrVPeKi/VKdlgeWQ8p6nirxC8JzeMHWfvn0IQbbmzQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 04:48:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-CJrVPeKi/VKdlgeWQ8p6nirxC8JzeMHWfvn0IQbbmzQ="
+        }
+      ]
+    },
+    {
+      "Route": "images/question.0g7faq9qnq.png",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\question.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25639"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cNUY3kALIKMCCWoSgfIGhvg90eKnS0h5M13G4AzINws=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 04:46:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0g7faq9qnq"
+        },
+        {
+          "Name": "label",
+          "Value": "images/question.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-cNUY3kALIKMCCWoSgfIGhvg90eKnS0h5M13G4AzINws="
+        }
+      ]
+    },
+    {
+      "Route": "images/question.png",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\question.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25639"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cNUY3kALIKMCCWoSgfIGhvg90eKnS0h5M13G4AzINws=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 04:46:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-cNUY3kALIKMCCWoSgfIGhvg90eKnS0h5M13G4AzINws="
+        }
+      ]
+    },
+    {
+      "Route": "images/recover.bfpgadawn9.png",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\recover.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "100914"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Sd3/j0OvenCmBlq97IKoOL1omAX3LwhgJQsE2Zn/f+4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 09:03:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bfpgadawn9"
+        },
+        {
+          "Name": "label",
+          "Value": "images/recover.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Sd3/j0OvenCmBlq97IKoOL1omAX3LwhgJQsE2Zn/f+4="
+        }
+      ]
+    },
+    {
+      "Route": "images/recover.png",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\recover.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "100914"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Sd3/j0OvenCmBlq97IKoOL1omAX3LwhgJQsE2Zn/f+4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 09:03:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Sd3/j0OvenCmBlq97IKoOL1omAX3LwhgJQsE2Zn/f+4="
+        }
+      ]
+    },
+    {
+      "Route": "images/sneezing.auv52ct7cd.png",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\sneezing.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23941"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"crLfVLIoNrctfSyQGnMifuGBrOrzXhMh9suvHs49zxo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 04:25:46 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "auv52ct7cd"
+        },
+        {
+          "Name": "label",
+          "Value": "images/sneezing.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-crLfVLIoNrctfSyQGnMifuGBrOrzXhMh9suvHs49zxo="
+        }
+      ]
+    },
+    {
+      "Route": "images/sneezing.png",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\sneezing.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23941"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"crLfVLIoNrctfSyQGnMifuGBrOrzXhMh9suvHs49zxo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 04:25:46 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-crLfVLIoNrctfSyQGnMifuGBrOrzXhMh9suvHs49zxo="
+        }
+      ]
+    },
+    {
+      "Route": "images/tho.j9ozayvfl1.JPG",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\tho.JPG",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "459559"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lyelVDMwgNdK4HN5mNh+h6j+OAAPogrmEBmLq2KxK4s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Oct 2024 06:46:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "j9ozayvfl1"
+        },
+        {
+          "Name": "label",
+          "Value": "images/tho.JPG"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-lyelVDMwgNdK4HN5mNh+h6j+OAAPogrmEBmLq2KxK4s="
+        }
+      ]
+    },
+    {
+      "Route": "images/tho.JPG",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\tho.JPG",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "459559"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lyelVDMwgNdK4HN5mNh+h6j+OAAPogrmEBmLq2KxK4s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Oct 2024 06:46:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-lyelVDMwgNdK4HN5mNh+h6j+OAAPogrmEBmLq2KxK4s="
+        }
+      ]
+    },
+    {
+      "Route": "images/thomas.flxh6b8yl7.jpg",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\thomas.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "151019"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"rWlGIqRAL/uVZbtHE9Rqwliqymn0B5Z5vz6D5wvJnDU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Oct 2024 06:46:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "flxh6b8yl7"
+        },
+        {
+          "Name": "label",
+          "Value": "images/thomas.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-rWlGIqRAL/uVZbtHE9Rqwliqymn0B5Z5vz6D5wvJnDU="
+        }
+      ]
+    },
+    {
+      "Route": "images/thomas.jpg",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\thomas.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "151019"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"rWlGIqRAL/uVZbtHE9Rqwliqymn0B5Z5vz6D5wvJnDU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Oct 2024 06:46:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-rWlGIqRAL/uVZbtHE9Rqwliqymn0B5Z5vz6D5wvJnDU="
+        }
+      ]
+    },
+    {
+      "Route": "images/utsav.jpg",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\utsav.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "59160"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"y/0FqK3Ecj4upum8CMn5e8pp3Vh5N9GJ2eI+zTRnkYY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Oct 2024 06:46:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-y/0FqK3Ecj4upum8CMn5e8pp3Vh5N9GJ2eI+zTRnkYY="
+        }
+      ]
+    },
+    {
+      "Route": "images/utsav.zefb3atzvo.jpg",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\utsav.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "59160"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"y/0FqK3Ecj4upum8CMn5e8pp3Vh5N9GJ2eI+zTRnkYY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Oct 2024 06:46:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zefb3atzvo"
+        },
+        {
+          "Name": "label",
+          "Value": "images/utsav.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-y/0FqK3Ecj4upum8CMn5e8pp3Vh5N9GJ2eI+zTRnkYY="
+        }
+      ]
+    },
+    {
+      "Route": "images/vaccine.ebtvf90fo7.png",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\vaccine.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "16959"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1mYverhRWDq9r4YI/bZPv3ccFM4L10XfmWhDKxcvsWU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 04:52:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ebtvf90fo7"
+        },
+        {
+          "Name": "label",
+          "Value": "images/vaccine.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1mYverhRWDq9r4YI/bZPv3ccFM4L10XfmWhDKxcvsWU="
+        }
+      ]
+    },
+    {
+      "Route": "images/vaccine.png",
+      "AssetFile": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\wwwroot\\images\\vaccine.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "16959"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1mYverhRWDq9r4YI/bZPv3ccFM4L10XfmWhDKxcvsWU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 14 Oct 2024 04:52:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-1mYverhRWDq9r4YI/bZPv3ccFM4L10XfmWhDKxcvsWU="
+        }
+      ]
+    }
+  ]
+}
