@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   Popover,
@@ -10,10 +9,13 @@ import {
 } from "@/components/ui/popover";
 import { Plus } from "lucide-react";
 
-interface SimulationControlsPopover {}
+interface SimulationControlsPopoverProps {
+  onStartSimulation: (parameters: any) => void;
+}
 
-const SimulationControlsPop: React.FC<SimulationControlsPopover> = () => {
-  const router = useRouter();
+const SimulationControlsPop: React.FC<SimulationControlsPopoverProps> = ({
+  onStartSimulation,
+}) => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
   // State variables for user inputs
@@ -22,33 +24,42 @@ const SimulationControlsPop: React.FC<SimulationControlsPopover> = () => {
   const [infectionProbability, setInfectionProbability] = useState(0.5);
   const [vaccinatedRecoveryRate, setVaccinatedRecoveryRate] = useState(0.5);
   const [unvaccinatedRecoveryRate, setUnvaccinatedRecoveryRate] = useState(0.1);
-  const [peakInfectionDay, setPeakInfectionDay] = useState(30);
-  const [totalDays, setTotalDays] = useState(180);
+  const [peakInfectionDay, setPeakInfectionDay] = useState(5);
+  const [totalDays, setTotalDays] = useState(30);
   const [populationSize, setPopulationSize] = useState(250);
 
-  // Navigate to the simulation page with user inputs
+  // Start simulation with user inputs
   const startSimulation = () => {
-    router.push(
-      `/simulation?vaccineEfficacy=${vaccineEfficacy}&populationVaccinated=${populationVaccinated}&infectionProbability=${infectionProbability}&vaccinatedRecoveryRate=${vaccinatedRecoveryRate}&unvaccinatedRecoveryRate=${unvaccinatedRecoveryRate}&peakInfectionDay=${peakInfectionDay}&totalDays=${totalDays}&populationSize=${populationSize}`
-    );
+    const parameters = {
+      vaccineEfficacy,
+      populationVaccinated,
+      infectionProbability,
+      vaccinatedRecoveryRate,
+      unvaccinatedRecoveryRate,
+      peakInfectionDay,
+      totalDays,
+      populationSize,
+    };
+    onStartSimulation(parameters);
+    setIsPopoverOpen(false);
   };
 
   return (
     <Popover open={isPopoverOpen} onOpenChange={setIsPopoverOpen}>
       <PopoverTrigger asChild>
-      <Button
-    variant="outline"
-    size="icon"
-    style={{
-      backgroundColor: '#e0e0e0', // Set a light gray background for contrast
-      color: '#000', // Set a dark color for the icon
-    }}
-  >
+        <Button
+          variant="outline"
+          size="icon"
+          style={{
+            backgroundColor: "#e0e0e0",
+            color: "#000",
+          }}
+        >
           <Plus />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="sm:max-w-[425px]">
-        <div style={{ maxWidth: "600px", margin: "auto", padding: "20px" }}>
+      <div style={{ maxWidth: "600px", margin: "auto", padding: "20px" }}>
           <h4 className="font-medium leading-none">Edit Simulation Parameters</h4>
           <div style={{ display: "grid", gap: "16px", marginTop: "20px" }}>
             <div>
@@ -186,32 +197,25 @@ const SimulationControlsPop: React.FC<SimulationControlsPopover> = () => {
               />
             </div>
           </div>
-          <div className="flex justify-end mt-4">
-            <Button
-              onClick={startSimulation}
-              style={{
-                marginTop: "20px",
-                width: "100%",
-                padding: "12px",
-                backgroundColor: "#4CAF50",
-                color: "white",
-                border: "none",
-                borderRadius: "8px",
-                fontSize: "16px",
-                fontWeight: "bold",
-                cursor: "pointer",
-                transition: "background-color 0.3s",
-              }}
-              onMouseOver={(e) =>
-                ((e.target as HTMLElement).style.backgroundColor = "#45A049")
-              }
-              onMouseOut={(e) =>
-                ((e.target as HTMLElement).style.backgroundColor = "#4CAF50")
-              }
-            >
-              Start Simulation
-            </Button>
-          </div>
+        </div>
+        <div className="flex justify-end mt-4">
+          <Button
+            onClick={startSimulation}
+            style={{
+              marginTop: "20px",
+              width: "100%",
+              padding: "12px",
+              backgroundColor: "#4CAF50",
+              color: "white",
+              border: "none",
+              borderRadius: "8px",
+              fontSize: "16px",
+              fontWeight: "bold",
+              cursor: "pointer",
+            }}
+          >
+            Start Simulation
+          </Button>
         </div>
       </PopoverContent>
     </Popover>
