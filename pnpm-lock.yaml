@@ -53,6 +53,9 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.13)
+      uuid:
+        specifier: ^11.0.1
+        version: 11.0.1
     devDependencies:
       '@types/node':
         specifier: ^20
@@ -1930,6 +1933,10 @@ packages:
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
+
+  uuid@11.0.1:
+    resolution: {integrity: sha512-wt9UB5EcLhnboy1UvA1mvGPXkIIrHSu+3FmUksARfdVw9tuPf3CH/CohxO0Su1ApoKAeT6BVzAJIvjTuQVSmuQ==}
+    hasBin: true
 
   warning@4.0.3:
     resolution: {integrity: sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==}
@@ -4029,6 +4036,8 @@ snapshots:
       '@types/react': 18.3.10
 
   util-deprecate@1.0.2: {}
+
+  uuid@11.0.1: {}
 
   warning@4.0.3:
     dependencies:

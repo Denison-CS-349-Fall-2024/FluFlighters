@@ -751,6 +751,8 @@ import SimulationInstance from "./components/SimulationInstance";
 import SimulationControlsPop from "./components/SimulationControlsPopover";
 import { useSearchParams } from "next/navigation";
 import { useRef } from "react";
+import { v4 as uuidv4 } from "uuid";
+
 
 // Define the types
 type SimulationParameters = {
@@ -765,8 +767,10 @@ type SimulationParameters = {
 };
 
 type SimulationData = {
+  id: string;
   parameters: SimulationParameters;
 };
+
 
 export default function Simulation() {
   const searchParams = useSearchParams();
@@ -804,8 +808,12 @@ export default function Simulation() {
   }, []);
 
   const addSimulation = (parameters: SimulationParameters) => {
+    const newSimulation = {
+      id: uuidv4(),
+      parameters,
+    };
     setSimulations((prevSimulations) => [
-      { parameters },
+      newSimulation,
       ...prevSimulations,
     ]);
   };
@@ -823,13 +831,14 @@ export default function Simulation() {
       <div style={{ alignSelf: "center", marginTop: "20px" }}>
         <SimulationControlsPop onStartSimulation={addSimulation} />
       </div>
-      {simulations.map((sim, index) => (
-        <SimulationInstance
-          key={index}
-          parameters={sim.parameters}
-          index={index}
-        />
-      ))}
+      {simulations.map((sim) => (
+  <SimulationInstance
+    key={sim.id}
+    parameters={sim.parameters}
+    index={parseInt(sim.id)}
+  />
+))}
+
     </div>
   );
 }
