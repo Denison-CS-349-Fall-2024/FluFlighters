@@ -746,140 +746,96 @@
 
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import SimulationControls from "./components/SimulationControls";
-import PopulationCanvas from "./components/PopulationCanvas";
-import StatusChart from "./components/StatusChart";
-import Person from "./components/Person";
+import SimulationInstance from "./components/SimulationInstance";
+import SimulationControlsPop from "./components/SimulationControlsPopover";
+import { useSearchParams } from "next/navigation";
+import { useRef } from "react";
+import { v4 as uuidv4 } from "uuid";
 
-type ChartData = {
-  labels: number[];
-  datasets: {
-    label: string;
-    data: number[];
-    borderColor: string;
-    fill: boolean;
-  }[];
+// Define the types
+type SimulationParameters = {
+  vaccineEfficacy: number;
+  populationVaccinated: number;
+  infectionProbability: number;
+  vaccinatedRecoveryRate: number;
+  unvaccinatedRecoveryRate: number;
+  peakInfectionDay: number;
+  totalDays: number;
+  populationSize: number;
+};
+
+type SimulationData = {
+  id: string;
+  parameters: SimulationParameters;
 };
 
 export default function Simulation() {
   const searchParams = useSearchParams();
+  const initialSimulationAdded = useRef(false);
 
-  // Parameter retrieval
-  const vaccineEfficacy = parseFloat(
-    searchParams.get("vaccineEfficacy") || "0.8"
-  );
-  const populationVaccinated = parseFloat(
-    searchParams.get("populationVaccinated") || "0.7"
-  );
-  const infectionProbability = parseFloat(
-    searchParams.get("infectionProbability") || "0.5"
-  );
-  const vaccinatedRecoveryRate = parseFloat(
-    searchParams.get("vaccinatedRecoveryRate") || "0.5"
-  );
-  const unvaccinatedRecoveryRate = parseFloat(
-    searchParams.get("unvaccinatedRecoveryRate") || "0.1"
-  );
-  const peakInfectionDay = parseInt(
-    searchParams.get("peakInfectionDay") || "5"
-  );
-  const totalDays = parseInt(searchParams.get("totalDays") || "30");
-  const populationSize = parseInt(searchParams.get("populationSize") || "250");
-
-  // State management
-  const [people, setPeople] = useState<Person[]>([]);
-  const [speed, setSpeed] = useState(1);
-  const [chartData, setChartData] = useState<ChartData>({
-    labels: [],
-    datasets: [
-      { label: "Healthy", data: [], borderColor: "blue", fill: false },
-      { label: "Infected", data: [], borderColor: "red", fill: false },
-      { label: "Recovered", data: [], borderColor: "green", fill: false },
-    ],
-  });
-
-  // Chart data update function
-  const updateChartData = (
-    healthy: number,
-    infected: number,
-    recovered: number,
-    frame: number
-  ) => {
-    setChartData((prevData) => ({
-      labels: [...prevData.labels, frame],
-      datasets: [
-        {
-          ...prevData.datasets[0],
-          data: [...prevData.datasets[0].data, healthy],
-        },
-        {
-          ...prevData.datasets[1],
-          data: [...prevData.datasets[1].data, infected],
-        },
-        {
-          ...prevData.datasets[2],
-          data: [...prevData.datasets[2].data, recovered],
-        },
-      ],
-    }));
+  // Retrieve initial parameters from URL or use default values
+  const initialParameters: SimulationParameters = {
+    vaccineEfficacy: parseFloat(searchParams.get("vaccineEfficacy") || "0.8"),
+    populationVaccinated: parseFloat(
+      searchParams.get("populationVaccinated") || "0.7"
+    ),
+    infectionProbability: parseFloat(
+      searchParams.get("infectionProbability") || "0.5"
+    ),
+    vaccinatedRecoveryRate: parseFloat(
+      searchParams.get("vaccinatedRecoveryRate") || "0.5"
+    ),
+    unvaccinatedRecoveryRate: parseFloat(
+      searchParams.get("unvaccinatedRecoveryRate") || "0.1"
+    ),
+    peakInfectionDay: parseInt(searchParams.get("peakInfectionDay") || "5"),
+    totalDays: parseInt(searchParams.get("totalDays") || "30"),
+    populationSize: parseInt(searchParams.get("populationSize") || "250"),
   };
 
-  // Speed control function
-  const handleSpeedChange = () =>
-    setSpeed((prev) => (prev === 1 ? 2 : prev === 2 ? 4 : 1));
+  // State management
+  const [simulations, setSimulations] = useState<SimulationData[]>([]);
 
-  // Initialize population
+  // Initialize the first simulation
   useEffect(() => {
-    const newPeople: Person[] = [];
-    for (let i = 0; i < populationSize; i++) {
-      const x = Math.random() * 800;
-      const y = Math.random() * 600;
-      const vaccinated = Math.random() < populationVaccinated;
-      newPeople.push(new Person(x, y, vaccinated));
+    if (!initialSimulationAdded.current) {
+      addSimulation(initialParameters);
+      initialSimulationAdded.current = true;
     }
-    setPeople(newPeople);
-  }, [populationSize, populationVaccinated]);
+  }, []);
+
+  // Function to add a new simulation
+  const addSimulation = (parameters: SimulationParameters) => {
+    const newSimulation = {
+      id: uuidv4(),
+      parameters,
+    };
+    setSimulations((prevSimulations) => [newSimulation, ...prevSimulations]);
+  };
 
   return (
-    <div style={{ display: "flex", gap: "20px", padding: "20px" }}>
-      {/* Left Section: Controls and Canvas */}
-      <div
-        style={{
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          gap: "20px",
-        }}
-      >
-        <SimulationControls
-          vaccineEfficacy={vaccineEfficacy}
-          populationVaccinated={populationVaccinated}
-          infectionProbability={infectionProbability}
-          vaccinatedRecoveryRate={vaccinatedRecoveryRate}
-          unvaccinatedRecoveryRate={unvaccinatedRecoveryRate}
-          peakInfectionDay={peakInfectionDay}
-          totalDays={totalDays}
-          populationSize={populationSize}
-          speed={speed}
-          handleSpeedChange={handleSpeedChange}
-        />
-        <PopulationCanvas
-          people={people}
-          vaccineEfficacy={vaccineEfficacy}
-          infectionProbability={infectionProbability}
-          vaccinatedRecoveryRate={vaccinatedRecoveryRate}
-          unvaccinatedRecoveryRate={unvaccinatedRecoveryRate}
-          totalDays={totalDays}
-          updateChartData={updateChartData}
-        />
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "20px",
+        padding: "20px",
+      }}
+    >
+      {/* Popover Button Section */}
+      <div style={{ alignSelf: "center", marginTop: "20px" }}>
+        <SimulationControlsPop onStartSimulation={addSimulation} />
       </div>
-
-      {/* Right Section: Status Chart */}
-      <div style={{ flex: 1 }}>
-        <StatusChart chartData={chartData} />
-      </div>
+      {simulations.map((sim, index) => (
+        <SimulationInstance
+          key={sim.id}
+          parameters={sim.parameters}
+          index={simulations.length - index} // Assign unique index starting from 1
+        />
+      ))}
     </div>
   );
 }
+
+
