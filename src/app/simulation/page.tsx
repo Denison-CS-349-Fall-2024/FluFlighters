@@ -752,6 +752,7 @@ import SimulationControls from "./components/SimulationControls";
 import PopulationCanvas from "./components/PopulationCanvas";
 import StatusChart from "./components/StatusChart";
 import Person from "./components/Person";
+import SimulationControlsPop from "./components/SimulationControlsPopover";
 
 type ChartData = {
   labels: number[];
@@ -843,43 +844,52 @@ export default function Simulation() {
   }, [populationSize, populationVaccinated]);
 
   return (
-    <div style={{ display: "flex", gap: "20px", padding: "20px" }}>
-      {/* Left Section: Controls and Canvas */}
-      <div
-        style={{
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          gap: "20px",
-        }}
-      >
-        <SimulationControls
-          vaccineEfficacy={vaccineEfficacy}
-          populationVaccinated={populationVaccinated}
-          infectionProbability={infectionProbability}
-          vaccinatedRecoveryRate={vaccinatedRecoveryRate}
-          unvaccinatedRecoveryRate={unvaccinatedRecoveryRate}
-          peakInfectionDay={peakInfectionDay}
-          totalDays={totalDays}
-          populationSize={populationSize}
-          speed={speed}
-          handleSpeedChange={handleSpeedChange}
-        />
-        <PopulationCanvas
-          people={people}
-          vaccineEfficacy={vaccineEfficacy}
-          infectionProbability={infectionProbability}
-          vaccinatedRecoveryRate={vaccinatedRecoveryRate}
-          unvaccinatedRecoveryRate={unvaccinatedRecoveryRate}
-          totalDays={totalDays}
-          updateChartData={updateChartData}
-        />
-      </div>
-
-      {/* Right Section: Status Chart */}
-      <div style={{ flex: 1 }}>
-        <StatusChart chartData={chartData} />
-      </div>
+    <div style={{ display: "flex", flexDirection: "column", gap: "20px", padding: "20px" }}>
+  {/* Main Content Section */}
+  <div style={{ display: "flex", gap: "20px" }}>
+    {/* Left Section: Controls and Canvas */}
+    <div
+      style={{
+        flex: 1,
+        display: "flex",
+        flexDirection: "column",
+        gap: "20px",
+      }}
+    >
+      <SimulationControls
+        vaccineEfficacy={vaccineEfficacy}
+        populationVaccinated={populationVaccinated}
+        infectionProbability={infectionProbability}
+        vaccinatedRecoveryRate={vaccinatedRecoveryRate}
+        unvaccinatedRecoveryRate={unvaccinatedRecoveryRate}
+        peakInfectionDay={peakInfectionDay}
+        totalDays={totalDays}
+        populationSize={populationSize}
+        speed={speed}
+        handleSpeedChange={handleSpeedChange}
+      />
+      <PopulationCanvas
+        people={people}
+        vaccineEfficacy={vaccineEfficacy}
+        infectionProbability={infectionProbability}
+        vaccinatedRecoveryRate={vaccinatedRecoveryRate}
+        unvaccinatedRecoveryRate={unvaccinatedRecoveryRate}
+        totalDays={totalDays}
+        updateChartData={updateChartData}
+      />
     </div>
+
+    {/* Right Section: Status Chart */}
+    <div style={{ flex: 1 }}>
+      <StatusChart chartData={chartData} />
+    </div>
+  </div>
+
+  {/* Popover Button Section */}
+  <div style={{ alignSelf: "center", marginTop: "20px" }}>
+    <SimulationControlsPop />
+  </div>
+</div>
+
   );
 }

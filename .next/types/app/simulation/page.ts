@@ -1,4 +1,4 @@
-// File: /Users/kota/Documents/FluFlighters/src/app/simulation/page.tsx
+// File: /Users/lukabagashvili/Desktop/FluFlighters/src/app/simulation/page.tsx
 import * as entry from '../../../../src/app/simulation/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
