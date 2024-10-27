@@ -33,18 +33,16 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
   parameters,
   index,
 }) => {
-  // State management for this simulation
   const [people, setPeople] = useState<Person[]>([]);
   const [chartData, setChartData] = useState<ChartData>({
     labels: [],
     datasets: [
-      { label: "Healthy", data: [], borderColor: "blue", fill: false },
-      { label: "Infected", data: [], borderColor: "red", fill: false },
-      { label: "Recovered", data: [], borderColor: "green", fill: false },
+      { label: "Healthy", data: [], borderColor: "#4caf50", fill: false }, // Green for healthy
+      { label: "Infected", data: [], borderColor: "#f44336", fill: false }, // Red for infected
+      { label: "Recovered", data: [], borderColor: "#2196f3", fill: false }, // Blue for recovered
     ],
   });
 
-  // Initialize population
   useEffect(() => {
     const newPeople: Person[] = [];
     for (let i = 0; i < parameters.populationSize; i++) {
@@ -56,7 +54,6 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
     setPeople(newPeople);
   }, [parameters]);
 
-  // Chart data update function
   const updateChartData = (
     healthy: number,
     infected: number,
@@ -83,29 +80,69 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
   };
 
   return (
-    <div style={{ display: "flex", gap: "20px" }}>
-      {/* Left Section: Canvas */}
+    <div
+      style={{
+        border: "1px solid #e0e0e0",
+        borderRadius: "12px",
+        padding: "24px",
+        backgroundColor: "#f5f5f5",
+        color: "#333",
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+        position: "relative",
+        margin: "20px 0",
+      }}
+    >
+      {/* Display the simulation number in the top-left corner */}
       <div
         style={{
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          gap: "20px",
+          position: "absolute",
+          top: "16px",
+          left: "16px",
+          fontWeight: "500",
+          fontSize: "16px",
+          color: "#555",
         }}
       >
-        <PopulationCanvas
-          people={people}
-          vaccineEfficacy={parameters.vaccineEfficacy}
-          infectionProbability={parameters.infectionProbability}
-          vaccinatedRecoveryRate={parameters.vaccinatedRecoveryRate}
-          unvaccinatedRecoveryRate={parameters.unvaccinatedRecoveryRate}
-          totalDays={parameters.totalDays}
-          updateChartData={updateChartData}
-        />
+        Simulation #{index + 1}
       </div>
-      {/* Right Section: Status Chart */}
-      <div style={{ flex: 1 }}>
-        <StatusChart chartData={chartData} />
+
+      <div style={{ display: "flex", gap: "20px" }}>
+        {/* Left Section: Canvas */}
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            gap: "20px",
+            padding: "16px",
+            borderRadius: "8px",
+            backgroundColor: "#fff",
+            boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+          }}
+        >
+          <PopulationCanvas
+            people={people}
+            vaccineEfficacy={parameters.vaccineEfficacy}
+            infectionProbability={parameters.infectionProbability}
+            vaccinatedRecoveryRate={parameters.vaccinatedRecoveryRate}
+            unvaccinatedRecoveryRate={parameters.unvaccinatedRecoveryRate}
+            totalDays={parameters.totalDays}
+            updateChartData={updateChartData}
+          />
+        </div>
+
+        {/* Right Section: Status Chart */}
+        <div
+          style={{
+            flex: 1,
+            padding: "16px",
+            borderRadius: "8px",
+            backgroundColor: "#fff",
+            boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+          }}
+        >
+          <StatusChart chartData={chartData} />
+        </div>
       </div>
     </div>
   );
