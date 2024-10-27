@@ -750,6 +750,7 @@ import { useEffect, useState } from "react";
 import SimulationInstance from "./components/SimulationInstance";
 import SimulationControlsPop from "./components/SimulationControlsPopover";
 import { useSearchParams } from "next/navigation";
+import { useRef } from "react";
 
 // Define the types
 type SimulationParameters = {
@@ -769,6 +770,7 @@ type SimulationData = {
 
 export default function Simulation() {
   const searchParams = useSearchParams();
+  const initialSimulationAdded = useRef(false);
 
   // Retrieve initial parameters from URL or use default values
   const initialParameters: SimulationParameters = {
@@ -795,7 +797,10 @@ export default function Simulation() {
 
   // Initialize the first simulation
   useEffect(() => {
-    addSimulation(initialParameters);
+    if (!initialSimulationAdded.current) {
+      addSimulation(initialParameters);
+      initialSimulationAdded.current = true;
+    }
   }, []);
 
   const addSimulation = (parameters: SimulationParameters) => {

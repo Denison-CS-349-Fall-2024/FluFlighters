@@ -59,7 +59,7 @@ const SimulationControlsPop: React.FC<SimulationControlsPopoverProps> = ({
         </Button>
       </PopoverTrigger>
       <PopoverContent className="sm:max-w-[425px]">
-      <div style={{ maxWidth: "600px", margin: "auto", padding: "20px" }}>
+      <div style={{ maxHeight: "500px", overflowY: "auto", padding: "20px" }}>
           <h4 className="font-medium leading-none">Edit Simulation Parameters</h4>
           <div style={{ display: "grid", gap: "16px", marginTop: "20px" }}>
             <div>
