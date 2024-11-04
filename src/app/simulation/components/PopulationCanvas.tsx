@@ -1,33 +1,29 @@
+// app/simulation/components/PopulationCanvas.tsx
 import dynamic from "next/dynamic";
 import { useRef } from "react";
 import Person from "./Person";
+import { SimulationParameters } from "../../simulationParameters";
 
-const Sketch = dynamic(() => import("react-p5").then((mod) => mod.default), {
+import type { SketchProps } from "react-p5";
+
+const Sketch = dynamic<SketchProps>(() => import("react-p5").then((mod) => mod.default), {
   ssr: false,
 });
 
 type PopulationCanvasProps = {
   people: Person[];
-  vaccineEfficacy: number;
-  infectionProbability: number;
-  vaccinatedRecoveryRate: number;
-  unvaccinatedRecoveryRate: number;
-  totalDays: number;
+  parameters: SimulationParameters;
   updateChartData: (
-    healthy: number,
+    susceptible: number,
     infected: number,
     recovered: number,
-    frame: number
+    day: number
   ) => void;
 };
 
 export default function PopulationCanvas({
   people,
-  vaccineEfficacy,
-  infectionProbability,
-  vaccinatedRecoveryRate,
-  unvaccinatedRecoveryRate,
-  totalDays,
+  parameters,
   updateChartData,
 }: PopulationCanvasProps) {
   const frameCount = useRef(0);
@@ -40,31 +36,53 @@ export default function PopulationCanvas({
   const draw = (p5: any) => {
     p5.background(255);
 
-    let healthyCount = 0;
+    let susceptibleCount = 0;
     let infectedCount = 0;
     let recoveredCount = 0;
 
-    people.forEach((person) => {
-      person.move(p5);
-      person.show(p5);
-      person.tryToInfect(p5, people, 50, infectionProbability, vaccineEfficacy); // Pass people here
-      person.recover(vaccinatedRecoveryRate, unvaccinatedRecoveryRate);
+    const day = Math.floor(frameCount.current / 30); // Assuming 30 frames per day
 
-      if (person.status === "healthy") healthyCount++;
+    // Iterate over each person and handle movement, display, and infection logic
+    people.forEach((person) => {
+      person.move(p5); // Move the person
+      person.show(p5); // Show the person on the canvas
+
+      // Handle infection spreading logic
+      person.tryToInfect(
+        p5,
+        people,
+        10, // Infection radius
+        parameters.R0,
+        parameters.vaccineEfficacy,
+        day,
+        parameters.contagiousFactorForIso,
+        parameters.contagiousFactorForUniso,
+        Math.floor(parameters.days / 2) // Peak day (assuming middle of the simulation)
+      );
+
+      // Handle recovery logic
+      person.recover(parameters.recoveryRate);
+
+      // Count each status for chart data
+      if (person.status === "susceptible") susceptibleCount++;
       if (person.status === "infected") infectedCount++;
       if (person.status === "recovered") recoveredCount++;
     });
 
-    frameCount.current++;
-    updateChartData(
-      healthyCount,
-      infectedCount,
-      recoveredCount,
-      frameCount.current
-    );
+    // Update chart data once per day
+    if (frameCount.current % 30 === 0) {
+      updateChartData(
+        susceptibleCount,
+        infectedCount,
+        recoveredCount,
+        day
+      );
+    }
 
-    if (frameCount.current > totalDays * 30) {
-      p5.noLoop();
+    frameCount.current++;
+
+    if (day > parameters.days) {
+      p5.noLoop(); // Stop the simulation after the specified number of days
     }
   };
 

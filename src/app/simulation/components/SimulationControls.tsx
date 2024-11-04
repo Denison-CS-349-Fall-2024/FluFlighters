@@ -1,45 +1,47 @@
+// app/simulation/components/SimulationControls.tsx
 import React from "react";
 
 type SimulationControlsProps = {
   vaccineEfficacy: number;
-  populationVaccinated: number;
-  infectionProbability: number;
-  vaccinatedRecoveryRate: number;
-  unvaccinatedRecoveryRate: number;
-  peakInfectionDay: number;
-  totalDays: number;
+  vaccinationRate: number;
+  R0: number;
+  contagiousFactorForIso: number;
+  contagiousFactorForUniso: number;
+  isolationRate: number;
+  recoveryRate: number;
+  days: number;
   populationSize: number;
   speed: number;
   handleSpeedChange: () => void;
+  initialInfected: number;
 };
 
 export default function SimulationControls({
   vaccineEfficacy,
-  populationVaccinated,
-  infectionProbability,
-  vaccinatedRecoveryRate,
-  unvaccinatedRecoveryRate,
-  peakInfectionDay,
-  totalDays,
+  vaccinationRate,
+  R0,
+  contagiousFactorForIso,
+  contagiousFactorForUniso,
+  isolationRate,
+  recoveryRate,
+  days,
   populationSize,
   speed,
   handleSpeedChange,
+  initialInfected
 }: SimulationControlsProps) {
   return (
     <div>
       <h2>Flu Simulation</h2>
       <p>Vaccine Efficacy: {Math.round(vaccineEfficacy * 100)}%</p>
-      <p>Population Vaccinated: {Math.round(populationVaccinated * 100)}%</p>
-      <p>Infection Probability: {Math.round(infectionProbability * 100)}%</p>
-      <p>
-        Vaccinated Recovery Rate: {Math.round(vaccinatedRecoveryRate * 100)}%
-      </p>
-      <p>
-        Unvaccinated Recovery Rate: {Math.round(unvaccinatedRecoveryRate * 100)}
-        %
-      </p>
-      <p>Peak Infection Day: {peakInfectionDay}</p>
-      <p>Total Days: {totalDays}</p>
+      <p>Vaccination Rate: {Math.round(vaccinationRate * 100)}%</p>
+      <p>Inital Infected: {Math.round(initialInfected * 100)}%</p>
+      <p>R0 (Infection Rate): {R0}</p>
+      <p>Contagious Factor (Isolated): {contagiousFactorForIso}</p>
+      <p>Contagious Factor (Unisolated): {contagiousFactorForUniso}</p>
+      <p>Isolation Rate: {Math.round(isolationRate * 100)}%</p>
+      <p>Recovery Rate: {Math.round(recoveryRate * 100)}%</p>
+      <p>Days: {days}</p>
       <p>Population Size: {populationSize}</p>
       <button onClick={handleSpeedChange}>
         {speed === 1

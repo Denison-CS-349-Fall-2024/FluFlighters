@@ -1,29 +1,26 @@
+// app/page.tsx
 "use client";
 
-import { useState } from "react";
+import { useContext } from "react";
 import { useRouter } from "next/navigation";
+import { SimulationContext } from "./SimulationContext";
+import { SimulationParameters } from "./simulationParameters";
 
 export default function Home() {
   const router = useRouter();
+  const { parameters, setParameters } = useContext(SimulationContext);
 
-  // State variables for user inputs
-  const [vaccineEfficacy, setVaccineEfficacy] = useState(0.8);
-  const [populationVaccinated, setPopulationVaccinated] = useState(0.7);
-  const [infectionProbability, setInfectionProbability] = useState(0.5);
-  const [vaccinatedRecoveryRate, setVaccinatedRecoveryRate] = useState(0.5);
-  const [unvaccinatedRecoveryRate, setUnvaccinatedRecoveryRate] = useState(0.1);
-  const [peakInfectionDay, setPeakInfectionDay] = useState(30);
-  const [totalDays, setTotalDays] = useState(180);
-  const [populationSize, setPopulationSize] = useState(250);
-
-  // Navigate to the simulation page with user inputs
-  const startSimulation = () => {
-    router.push(
-      `/simulation?vaccineEfficacy=${vaccineEfficacy}&populationVaccinated=${populationVaccinated}&infectionProbability=${infectionProbability}&vaccinatedRecoveryRate=${vaccinatedRecoveryRate}&unvaccinatedRecoveryRate=${unvaccinatedRecoveryRate}&peakInfectionDay=${peakInfectionDay}&totalDays=${totalDays}&populationSize=${populationSize}`
-    );
+  // Handler to update parameters in context
+  const handleParameterChange = (key: keyof SimulationParameters, value: number) => {
+    setParameters({
+      ...parameters,
+      [key]: value,
+    });
   };
 
-  //----
+  const startSimulation = () => {
+    router.push("/simulation");
+  };
 
   return (
     <div
@@ -41,114 +38,177 @@ export default function Home() {
       </h1>
 
       <div style={{ display: "grid", gap: "16px" }}>
-        <div>
-          <label>Vaccine Efficacy ({Math.round(vaccineEfficacy * 100)}%)</label>
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.01"
-            value={vaccineEfficacy}
-            onChange={(e) => setVaccineEfficacy(parseFloat(e.target.value))}
-            style={{ width: "100%" }}
-          />
-        </div>
-
+        {/* Vaccine Efficacy */}
         <div>
           <label>
-            Population Vaccinated ({Math.round(populationVaccinated * 100)}%)
+            Vaccine Efficacy ({Math.round(parameters.vaccineEfficacy * 100)}%)
           </label>
           <input
             type="range"
             min="0"
             max="1"
             step="0.01"
-            value={populationVaccinated}
+            value={parameters.vaccineEfficacy}
             onChange={(e) =>
-              setPopulationVaccinated(parseFloat(e.target.value))
+              handleParameterChange("vaccineEfficacy", parseFloat(e.target.value))
             }
             style={{ width: "100%" }}
           />
         </div>
 
+        {/* Vaccination Rate */}
         <div>
           <label>
-            Infection Probability ({Math.round(infectionProbability * 100)}%)
+            Vaccination Rate ({Math.round(parameters.vaccinationRate * 100)}%)
           </label>
           <input
             type="range"
             min="0"
             max="1"
             step="0.01"
-            value={infectionProbability}
+            value={parameters.vaccinationRate}
             onChange={(e) =>
-              setInfectionProbability(parseFloat(e.target.value))
+              handleParameterChange("vaccinationRate", parseFloat(e.target.value))
             }
             style={{ width: "100%" }}
           />
         </div>
 
+        {/* Initial Infected */}
         <div>
           <label>
-            Vaccinated Recovery Rate ({Math.round(vaccinatedRecoveryRate * 100)}
-            %)
+            Initial Infected ({Math.round(parameters.initialInfected * 100)}%)
           </label>
           <input
             type="range"
             min="0"
             max="1"
             step="0.01"
-            value={vaccinatedRecoveryRate}
+            value={parameters.initialInfected}
             onChange={(e) =>
-              setVaccinatedRecoveryRate(parseFloat(e.target.value))
+              handleParameterChange("initialInfected", parseFloat(e.target.value))
             }
             style={{ width: "100%" }}
           />
         </div>
 
+        {/* R0 */}
+        <div>
+          <label>R0 (Infection Rate): {parameters.R0}</label>
+          <input
+            type="number"
+            min="0.5"
+            max="5.0"
+            step="0.1"
+            value={parameters.R0}
+            onChange={(e) =>
+              handleParameterChange("R0", parseFloat(e.target.value))
+            }
+            style={{
+              width: "100%",
+              padding: "8px",
+              borderRadius: "4px",
+              border: "1px solid #ccc",
+            }}
+          />
+        </div>
+
+        {/* Contagious Factor (Isolated) */}
         <div>
           <label>
-            Unvaccinated Recovery Rate (
-            {Math.round(unvaccinatedRecoveryRate * 100)}%)
+            Contagious Factor (Isolated): {parameters.contagiousFactorForIso}
+          </label>
+          <input
+            type="number"
+            min="0.01"
+            max="1.0"
+            step="0.01"
+            value={parameters.contagiousFactorForIso}
+            onChange={(e) =>
+              handleParameterChange("contagiousFactorForIso", parseFloat(e.target.value))
+            }
+            style={{
+              width: "100%",
+              padding: "8px",
+              borderRadius: "4px",
+              border: "1px solid #ccc",
+            }}
+          />
+        </div>
+
+        {/* Contagious Factor (Unisolated) */}
+        <div>
+          <label>
+            Contagious Factor (Unisolated): {parameters.contagiousFactorForUniso}
+          </label>
+          <input
+            type="number"
+            min="0.01"
+            max="1.0"
+            step="0.01"
+            value={parameters.contagiousFactorForUniso}
+            onChange={(e) =>
+              handleParameterChange(
+                "contagiousFactorForUniso",
+                parseFloat(e.target.value)
+              )
+            }
+            style={{
+              width: "100%",
+              padding: "8px",
+              borderRadius: "4px",
+              border: "1px solid #ccc",
+            }}
+          />
+        </div>
+
+        {/* Isolation Rate */}
+        <div>
+          <label>
+            Isolation Rate ({Math.round(parameters.isolationRate * 100)}%)
           </label>
           <input
             type="range"
             min="0"
             max="1"
             step="0.01"
-            value={unvaccinatedRecoveryRate}
+            value={parameters.isolationRate}
             onChange={(e) =>
-              setUnvaccinatedRecoveryRate(parseFloat(e.target.value))
+              handleParameterChange("isolationRate", parseFloat(e.target.value))
             }
             style={{ width: "100%" }}
           />
         </div>
 
+        {/* Recovery Rate */}
         <div>
-          <label>Peak Infection Day ({peakInfectionDay})</label>
+          <label>
+            Recovery Rate ({Math.round(parameters.recoveryRate * 100)}%)
+          </label>
+          <input
+            type="range"
+            min="0.01"
+            max="1.0"
+            step="0.01"
+            value={parameters.recoveryRate}
+            onChange={(e) =>
+              handleParameterChange("recoveryRate", parseFloat(e.target.value))
+            }
+            style={{ width: "100%" }}
+          />
+        </div>
+
+        {/* Days */}
+        <div>
+          <label>Days ({parameters.days})</label>
           <input
             type="number"
             min="1"
-            max="20"
-            value={peakInfectionDay}
-            onChange={(e) => setPeakInfectionDay(parseInt(e.target.value))}
-            style={{
-              width: "100%",
-              padding: "8px",
-              borderRadius: "4px",
-              border: "1px solid #ccc",
-            }}
-          />
-        </div>
-
-        <div>
-          <label>Total Days ({totalDays})</label>
-          <input
-            type="number"
-            min="10"
             max="60"
-            value={totalDays}
-            onChange={(e) => setTotalDays(parseInt(e.target.value))}
+            value={parameters.days}
+            onChange={(e) =>
+              handleParameterChange("days", parseInt(e.target.value))
+            }
             style={{
               width: "100%",
               padding: "8px",
@@ -158,15 +218,18 @@ export default function Home() {
           />
         </div>
 
+        {/* Population Size */}
         <div>
-          <label>Population Size ({populationSize})</label>
+          <label>Population Size ({parameters.populationSize})</label>
           <input
             type="number"
-            min="100"
-            max="1000000"
-            step="1000"
-            value={populationSize}
-            onChange={(e) => setPopulationSize(parseInt(e.target.value))}
+            min="50"
+            max="10000"
+            step="50"
+            value={parameters.populationSize}
+            onChange={(e) =>
+              handleParameterChange("populationSize", parseInt(e.target.value))
+            }
             style={{
               width: "100%",
               padding: "8px",

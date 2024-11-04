@@ -1,4 +1,6 @@
+// app/layout.tsx
 import "./globals.css";
+import { Providers } from "./Providers";
 
 export const metadata = {
   title: "Flu Fighters",
@@ -13,10 +15,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header>
-          <h1>Flu Fighters</h1>
-        </header>
-        <main>{children}</main>
+        <Providers>
+          <header>
+            <h1>Flu Fighters</h1>
+          </header>
+          <main>{children}</main>
+        </Providers>
       </body>
     </html>
   );

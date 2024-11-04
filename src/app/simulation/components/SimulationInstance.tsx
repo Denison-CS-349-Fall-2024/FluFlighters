@@ -1,9 +1,9 @@
-"use client";
-
-import { useEffect, useState } from "react";
+// app/simulation/components/SimulationInstance.tsx
+import { useEffect, useState, useRef } from "react";
 import PopulationCanvas from "./PopulationCanvas";
 import StatusChart from "./StatusChart";
 import Person from "./Person";
+import { SimulationParameters } from "../../simulationParameters";
 
 type ChartData = {
   labels: number[];
@@ -16,16 +16,7 @@ type ChartData = {
 };
 
 interface SimulationInstanceProps {
-  parameters: {
-    vaccineEfficacy: number;
-    populationVaccinated: number;
-    infectionProbability: number;
-    vaccinatedRecoveryRate: number;
-    unvaccinatedRecoveryRate: number;
-    peakInfectionDay: number;
-    totalDays: number;
-    populationSize: number;
-  };
+  parameters: SimulationParameters;
   index: number;
 }
 
@@ -37,47 +28,42 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
   const [chartData, setChartData] = useState<ChartData>({
     labels: [],
     datasets: [
-      { label: "Healthy", data: [], borderColor: "#4caf50", fill: false }, // Green for healthy
-      { label: "Infected", data: [], borderColor: "#f44336", fill: false }, // Red for infected
-      { label: "Recovered", data: [], borderColor: "#2196f3", fill: false }, // Blue for recovered
+      { label: "Susceptible", data: [], borderColor: "blue", fill: false },
+      { label: "Infected", data: [], borderColor: "red", fill: false },
+      { label: "Recovered", data: [], borderColor: "green", fill: false },
     ],
   });
 
   useEffect(() => {
+    // Initialize people
     const newPeople: Person[] = [];
     for (let i = 0; i < parameters.populationSize; i++) {
       const x = Math.random() * 800;
       const y = Math.random() * 600;
-      const vaccinated = Math.random() < parameters.populationVaccinated;
-      newPeople.push(new Person(x, y, vaccinated));
+      const vaccinated = Math.random() < parameters.vaccinationRate;
+      const isIsolated = Math.random() < parameters.isolationRate;
+      const status = "susceptible";
+      newPeople.push(new Person(x, y, vaccinated, status, isIsolated));
+    }
+    // Infect a few initial nodes (e.g., 1% of the population)
+    const initialInfected = Math.max(1, Math.floor(parameters.populationSize * parameters.initialInfected));
+    for (let i = 0; i < initialInfected; i++) {
+      const randomIndex = Math.floor(Math.random() * newPeople.length);
+      newPeople[randomIndex].status = "infected";
+      newPeople[randomIndex].infectionDay = 0; // Set the day they got infected
     }
     setPeople(newPeople);
-  }, [parameters]);
 
-  const updateChartData = (
-    healthy: number,
-    infected: number,
-    recovered: number,
-    frame: number
-  ) => {
-    setChartData((prevData) => ({
-      labels: [...prevData.labels, frame],
+    // Reset chart data
+    setChartData({
+      labels: [],
       datasets: [
-        {
-          ...prevData.datasets[0],
-          data: [...prevData.datasets[0].data, healthy],
-        },
-        {
-          ...prevData.datasets[1],
-          data: [...prevData.datasets[1].data, infected],
-        },
-        {
-          ...prevData.datasets[2],
-          data: [...prevData.datasets[2].data, recovered],
-        },
+        { label: "Susceptible", data: [], borderColor: "blue", fill: false },
+        { label: "Infected", data: [], borderColor: "red", fill: false },
+        { label: "Recovered", data: [], borderColor: "green", fill: false },
       ],
-    }));
-  };
+    });
+  }, [parameters]);
 
   return (
     <div
@@ -92,7 +78,6 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
         margin: "20px 0",
       }}
     >
-      {/* Display the simulation number in the top-left corner */}
       <div
         style={{
           position: "absolute",
@@ -103,11 +88,10 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
           color: "#555",
         }}
       >
-        Simulation #{index + 1}
+        Simulation #{index}
       </div>
 
       <div style={{ display: "flex", gap: "20px" }}>
-        {/* Left Section: Canvas */}
         <div
           style={{
             flex: 1,
@@ -122,16 +106,30 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
         >
           <PopulationCanvas
             people={people}
-            vaccineEfficacy={parameters.vaccineEfficacy}
-            infectionProbability={parameters.infectionProbability}
-            vaccinatedRecoveryRate={parameters.vaccinatedRecoveryRate}
-            unvaccinatedRecoveryRate={parameters.unvaccinatedRecoveryRate}
-            totalDays={parameters.totalDays}
-            updateChartData={updateChartData}
+            parameters={parameters}
+            updateChartData={(susceptible, infected, recovered, day) => {
+              setChartData((prevData) => ({
+                ...prevData,
+                labels: [...prevData.labels, day],
+                datasets: [
+                  {
+                    ...prevData.datasets[0],
+                    data: [...prevData.datasets[0].data, susceptible],
+                  },
+                  {
+                    ...prevData.datasets[1],
+                    data: [...prevData.datasets[1].data, infected],
+                  },
+                  {
+                    ...prevData.datasets[2],
+                    data: [...prevData.datasets[2].data, recovered],
+                  },
+                ],
+              }));
+            }}
           />
         </div>
 
-        {/* Right Section: Status Chart */}
         <div
           style={{
             flex: 1,
