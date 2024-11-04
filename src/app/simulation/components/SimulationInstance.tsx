@@ -49,30 +49,21 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
       const x = Math.random() * 800;
       const y = Math.random() * 600;
       const vaccinated = Math.random() < parameters.populationVaccinated;
-      newPeople.push(new Person(x, y, vaccinated));
+      const status = "healthy";
+      newPeople.push(new Person(x, y, vaccinated, status));
     }
+    // Infect one person randomly
+    const randomIndex = Math.floor(Math.random() * newPeople.length);
+    newPeople[randomIndex].status = "infected";
     setPeople(newPeople);
 
-    // Call simulateInfectionGraph and get the results
-    const { totalSusceptible, totalInfected, totalRecovered } = simulateInfectionGraph(
-      newPeople, // Pass the initialized people
-      parameters.infectionProbability,
-      parameters.vaccinatedRecoveryRate,
-      0.5, // contagiousFactorForIso
-      0.3, // contagiousFactorForUniso
-      0.2, // isolationRate
-      parameters.populationVaccinated,
-      parameters.vaccineEfficacy,
-      parameters.totalDays
-    );
-
-    // Update the chart data
+    // Update the chart data initialization if needed
     setChartData({
-      labels: Array.from({ length: parameters.totalDays + 1 }, (_, i) => i),
+      labels: [],
       datasets: [
-        { label: "Susceptible", data: totalSusceptible, borderColor: "orange", fill: false },
-        { label: "Infected", data: totalInfected, borderColor: "red", fill: false },
-        { label: "Recovered", data: totalRecovered, borderColor: "green", fill: false },
+        { label: "Susceptible", data: [], borderColor: "orange", fill: false },
+        { label: "Infected", data: [], borderColor: "red", fill: false },
+        { label: "Recovered", data: [], borderColor: "green", fill: false },
       ],
     });
   }, [parameters]);

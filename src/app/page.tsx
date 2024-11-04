@@ -1,26 +1,37 @@
+// app/page.tsx
 "use client";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useRouter } from "next/navigation";
+import { SimulationContext } from "./SimulationContext"; // Adjust the path if necessary
 
 export default function Home() {
   const router = useRouter();
+  const { parameters, setParameters } = useContext(SimulationContext);
 
-  // State variables for user inputs
-  const [vaccineEfficacy, setVaccineEfficacy] = useState(0.8);
-  const [populationVaccinated, setPopulationVaccinated] = useState(0.7);
-  const [infectionProbability, setInfectionProbability] = useState(0.5);
-  const [vaccinatedRecoveryRate, setVaccinatedRecoveryRate] = useState(0.5);
-  const [unvaccinatedRecoveryRate, setUnvaccinatedRecoveryRate] = useState(0.1);
-  const [peakInfectionDay, setPeakInfectionDay] = useState(30);
-  const [totalDays, setTotalDays] = useState(180);
-  const [populationSize, setPopulationSize] = useState(250);
+  // Local state variables for user inputs
+  const [vaccineEfficacy, setVaccineEfficacy] = useState(parameters.vaccineEfficacy);
+  const [populationVaccinated, setPopulationVaccinated] = useState(parameters.populationVaccinated);
+  const [infectionProbability, setInfectionProbability] = useState(parameters.infectionProbability);
+  const [vaccinatedRecoveryRate, setVaccinatedRecoveryRate] = useState(parameters.vaccinatedRecoveryRate);
+  const [unvaccinatedRecoveryRate, setUnvaccinatedRecoveryRate] = useState(parameters.unvaccinatedRecoveryRate);
+  const [peakInfectionDay, setPeakInfectionDay] = useState(parameters.peakInfectionDay);
+  const [totalDays, setTotalDays] = useState(parameters.totalDays);
+  const [populationSize, setPopulationSize] = useState(parameters.populationSize);
 
-  // Navigate to the simulation page with user inputs
+  // Update context and navigate to the simulation page
   const startSimulation = () => {
-    router.push(
-      `/simulation?vaccineEfficacy=${vaccineEfficacy}&populationVaccinated=${populationVaccinated}&infectionProbability=${infectionProbability}&vaccinatedRecoveryRate=${vaccinatedRecoveryRate}&unvaccinatedRecoveryRate=${unvaccinatedRecoveryRate}&peakInfectionDay=${peakInfectionDay}&totalDays=${totalDays}&populationSize=${populationSize}`
-    );
+    setParameters({
+      vaccineEfficacy,
+      populationVaccinated,
+      infectionProbability,
+      vaccinatedRecoveryRate,
+      unvaccinatedRecoveryRate,
+      peakInfectionDay,
+      totalDays,
+      populationSize,
+    });
+    router.push("/simulation");
   };
 
   //----
