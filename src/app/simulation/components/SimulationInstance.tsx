@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+// app/simulation/components/SimulationInstance.tsx
+import { useEffect, useState, useRef } from "react";
 import PopulationCanvas from "./PopulationCanvas";
 import StatusChart from "./StatusChart";
 import Person from "./Person";
-import { simulateInfectionGraph } from "../../../lib/GraphModel";
 
 type ChartData = {
   labels: number[];
@@ -17,12 +17,13 @@ type ChartData = {
 interface SimulationInstanceProps {
   parameters: {
     vaccineEfficacy: number;
-    populationVaccinated: number;
-    infectionProbability: number;
-    vaccinatedRecoveryRate: number;
-    unvaccinatedRecoveryRate: number;
-    peakInfectionDay: number;
-    totalDays: number;
+    vaccinationRate: number;
+    R0: number;
+    contagiousFactorForIso: number;
+    contagiousFactorForUniso: number;
+    isolationRate: number;
+    recoveryRate: number;
+    days: number;
     populationSize: number;
   };
   index: number;
@@ -36,7 +37,7 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
   const [chartData, setChartData] = useState<ChartData>({
     labels: [],
     datasets: [
-      { label: "Susceptible", data: [], borderColor: "orange", fill: false },
+      { label: "Susceptible", data: [], borderColor: "blue", fill: false },
       { label: "Infected", data: [], borderColor: "red", fill: false },
       { label: "Recovered", data: [], borderColor: "green", fill: false },
     ],
@@ -48,20 +49,25 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
     for (let i = 0; i < parameters.populationSize; i++) {
       const x = Math.random() * 800;
       const y = Math.random() * 600;
-      const vaccinated = Math.random() < parameters.populationVaccinated;
-      const status = "healthy";
-      newPeople.push(new Person(x, y, vaccinated, status));
+      const vaccinated = Math.random() < parameters.vaccinationRate;
+      const isIsolated = Math.random() < parameters.isolationRate;
+      const status = "susceptible";
+      newPeople.push(new Person(x, y, vaccinated, status, isIsolated));
     }
-    // Infect one person randomly
-    const randomIndex = Math.floor(Math.random() * newPeople.length);
-    newPeople[randomIndex].status = "infected";
+    // Infect a few initial nodes (e.g., 1% of the population)
+    const initialInfected = Math.max(1, Math.floor(parameters.populationSize * 0.01));
+    for (let i = 0; i < initialInfected; i++) {
+      const randomIndex = Math.floor(Math.random() * newPeople.length);
+      newPeople[randomIndex].status = "infected";
+      newPeople[randomIndex].infectionDay = 0; // Set the day they got infected
+    }
     setPeople(newPeople);
 
-    // Update the chart data initialization if needed
+    // Reset chart data
     setChartData({
       labels: [],
       datasets: [
-        { label: "Susceptible", data: [], borderColor: "orange", fill: false },
+        { label: "Susceptible", data: [], borderColor: "blue", fill: false },
         { label: "Infected", data: [], borderColor: "red", fill: false },
         { label: "Recovered", data: [], borderColor: "green", fill: false },
       ],
@@ -91,7 +97,7 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
           color: "#555",
         }}
       >
-        Simulation #{index + 1}
+        Simulation #{index}
       </div>
 
       <div style={{ display: "flex", gap: "20px" }}>
@@ -109,22 +115,24 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
         >
           <PopulationCanvas
             people={people}
-            R0={parameters.infectionProbability}
-            recoveryRate={parameters.vaccinatedRecoveryRate}
-            contagiousFactorForIso={0.5}
-            contagiousFactorForUniso={0.3}
-            isolationRate={0.2}
-            vaccinationRate={parameters.populationVaccinated}
-            vaccineEfficacy={parameters.vaccineEfficacy}
-            totalDays={parameters.totalDays}
-            updateChartData={(healthy, infected, recovered, frame) => {
+            parameters={parameters}
+            updateChartData={(susceptible, infected, recovered, day) => {
               setChartData((prevData) => ({
                 ...prevData,
-                labels: [...prevData.labels, frame],
+                labels: [...prevData.labels, day],
                 datasets: [
-                  { ...prevData.datasets[0], data: [...prevData.datasets[0].data, healthy] },
-                  { ...prevData.datasets[1], data: [...prevData.datasets[1].data, infected] },
-                  { ...prevData.datasets[2], data: [...prevData.datasets[2].data, recovered] },
+                  {
+                    ...prevData.datasets[0],
+                    data: [...prevData.datasets[0].data, susceptible],
+                  },
+                  {
+                    ...prevData.datasets[1],
+                    data: [...prevData.datasets[1].data, infected],
+                  },
+                  {
+                    ...prevData.datasets[2],
+                    data: [...prevData.datasets[2].data, recovered],
+                  },
                 ],
               }));
             }}
