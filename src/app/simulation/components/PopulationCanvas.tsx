@@ -2,6 +2,7 @@
 import dynamic from "next/dynamic";
 import { useRef } from "react";
 import Person from "./Person";
+import { SimulationParameters } from "../../simulationParameters";
 
 import type { SketchProps } from "react-p5";
 
@@ -11,17 +12,7 @@ const Sketch = dynamic<SketchProps>(() => import("react-p5").then((mod) => mod.d
 
 type PopulationCanvasProps = {
   people: Person[];
-  parameters: {
-    vaccineEfficacy: number;
-    vaccinationRate: number;
-    R0: number;
-    contagiousFactorForIso: number;
-    contagiousFactorForUniso: number;
-    isolationRate: number;
-    recoveryRate: number;
-    days: number;
-    populationSize: number;
-  };
+  parameters: SimulationParameters;
   updateChartData: (
     susceptible: number,
     infected: number,

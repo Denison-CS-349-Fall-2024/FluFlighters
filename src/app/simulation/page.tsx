@@ -18,6 +18,7 @@ type SimulationParameters = {
   recoveryRate: number;
   days: number;
   populationSize: number;
+  initialInfected: number;
 };
 
 type SimulationData = {
