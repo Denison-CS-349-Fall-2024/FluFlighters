@@ -3,7 +3,7 @@
 
 import { useState, useContext } from "react";
 import { useRouter } from "next/navigation";
-import { SimulationContext } from "./SimulationContext"; // Adjust the path if necessary
+import { SimulationContext } from "./SimulationContext";
 
 export default function Home() {
   const router = useRouter();
@@ -11,30 +11,30 @@ export default function Home() {
 
   // Local state variables for user inputs
   const [vaccineEfficacy, setVaccineEfficacy] = useState(parameters.vaccineEfficacy);
-  const [populationVaccinated, setPopulationVaccinated] = useState(parameters.populationVaccinated);
-  const [infectionProbability, setInfectionProbability] = useState(parameters.infectionProbability);
-  const [vaccinatedRecoveryRate, setVaccinatedRecoveryRate] = useState(parameters.vaccinatedRecoveryRate);
-  const [unvaccinatedRecoveryRate, setUnvaccinatedRecoveryRate] = useState(parameters.unvaccinatedRecoveryRate);
-  const [peakInfectionDay, setPeakInfectionDay] = useState(parameters.peakInfectionDay);
-  const [totalDays, setTotalDays] = useState(parameters.totalDays);
+  const [vaccinationRate, setVaccinationRate] = useState(parameters.vaccinationRate);
+  const [R0, setR0] = useState(parameters.R0);
+  const [contagiousFactorForIso, setContagiousFactorForIso] = useState(parameters.contagiousFactorForIso);
+  const [contagiousFactorForUniso, setContagiousFactorForUniso] = useState(parameters.contagiousFactorForUniso);
+  const [isolationRate, setIsolationRate] = useState(parameters.isolationRate);
+  const [recoveryRate, setRecoveryRate] = useState(parameters.recoveryRate);
+  const [days, setDays] = useState(parameters.days);
   const [populationSize, setPopulationSize] = useState(parameters.populationSize);
 
   // Update context and navigate to the simulation page
   const startSimulation = () => {
     setParameters({
       vaccineEfficacy,
-      populationVaccinated,
-      infectionProbability,
-      vaccinatedRecoveryRate,
-      unvaccinatedRecoveryRate,
-      peakInfectionDay,
-      totalDays,
+      vaccinationRate,
+      R0,
+      contagiousFactorForIso,
+      contagiousFactorForUniso,
+      isolationRate,
+      recoveryRate,
+      days,
       populationSize,
     });
     router.push("/simulation");
   };
-
-  //----
 
   return (
     <div
@@ -66,83 +66,27 @@ export default function Home() {
         </div>
 
         <div>
-          <label>
-            Population Vaccinated ({Math.round(populationVaccinated * 100)}%)
-          </label>
+          <label>Vaccination Rate ({Math.round(vaccinationRate * 100)}%)</label>
           <input
             type="range"
             min="0"
             max="1"
             step="0.01"
-            value={populationVaccinated}
-            onChange={(e) =>
-              setPopulationVaccinated(parseFloat(e.target.value))
-            }
+            value={vaccinationRate}
+            onChange={(e) => setVaccinationRate(parseFloat(e.target.value))}
             style={{ width: "100%" }}
           />
         </div>
 
         <div>
-          <label>
-            Infection Probability ({Math.round(infectionProbability * 100)}%)
-          </label>
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.01"
-            value={infectionProbability}
-            onChange={(e) =>
-              setInfectionProbability(parseFloat(e.target.value))
-            }
-            style={{ width: "100%" }}
-          />
-        </div>
-
-        <div>
-          <label>
-            Vaccinated Recovery Rate ({Math.round(vaccinatedRecoveryRate * 100)}
-            %)
-          </label>
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.01"
-            value={vaccinatedRecoveryRate}
-            onChange={(e) =>
-              setVaccinatedRecoveryRate(parseFloat(e.target.value))
-            }
-            style={{ width: "100%" }}
-          />
-        </div>
-
-        <div>
-          <label>
-            Unvaccinated Recovery Rate (
-            {Math.round(unvaccinatedRecoveryRate * 100)}%)
-          </label>
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.01"
-            value={unvaccinatedRecoveryRate}
-            onChange={(e) =>
-              setUnvaccinatedRecoveryRate(parseFloat(e.target.value))
-            }
-            style={{ width: "100%" }}
-          />
-        </div>
-
-        <div>
-          <label>Peak Infection Day ({peakInfectionDay})</label>
+          <label>R0 (Infection Rate): {R0}</label>
           <input
             type="number"
-            min="1"
-            max="20"
-            value={peakInfectionDay}
-            onChange={(e) => setPeakInfectionDay(parseInt(e.target.value))}
+            min="0.5"
+            max="5.0"
+            step="0.1"
+            value={R0}
+            onChange={(e) => setR0(parseFloat(e.target.value))}
             style={{
               width: "100%",
               padding: "8px",
@@ -153,13 +97,83 @@ export default function Home() {
         </div>
 
         <div>
-          <label>Total Days ({totalDays})</label>
+          <label>
+            Contagious Factor (Isolated): {contagiousFactorForIso}
+          </label>
           <input
             type="number"
-            min="10"
+            min="0.01"
+            max="1.0"
+            step="0.01"
+            value={contagiousFactorForIso}
+            onChange={(e) =>
+              setContagiousFactorForIso(parseFloat(e.target.value))
+            }
+            style={{
+              width: "100%",
+              padding: "8px",
+              borderRadius: "4px",
+              border: "1px solid #ccc",
+            }}
+          />
+        </div>
+
+        <div>
+          <label>
+            Contagious Factor (Unisolated): {contagiousFactorForUniso}
+          </label>
+          <input
+            type="number"
+            min="0.01"
+            max="1.0"
+            step="0.01"
+            value={contagiousFactorForUniso}
+            onChange={(e) =>
+              setContagiousFactorForUniso(parseFloat(e.target.value))
+            }
+            style={{
+              width: "100%",
+              padding: "8px",
+              borderRadius: "4px",
+              border: "1px solid #ccc",
+            }}
+          />
+        </div>
+
+        <div>
+          <label>Isolation Rate ({Math.round(isolationRate * 100)}%)</label>
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value={isolationRate}
+            onChange={(e) => setIsolationRate(parseFloat(e.target.value))}
+            style={{ width: "100%" }}
+          />
+        </div>
+
+        <div>
+          <label>Recovery Rate ({Math.round(recoveryRate * 100)}%)</label>
+          <input
+            type="range"
+            min="0.01"
+            max="1.0"
+            step="0.01"
+            value={recoveryRate}
+            onChange={(e) => setRecoveryRate(parseFloat(e.target.value))}
+            style={{ width: "100%" }}
+          />
+        </div>
+
+        <div>
+          <label>Days ({days})</label>
+          <input
+            type="number"
+            min="1"
             max="60"
-            value={totalDays}
-            onChange={(e) => setTotalDays(parseInt(e.target.value))}
+            value={days}
+            onChange={(e) => setDays(parseInt(e.target.value))}
             style={{
               width: "100%",
               padding: "8px",
@@ -173,9 +187,9 @@ export default function Home() {
           <label>Population Size ({populationSize})</label>
           <input
             type="number"
-            min="100"
-            max="1000000"
-            step="1000"
+            min="50"
+            max="10000"
+            step="50"
             value={populationSize}
             onChange={(e) => setPopulationSize(parseInt(e.target.value))}
             style={{

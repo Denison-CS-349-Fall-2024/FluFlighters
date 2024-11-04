@@ -5,12 +5,13 @@ import React, { createContext, useState, ReactNode } from "react";
 
 type SimulationParameters = {
   vaccineEfficacy: number;
-  populationVaccinated: number;
-  infectionProbability: number;
-  vaccinatedRecoveryRate: number;
-  unvaccinatedRecoveryRate: number;
-  peakInfectionDay: number;
-  totalDays: number;
+  vaccinationRate: number; // Rename for consistency
+  R0: number;
+  contagiousFactorForIso: number;
+  contagiousFactorForUniso: number;
+  isolationRate: number;
+  recoveryRate: number;
+  days: number;
   populationSize: number;
 };
 
@@ -21,12 +22,13 @@ type SimulationContextType = {
 
 const defaultParameters: SimulationParameters = {
   vaccineEfficacy: 0.8,
-  populationVaccinated: 0.7,
-  infectionProbability: 0.5,
-  vaccinatedRecoveryRate: 0.5,
-  unvaccinatedRecoveryRate: 0.1,
-  peakInfectionDay: 30,
-  totalDays: 180,
+  vaccinationRate: 0.7,
+  R0: 2.0,
+  contagiousFactorForIso: 0.1,
+  contagiousFactorForUniso: 0.3,
+  isolationRate: 0.5,
+  recoveryRate: 0.1,
+  days: 10,
   populationSize: 250,
 };
 
