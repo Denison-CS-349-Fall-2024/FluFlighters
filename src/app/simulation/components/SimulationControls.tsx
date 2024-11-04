@@ -13,6 +13,7 @@ type SimulationControlsProps = {
   populationSize: number;
   speed: number;
   handleSpeedChange: () => void;
+  initialInfected: number;
 };
 
 export default function SimulationControls({
@@ -27,12 +28,14 @@ export default function SimulationControls({
   populationSize,
   speed,
   handleSpeedChange,
+  initialInfected
 }: SimulationControlsProps) {
   return (
     <div>
       <h2>Flu Simulation</h2>
       <p>Vaccine Efficacy: {Math.round(vaccineEfficacy * 100)}%</p>
       <p>Vaccination Rate: {Math.round(vaccinationRate * 100)}%</p>
+      <p>Inital Infected: {Math.round(initialInfected * 100)}%</p>
       <p>R0 (Infection Rate): {R0}</p>
       <p>Contagious Factor (Isolated): {contagiousFactorForIso}</p>
       <p>Contagious Factor (Unisolated): {contagiousFactorForUniso}</p>

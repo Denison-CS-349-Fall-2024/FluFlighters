@@ -29,6 +29,7 @@ const SimulationControlsPop: React.FC<SimulationControlsPopoverProps> = ({
   const [recoveryRate, setRecoveryRate] = useState(0.1);
   const [days, setDays] = useState(10);
   const [populationSize, setPopulationSize] = useState(250);
+  const [initialInfected, setInitialInfected] = useState(0.1);
 
   // Start simulation with user inputs
   const startSimulation = () => {
@@ -42,6 +43,7 @@ const SimulationControlsPop: React.FC<SimulationControlsPopoverProps> = ({
       recoveryRate,
       days,
       populationSize,
+      initialInfected,
     };
     onStartSimulation(parameters);
     setIsPopoverOpen(false);
@@ -89,6 +91,20 @@ const SimulationControlsPop: React.FC<SimulationControlsPopoverProps> = ({
                 step="0.01"
                 value={vaccinationRate}
                 onChange={(e) => setVaccinationRate(parseFloat(e.target.value))}
+                style={{ width: "100%" }}
+              />
+            </div>
+
+            {/* Vaccination Rate */}
+            <div>
+              <label>Inital Infected ({Math.round(initialInfected * 100)}%)</label>
+              <input
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value={initialInfected}
+                onChange={(e) => setInitialInfected(parseFloat(e.target.value))}
                 style={{ width: "100%" }}
               />
             </div>

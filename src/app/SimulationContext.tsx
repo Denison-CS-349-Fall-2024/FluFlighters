@@ -13,6 +13,7 @@ type SimulationParameters = {
   recoveryRate: number;
   days: number;
   populationSize: number;
+  initialInfected: number; 
 };
 
 type SimulationContextType = {
@@ -30,6 +31,7 @@ const defaultParameters: SimulationParameters = {
   recoveryRate: 0.1,
   days: 10,
   populationSize: 250,
+  initialInfected: 0.1,
 };
 
 export const SimulationContext = createContext<SimulationContextType>({

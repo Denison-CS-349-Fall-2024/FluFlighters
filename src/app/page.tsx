@@ -19,6 +19,7 @@ export default function Home() {
   const [recoveryRate, setRecoveryRate] = useState(parameters.recoveryRate);
   const [days, setDays] = useState(parameters.days);
   const [populationSize, setPopulationSize] = useState(parameters.populationSize);
+  const [initialInfected, setInitialInfected] = useState(parameters.initialInfected);
 
   // Update context and navigate to the simulation page
   const startSimulation = () => {
@@ -32,6 +33,7 @@ export default function Home() {
       recoveryRate,
       days,
       populationSize,
+      initialInfected,
     });
     router.push("/simulation");
   };
@@ -74,6 +76,19 @@ export default function Home() {
             step="0.01"
             value={vaccinationRate}
             onChange={(e) => setVaccinationRate(parseFloat(e.target.value))}
+            style={{ width: "100%" }}
+          />
+        </div>
+
+        <div>
+          <label>Inital Infected: {initialInfected}</label>
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value={initialInfected}
+            onChange={(e) => setInitialInfected(parseFloat(e.target.value))}
             style={{ width: "100%" }}
           />
         </div>
