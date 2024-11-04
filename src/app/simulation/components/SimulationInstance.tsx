@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import PopulationCanvas from "./PopulationCanvas";
 import StatusChart from "./StatusChart";
 import Person from "./Person";
+import { SimulationParameters } from "../../simulationParameters";
 
 type ChartData = {
   labels: number[];
@@ -15,17 +16,7 @@ type ChartData = {
 };
 
 interface SimulationInstanceProps {
-  parameters: {
-    vaccineEfficacy: number;
-    vaccinationRate: number;
-    R0: number;
-    contagiousFactorForIso: number;
-    contagiousFactorForUniso: number;
-    isolationRate: number;
-    recoveryRate: number;
-    days: number;
-    populationSize: number;
-  };
+  parameters: SimulationParameters;
   index: number;
 }
 
@@ -55,7 +46,7 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
       newPeople.push(new Person(x, y, vaccinated, status, isIsolated));
     }
     // Infect a few initial nodes (e.g., 1% of the population)
-    const initialInfected = Math.max(1, Math.floor(parameters.populationSize * 0.01));
+    const initialInfected = Math.max(1, Math.floor(parameters.populationSize * parameters.initialInfected));
     for (let i = 0; i < initialInfected; i++) {
       const randomIndex = Math.floor(Math.random() * newPeople.length);
       newPeople[randomIndex].status = "infected";
