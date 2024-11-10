@@ -55,7 +55,7 @@ export default function PopulationCanvas({
           people,
           parameters,
           day,
-          10 // Infection radius
+          20 // Increased Infection Radius
         );
 
         person.recover(parameters.recoveryRate);

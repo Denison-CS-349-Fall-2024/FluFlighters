@@ -36,46 +36,56 @@ export default class Person {
   }
 
   // Method to check if the person can get infected
-  tryToInfect(
-    p5: any,
-    people: Person[],
-    parameters: SimulationParameters,
-    day: number,
-    infectionRadius: number
-  ) {
-    if (this.status === "susceptible") {
-      for (let other of people) {
-        if (other.status === "infected") {
-          const d = p5.dist(this.x, this.y, other.x, other.y);
-          if (d < infectionRadius) {
-            // Calculate infection probability per contact
-            let infectionProbability = (parameters.R0 * (1 - parameters.isolationRate)) / parameters.populationSize;
-            if (this.vaccinated) {
-              infectionProbability *= 1 - parameters.vaccineEfficacy;
-            }
 
-            // Random chance based on infection probability
-            if (Math.random() < infectionProbability) {
-              this.status = "infected";
-              this.infectionDay = day;
-              break;
-            }
+tryToInfect(
+  p5: any,
+  people: Person[],
+  parameters: SimulationParameters,
+  day: number,
+  infectionRadius: number
+) {
+  if (this.status === "susceptible") {
+    for (let other of people) {
+      if (other.status === "infected") {
+        const d = p5.dist(this.x, this.y, other.x, other.y);
+        if (d < infectionRadius) {
+          // Calculate infection probability per contact
+          const averageContactsPerDay = 10; // Adjust as needed
+          let infectionProbability = (parameters.R0 / averageContactsPerDay) * (1 - parameters.isolationRate);
+
+          if (this.vaccinated) {
+            infectionProbability *= 1 - parameters.vaccineEfficacy;
+          }
+
+          // Ensure the infection probability does not exceed 1
+          infectionProbability = Math.min(infectionProbability, 1);
+
+          // Random chance based on infection probability
+          if (Math.random() < infectionProbability) {
+            this.status = "infected";
+            this.infectionDay = day;
+            break;
           }
         }
       }
     }
   }
+}
+
 
   // Method to move the person within the canvas
-  move(p5: any) {
-    if (!this.isIsolated) {
-      // Only move if the person is not isolated
-      this.x += p5.random(-2, 2);
-      this.y += p5.random(-2, 2);
-      this.x = p5.constrain(this.x, 0, p5.width);
-      this.y = p5.constrain(this.y, 0, p5.height);
-    }
+  // app/simulation/components/Person.ts
+
+move(p5: any) {
+  if (!this.isIsolated) {
+    // Increase movement range if needed
+    this.x += p5.random(-5, 5);
+    this.y += p5.random(-5, 5);
+    this.x = p5.constrain(this.x, 0, p5.width);
+    this.y = p5.constrain(this.y, 0, p5.height);
   }
+}
+
 
   // Method to show the person on the canvas with the appropriate color
   show(p5: any) {
