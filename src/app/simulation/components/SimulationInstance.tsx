@@ -42,17 +42,21 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
       const y = Math.random() * 600;
       const vaccinated = Math.random() < parameters.vaccinationRate;
       const isIsolated = Math.random() < parameters.isolationRate;
-      const status = "susceptible";
-      newPeople.push(new Person(x, y, vaccinated, status, isIsolated));
+      newPeople.push(new Person(x, y, vaccinated, 'susceptible', isIsolated));
     }
-    // Infect a few initial nodes (e.g., 1% of the population)
-    const initialInfected = Math.max(1, Math.floor(parameters.populationSize * parameters.initialInfected));
-    for (let i = 0; i < initialInfected; i++) {
+
+    // Infect initial individuals
+    const initialInfectedCount = Math.max(
+      1,
+      Math.floor(parameters.populationSize * parameters.initialInfected)
+    );
+    for (let i = 0; i < initialInfectedCount; i++) {
       const randomIndex = Math.floor(Math.random() * newPeople.length);
-      newPeople[randomIndex].status = "infected";
-      newPeople[randomIndex].infectionDay = 0; // Set the day they got infected
+      newPeople[randomIndex].status = 'infected';
+      newPeople[randomIndex].infectionDay = 0;
     }
-    setPeople(newPeople);
+
+    setPeople(newPeople); // Don't forget to set the state
 
     // Reset chart data
     setChartData({

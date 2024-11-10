@@ -27,20 +27,17 @@ export default function PopulationCanvas({
   updateChartData,
 }: PopulationCanvasProps) {
   const frameCount = useRef(0);
+  const framesPerDay = 30; // Define frames per day
 
   const setup = (p5: any, canvasParentRef: Element) => {
     p5.createCanvas(800, 600).parent(canvasParentRef);
-    p5.frameRate(30);
+    p5.frameRate(framesPerDay);
   };
 
   const draw = (p5: any) => {
     p5.background(255);
 
-    let susceptibleCount = 0;
-    let infectedCount = 0;
-    let recoveredCount = 0;
-
-    const day = Math.floor(frameCount.current / 30); // Assuming 30 frames per day
+    const day = Math.floor(frameCount.current / framesPerDay); // Compute the day
 
     // Iterate over each person and handle movement, display, and infection logic
     people.forEach((person) => {
@@ -51,26 +48,21 @@ export default function PopulationCanvas({
       person.tryToInfect(
         p5,
         people,
-        10, // Infection radius
-        parameters.R0,
-        parameters.vaccineEfficacy,
+        parameters,
         day,
-        parameters.contagiousFactorForIso,
-        parameters.contagiousFactorForUniso,
-        Math.floor(parameters.days / 2) // Peak day (assuming middle of the simulation)
+        10 // Infection radius
       );
 
       // Handle recovery logic
       person.recover(parameters.recoveryRate);
-
-      // Count each status for chart data
-      if (person.status === "susceptible") susceptibleCount++;
-      if (person.status === "infected") infectedCount++;
-      if (person.status === "recovered") recoveredCount++;
     });
 
     // Update chart data once per day
-    if (frameCount.current % 30 === 0) {
+    if (frameCount.current % framesPerDay === 0) {
+      const susceptibleCount = people.filter(p => p.status === 'susceptible').length;
+      const infectedCount = people.filter(p => p.status === 'infected').length;
+      const recoveredCount = people.filter(p => p.status === 'recovered').length;
+
       updateChartData(
         susceptibleCount,
         infectedCount,

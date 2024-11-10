@@ -10,9 +10,7 @@
  //    - vaccination_rate: Proportion of the population that is vaccinated, which affects susceptibility.
  //    - vaccine_efficacy: Effectiveness of the vaccine in preventing infection, reducing the infection rate in vaccinated individuals.
 
- //    This function simulates and plots the infection dynamics of a population, breaking down vaccinated and unvaccinated groups.
- //  """
-
+import { SimulationParameters } from "@/app/simulationParameters";
 
 export default class Person {
   x: number;
@@ -41,35 +39,27 @@ export default class Person {
   tryToInfect(
     p5: any,
     people: Person[],
-    infectionRadius: number,
-    R0: number,
-    vaccineEfficacy: number,
+    parameters: SimulationParameters,
     day: number,
-    contagiousFactorForIso: number,
-    contagiousFactorForUniso: number,
-    peakDay: number
+    infectionRadius: number
   ) {
     if (this.status === "susceptible") {
       for (let other of people) {
         if (other.status === "infected") {
           const d = p5.dist(this.x, this.y, other.x, other.y);
           if (d < infectionRadius) {
-            // Determine contagiousness based on isolation status
-            const contagiousFactor = other.isIsolated
-              ? contagiousFactorForIso
-              : contagiousFactorForUniso;
-            const contagiousness = Math.exp(-contagiousFactor * Math.pow(day - other.infectionDay! - peakDay, 2));
-
             // Calculate infection probability
-            let infectionProbability = (R0 * contagiousness) / 10;
+            let infectionProbability = parameters.R0 * (1 - parameters.isolationRate);
             if (this.vaccinated) {
-              infectionProbability *= 1 - vaccineEfficacy;
+              infectionProbability *= 1 - parameters.vaccineEfficacy;
             }
+            infectionProbability *= parameters.recoveryRate;
 
+            // Random chance based on infection probability
             if (Math.random() < infectionProbability) {
               this.status = "infected";
               this.infectionDay = day;
-              break; // Exit loop once infected
+              break;
             }
           }
         }

@@ -6,20 +6,7 @@ import SimulationInstance from "./components/SimulationInstance";
 import SimulationControlsPop from "./components/SimulationControlsPopover";
 import { v4 as uuidv4 } from "uuid";
 import { SimulationContext } from "../SimulationContext"; // Adjust the path if necessary
-
-// Updated SimulationParameters type
-type SimulationParameters = {
-  vaccineEfficacy: number;
-  vaccinationRate: number; // Renamed from populationVaccinated
-  R0: number;
-  contagiousFactorForIso: number;
-  contagiousFactorForUniso: number;
-  isolationRate: number;
-  recoveryRate: number;
-  days: number;
-  populationSize: number;
-  initialInfected: number;
-};
+import { SimulationParameters } from "../simulationParameters";
 
 type SimulationData = {
   id: string;
