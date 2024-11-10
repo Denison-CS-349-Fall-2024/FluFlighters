@@ -37,28 +37,31 @@ export default function PopulationCanvas({
   const draw = (p5: any) => {
     p5.background(255);
 
-    const day = Math.floor(frameCount.current / framesPerDay); // Compute the day
-
-    // Iterate over each person and handle movement, display, and infection logic
+    // Movement and drawing happen every frame
     people.forEach((person) => {
       person.move(p5); // Move the person
       person.show(p5); // Show the person on the canvas
-
-      // Handle infection spreading logic
-      person.tryToInfect(
-        p5,
-        people,
-        parameters,
-        day,
-        10 // Infection radius
-      );
-
-      // Handle recovery logic
-      person.recover(parameters.recoveryRate);
     });
 
-    // Update chart data once per day
-    if (frameCount.current % framesPerDay === 0) {
+    const isNewDay = frameCount.current % framesPerDay === 0;
+
+    if (isNewDay) {
+      const day = Math.floor(frameCount.current / framesPerDay); // Compute the day
+
+      // Infection and recovery logic
+      people.forEach((person) => {
+        person.tryToInfect(
+          p5,
+          people,
+          parameters,
+          day,
+          10 // Infection radius
+        );
+
+        person.recover(parameters.recoveryRate);
+      });
+
+      // Update chart data
       const susceptibleCount = people.filter(p => p.status === 'susceptible').length;
       const infectedCount = people.filter(p => p.status === 'infected').length;
       const recoveredCount = people.filter(p => p.status === 'recovered').length;
@@ -73,6 +76,7 @@ export default function PopulationCanvas({
 
     frameCount.current++;
 
+    const day = Math.floor(frameCount.current / framesPerDay);
     if (day > parameters.days) {
       p5.noLoop(); // Stop the simulation after the specified number of days
     }

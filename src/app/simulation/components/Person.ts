@@ -48,12 +48,11 @@ export default class Person {
         if (other.status === "infected") {
           const d = p5.dist(this.x, this.y, other.x, other.y);
           if (d < infectionRadius) {
-            // Calculate infection probability
-            let infectionProbability = parameters.R0 * (1 - parameters.isolationRate);
+            // Calculate infection probability per contact
+            let infectionProbability = (parameters.R0 * (1 - parameters.isolationRate)) / parameters.populationSize;
             if (this.vaccinated) {
               infectionProbability *= 1 - parameters.vaccineEfficacy;
             }
-            infectionProbability *= parameters.recoveryRate;
 
             // Random chance based on infection probability
             if (Math.random() < infectionProbability) {
@@ -89,6 +88,7 @@ export default class Person {
   // Method to determine if the person recovers from the infection
   recover(recoveryRate: number) {
     if (this.status === "infected") {
+      // Recovery is checked once per day
       if (Math.random() < recoveryRate) {
         this.status = "recovered";
       }

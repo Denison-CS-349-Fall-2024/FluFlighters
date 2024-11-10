@@ -8,8 +8,7 @@ export type SimulationParameters = {
   isolationRate: number;
   days: number;
   populationSize: number;
-  initialInfected: number;
-  // Add any new parameters here if needed
+  initialInfected: number; // Should be a proportion (e.g., 0.05 for 5%)
 };
 
 export const defaultParameters: SimulationParameters = {
@@ -20,6 +19,5 @@ export const defaultParameters: SimulationParameters = {
   isolationRate: 0.5,
   days: 20,
   populationSize: 100,
-  initialInfected: 5,
-  // Initialize any new parameters here
+  initialInfected: 0.05, // Changed from 5 to 0.05 to represent 5%
 };
