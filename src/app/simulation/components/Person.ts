@@ -1,4 +1,19 @@
 // app/simulation/components/Person.ts
+ // """
+ //    Parameters:
+ //    - population_size: Total population size in the simulation. Affects the overall scale of the outbreak.
+ //    - initial_infected: Initial count of infected individuals at the start. Sets the starting point of the infection curve.
+ //    - R0: Basic reproduction number, representing the average number of people one infected individual will infect if no one is immune.
+ //    - recovery_rate: Rate at which infected individuals recover each day (proportion per day).
+ //    - isolation_rate: Proportion of the population that isolates to reduce infection spread. Lower isolation leads to higher infection spread.
+ //    - days: Duration of the simulation in days.
+ //    - vaccination_rate: Proportion of the population that is vaccinated, which affects susceptibility.
+ //    - vaccine_efficacy: Effectiveness of the vaccine in preventing infection, reducing the infection rate in vaccinated individuals.
+
+ //    This function simulates and plots the infection dynamics of a population, breaking down vaccinated and unvaccinated groups.
+ //  """
+
+
 export default class Person {
   x: number;
   y: number;
