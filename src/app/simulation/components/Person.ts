@@ -97,7 +97,7 @@ move(p5: any) {
 
   // Method to determine if the person recovers from the infection
   recover(recoveryRate: number) {
-    if (this.status === "infected 2") {
+    if (this.status === "infected") {
       // Recovery is checked once per day
       if (Math.random() < recoveryRate) {
         this.status = "recovered";
