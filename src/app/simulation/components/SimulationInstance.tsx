@@ -35,30 +35,28 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
   });
 
   useEffect(() => {
-    // Initialize people
     const newPeople: Person[] = [];
     for (let i = 0; i < parameters.populationSize; i++) {
-      const x = Math.random() * 800;
-      const y = Math.random() * 600;
+      const x = Math.random() * parameters.areaSize;
+      const y = Math.random() * parameters.areaSize;
       const vaccinated = Math.random() < parameters.vaccinationRate;
       const isIsolated = Math.random() < parameters.isolationRate;
-      newPeople.push(new Person(x, y, vaccinated, 'susceptible', isIsolated));
+      const dailyContacts = Math.floor(
+        Math.random() * (parameters.contactRange[1] - parameters.contactRange[0] + 1) + parameters.contactRange[0]
+      );
+      newPeople.push(new Person(x, y, vaccinated, 'susceptible', isIsolated, dailyContacts));
     }
-
+  
     // Infect initial individuals
-    const initialInfectedCount = Math.max(
-      1,
-      Math.floor(parameters.populationSize * parameters.initialInfected)
-    );
+    const initialInfectedCount = Math.max(1, Math.floor(parameters.populationSize * parameters.initialInfected));
     for (let i = 0; i < initialInfectedCount; i++) {
       const randomIndex = Math.floor(Math.random() * newPeople.length);
       newPeople[randomIndex].status = 'infected';
       newPeople[randomIndex].infectionDay = 0;
     }
-
-    setPeople(newPeople); // Don't forget to set the state
-
-    // Reset chart data
+  
+    setPeople(newPeople);
+  
     setChartData({
       labels: [],
       datasets: [
@@ -68,6 +66,7 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
       ],
     });
   }, [parameters]);
+  
 
   return (
     <div

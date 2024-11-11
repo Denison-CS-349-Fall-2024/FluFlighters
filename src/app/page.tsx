@@ -11,7 +11,10 @@ export default function Home() {
   const { parameters, setParameters } = useContext(SimulationContext);
 
   // Handler to update parameters in context
-  const handleParameterChange = (key: keyof SimulationParameters, value: number) => {
+  const handleParameterChange = (
+    key: keyof SimulationParameters,
+    value: number | [number, number]
+  ) => {
     setParameters({
       ...parameters,
       [key]: value,
@@ -180,6 +183,71 @@ export default function Home() {
             value={parameters.populationSize}
             onChange={(e) =>
               handleParameterChange("populationSize", parseInt(e.target.value))
+            }
+            style={{
+              width: "100%",
+              padding: "8px",
+              borderRadius: "4px",
+              border: "1px solid #ccc",
+            }}
+          />
+        </div>
+
+        {/* Contact Range */}
+        <div>
+          <label>
+            Contact Range: {parameters.contactRange[0]} - {parameters.contactRange[1]}
+          </label>
+          <div style={{ display: "flex", gap: "8px" }}>
+            <input
+              type="number"
+              min="1"
+              max="20"
+              value={parameters.contactRange[0]}
+              onChange={(e) =>
+                handleParameterChange("contactRange", [
+                  parseInt(e.target.value),
+                  parameters.contactRange[1],
+                ])
+              }
+              style={{
+                width: "50%",
+                padding: "8px",
+                borderRadius: "4px",
+                border: "1px solid #ccc",
+              }}
+            />
+            <input
+              type="number"
+              min="1"
+              max="20"
+              value={parameters.contactRange[1]}
+              onChange={(e) =>
+                handleParameterChange("contactRange", [
+                  parameters.contactRange[0],
+                  parseInt(e.target.value),
+                ])
+              }
+              style={{
+                width: "50%",
+                padding: "8px",
+                borderRadius: "4px",
+                border: "1px solid #ccc",
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Area Size */}
+        <div>
+          <label>Area Size ({parameters.areaSize} units)</label>
+          <input
+            type="number"
+            min="10"
+            max="200"
+            value={parameters.areaSize}
+            onChange={(e) =>
+              handleParameterChange("areaSize", parseInt(e.target.value))
             }
             style={{
               width: "100%",

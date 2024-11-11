@@ -19,13 +19,15 @@ export default class Person {
   vaccinated: boolean;
   isIsolated: boolean;
   infectionDay: number | null;
+  dailyContacts: number; // New: Number of contacts per day
 
   constructor(
     x: number,
     y: number,
     vaccinated: boolean,
     status = "susceptible",
-    isIsolated = false
+    isIsolated = false,
+    dailyContacts: number
   ) {
     this.x = x;
     this.y = y;
@@ -33,6 +35,7 @@ export default class Person {
     this.status = status;
     this.isIsolated = isIsolated;
     this.infectionDay = null; // Keep track of when the person got infected
+    this.dailyContacts = dailyContacts;
   }
 
   // Method to check if the person can get infected
@@ -50,8 +53,7 @@ tryToInfect(
         const d = p5.dist(this.x, this.y, other.x, other.y);
         if (d < infectionRadius) {
           // Calculate infection probability per contact
-          const averageContactsPerDay = 10; // Adjust as needed
-          let infectionProbability = (parameters.R0 / averageContactsPerDay) * (1 - parameters.isolationRate);
+          let infectionProbability = (parameters.R0 / this.dailyContacts) * (1 - parameters.isolationRate);
 
           if (this.vaccinated) {
             infectionProbability *= 1 - parameters.vaccineEfficacy;
@@ -76,15 +78,15 @@ tryToInfect(
   // Method to move the person within the canvas
   // app/simulation/components/Person.ts
 
-move(p5: any) {
-  if (!this.isIsolated) {
-    // Increase movement range if needed
-    this.x += p5.random(-5, 5);
-    this.y += p5.random(-5, 5);
-    this.x = p5.constrain(this.x, 0, p5.width);
-    this.y = p5.constrain(this.y, 0, p5.height);
+  move(p5: any, areaSize: number) {
+    if (!this.isIsolated) {
+      this.x += p5.random(-2, 2);
+      this.y += p5.random(-2, 2);
+      this.x = p5.constrain(this.x, 0, areaSize);
+      this.y = p5.constrain(this.y, 0, areaSize);
+    }
   }
-}
+  
 
 
   // Method to show the person on the canvas with the appropriate color
