@@ -27,50 +27,45 @@ export default function PopulationCanvas({
   updateChartData,
 }: PopulationCanvasProps) {
   const frameCount = useRef(0);
+  const framesPerDay = 30; // Define frames per day
 
   const setup = (p5: any, canvasParentRef: Element) => {
     p5.createCanvas(800, 600).parent(canvasParentRef);
-    p5.frameRate(30);
+    p5.frameRate(framesPerDay);
   };
 
   const draw = (p5: any) => {
     p5.background(255);
 
-    let susceptibleCount = 0;
-    let infectedCount = 0;
-    let recoveredCount = 0;
-
-    const day = Math.floor(frameCount.current / 30); // Assuming 30 frames per day
-
-    // Iterate over each person and handle movement, display, and infection logic
+    // Movement and drawing happen every frame
     people.forEach((person) => {
       person.move(p5); // Move the person
       person.show(p5); // Show the person on the canvas
-
-      // Handle infection spreading logic
-      person.tryToInfect(
-        p5,
-        people,
-        10, // Infection radius
-        parameters.R0,
-        parameters.vaccineEfficacy,
-        day,
-        parameters.contagiousFactorForIso,
-        parameters.contagiousFactorForUniso,
-        Math.floor(parameters.days / 2) // Peak day (assuming middle of the simulation)
-      );
-
-      // Handle recovery logic
-      person.recover(parameters.recoveryRate);
-
-      // Count each status for chart data
-      if (person.status === "susceptible") susceptibleCount++;
-      if (person.status === "infected") infectedCount++;
-      if (person.status === "recovered") recoveredCount++;
     });
 
-    // Update chart data once per day
-    if (frameCount.current % 30 === 0) {
+    const isNewDay = frameCount.current % framesPerDay === 0;
+
+    if (isNewDay) {
+      const day = Math.floor(frameCount.current / framesPerDay); // Compute the day
+
+      // Infection and recovery logic
+      people.forEach((person) => {
+        person.tryToInfect(
+          p5,
+          people,
+          parameters,
+          day,
+          20 // Increased Infection Radius
+        );
+
+        person.recover(parameters.recoveryRate);
+      });
+
+      // Update chart data
+      const susceptibleCount = people.filter(p => p.status === 'susceptible').length;
+      const infectedCount = people.filter(p => p.status === 'infected').length;
+      const recoveredCount = people.filter(p => p.status === 'recovered').length;
+
       updateChartData(
         susceptibleCount,
         infectedCount,
@@ -81,6 +76,7 @@ export default function PopulationCanvas({
 
     frameCount.current++;
 
+    const day = Math.floor(frameCount.current / framesPerDay);
     if (day > parameters.days) {
       p5.noLoop(); // Stop the simulation after the specified number of days
     }

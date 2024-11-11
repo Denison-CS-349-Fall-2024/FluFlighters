@@ -113,55 +113,6 @@ export default function Home() {
           />
         </div>
 
-        {/* Contagious Factor (Isolated) */}
-        <div>
-          <label>
-            Contagious Factor (Isolated): {parameters.contagiousFactorForIso}
-          </label>
-          <input
-            type="number"
-            min="0.01"
-            max="1.0"
-            step="0.01"
-            value={parameters.contagiousFactorForIso}
-            onChange={(e) =>
-              handleParameterChange("contagiousFactorForIso", parseFloat(e.target.value))
-            }
-            style={{
-              width: "100%",
-              padding: "8px",
-              borderRadius: "4px",
-              border: "1px solid #ccc",
-            }}
-          />
-        </div>
-
-        {/* Contagious Factor (Unisolated) */}
-        <div>
-          <label>
-            Contagious Factor (Unisolated): {parameters.contagiousFactorForUniso}
-          </label>
-          <input
-            type="number"
-            min="0.01"
-            max="1.0"
-            step="0.01"
-            value={parameters.contagiousFactorForUniso}
-            onChange={(e) =>
-              handleParameterChange(
-                "contagiousFactorForUniso",
-                parseFloat(e.target.value)
-              )
-            }
-            style={{
-              width: "100%",
-              padding: "8px",
-              borderRadius: "4px",
-              border: "1px solid #ccc",
-            }}
-          />
-        </div>
-
         {/* Isolation Rate */}
         <div>
           <label>

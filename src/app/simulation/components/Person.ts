@@ -10,9 +10,7 @@
  //    - vaccination_rate: Proportion of the population that is vaccinated, which affects susceptibility.
  //    - vaccine_efficacy: Effectiveness of the vaccine in preventing infection, reducing the infection rate in vaccinated individuals.
 
- //    This function simulates and plots the infection dynamics of a population, breaking down vaccinated and unvaccinated groups.
- //  """
-
+import { SimulationParameters } from "@/app/simulationParameters";
 
 export default class Person {
   x: number;
@@ -38,55 +36,56 @@ export default class Person {
   }
 
   // Method to check if the person can get infected
-  tryToInfect(
-    p5: any,
-    people: Person[],
-    infectionRadius: number,
-    R0: number,
-    vaccineEfficacy: number,
-    day: number,
-    contagiousFactorForIso: number,
-    contagiousFactorForUniso: number,
-    peakDay: number
-  ) {
-    if (this.status === "susceptible") {
-      for (let other of people) {
-        if (other.status === "infected") {
-          const d = p5.dist(this.x, this.y, other.x, other.y);
-          if (d < infectionRadius) {
-            // Determine contagiousness based on isolation status
-            const contagiousFactor = other.isIsolated
-              ? contagiousFactorForIso
-              : contagiousFactorForUniso;
-            const contagiousness = Math.exp(-contagiousFactor * Math.pow(day - other.infectionDay! - peakDay, 2));
 
-            // Calculate infection probability
-            let infectionProbability = (R0 * contagiousness) / 10;
-            if (this.vaccinated) {
-              infectionProbability *= 1 - vaccineEfficacy;
-            }
+tryToInfect(
+  p5: any,
+  people: Person[],
+  parameters: SimulationParameters,
+  day: number,
+  infectionRadius: number
+) {
+  if (this.status === "susceptible") {
+    for (let other of people) {
+      if (other.status === "infected") {
+        const d = p5.dist(this.x, this.y, other.x, other.y);
+        if (d < infectionRadius) {
+          // Calculate infection probability per contact
+          const averageContactsPerDay = 10; // Adjust as needed
+          let infectionProbability = (parameters.R0 / averageContactsPerDay) * (1 - parameters.isolationRate);
 
-            if (Math.random() < infectionProbability) {
-              this.status = "infected";
-              this.infectionDay = day;
-              break; // Exit loop once infected
-            }
+          if (this.vaccinated) {
+            infectionProbability *= 1 - parameters.vaccineEfficacy;
+          }
+
+          // Ensure the infection probability does not exceed 1
+          infectionProbability = Math.min(infectionProbability, 1);
+
+          // Random chance based on infection probability
+          if (Math.random() < infectionProbability) {
+            this.status = "infected";
+            this.infectionDay = day;
+            break;
           }
         }
       }
     }
   }
+}
+
 
   // Method to move the person within the canvas
-  move(p5: any) {
-    if (!this.isIsolated) {
-      // Only move if the person is not isolated
-      this.x += p5.random(-2, 2);
-      this.y += p5.random(-2, 2);
-      this.x = p5.constrain(this.x, 0, p5.width);
-      this.y = p5.constrain(this.y, 0, p5.height);
-    }
+  // app/simulation/components/Person.ts
+
+move(p5: any) {
+  if (!this.isIsolated) {
+    // Increase movement range if needed
+    this.x += p5.random(-5, 5);
+    this.y += p5.random(-5, 5);
+    this.x = p5.constrain(this.x, 0, p5.width);
+    this.y = p5.constrain(this.y, 0, p5.height);
   }
+}
+
 
   // Method to show the person on the canvas with the appropriate color
   show(p5: any) {
@@ -99,6 +98,7 @@ export default class Person {
   // Method to determine if the person recovers from the infection
   recover(recoveryRate: number) {
     if (this.status === "infected") {
+      // Recovery is checked once per day
       if (Math.random() < recoveryRate) {
         this.status = "recovered";
       }
