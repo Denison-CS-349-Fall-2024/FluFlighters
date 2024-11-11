@@ -9,6 +9,8 @@ export type SimulationParameters = {
   days: number;
   populationSize: number;
   initialInfected: number; // Should be a proportion (e.g., 0.05 for 5%)
+  contactRange: [number, number]; // New: Range for daily contacts
+  areaSize: number;              // New: Size of the simulation area
 };
 
 export const defaultParameters: SimulationParameters = {
@@ -20,4 +22,6 @@ export const defaultParameters: SimulationParameters = {
   days: 20,
   populationSize: 100,
   initialInfected: 0.05, // Changed from 5 to 0.05 to represent 5%
+  contactRange: [5, 15], // Default range for daily contacts
+  areaSize: 50,         // Default area size
 };

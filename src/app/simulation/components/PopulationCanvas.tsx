@@ -39,8 +39,8 @@ export default function PopulationCanvas({
 
     // Movement and drawing happen every frame
     people.forEach((person) => {
-      person.move(p5); // Move the person
-      person.show(p5); // Show the person on the canvas
+      person.move(p5, parameters.areaSize); // Pass areaSize
+      person.show(p5);
     });
 
     const isNewDay = frameCount.current % framesPerDay === 0;
