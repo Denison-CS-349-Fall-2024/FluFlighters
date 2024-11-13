@@ -1,6 +1,7 @@
 // app/layout.tsx
 import "./globals.css";
 import { Providers } from "./Providers";
+import { TooltipProvider } from "@/components/ui/tooltip"; // Adjust the import path if needed
 
 export const metadata = {
   title: "Flu Fighters",
@@ -16,10 +17,12 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
-          <header>
-            <h1>Flu Fighters</h1>
-          </header>
-          <main>{children}</main>
+          <TooltipProvider>
+            <header>
+              <h1>Flu Fighters</h1>
+            </header>
+            <main>{children}</main>
+          </TooltipProvider>
         </Providers>
       </body>
     </html>

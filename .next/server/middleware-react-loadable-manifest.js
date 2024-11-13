@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{\"app/simulation/components/PopulationCanvas.tsx -> react-p5\":{\"id\":\"app/simulation/components/PopulationCanvas.tsx -> react-p5\",\"files\":[\"static/chunks/_app-pages-browser_node_modules_pnpm_react-p5_1_4_1_react-dom_18_3_1_react_18_3_1__react_18_3-f4e57f.js\"]}}"
+self.__REACT_LOADABLE_MANIFEST="{}"

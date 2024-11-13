@@ -5,6 +5,20 @@ import { useContext } from "react";
 import { useRouter } from "next/navigation";
 import { SimulationContext } from "./SimulationContext";
 import { SimulationParameters } from "./simulationParameters";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import { Info } from "lucide-react";
+
+const tooltips = {
+  vaccineEfficacy: "Effectiveness of the vaccine in preventing infection, reducing the infection rate in vaccinated individuals.",
+  vaccinationRate: "The percentage of the population that is vaccinated.",
+  initialInfected: "The initial proportion of infected individuals.",
+  R0: "Basic reproduction number indicating the infection rate.",
+  isolationRate: "Percentage of population that is isolated during the simulation.",
+  recoveryRate: "Probability of recovery for an infected person.",
+  days: "Number of days for which the simulation will run.",
+  populationSize: "Total number of individuals in the population.",
+  contactRange: "The range within which an infected person can spread the disease."
+};
 
 export default function Home() {
   const router = useRouter();
@@ -43,18 +57,22 @@ export default function Home() {
       <div style={{ display: "grid", gap: "16px" }}>
         {/* Vaccine Efficacy */}
         <div>
-          <label>
-            Vaccine Efficacy ({Math.round(parameters.vaccineEfficacy * 100)}%)
-          </label>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <label>Vaccine Efficacy ({Math.round(parameters.vaccineEfficacy * 100)}%)</label>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info style={{ marginLeft: "8px", cursor: "pointer" }} size={16} />
+              </TooltipTrigger>
+              <TooltipContent>{tooltips.vaccineEfficacy}</TooltipContent>
+            </Tooltip>
+          </div>
           <input
             type="range"
             min="0"
             max="1"
             step="0.01"
             value={parameters.vaccineEfficacy}
-            onChange={(e) =>
-              handleParameterChange("vaccineEfficacy", parseFloat(e.target.value))
-            }
+            onChange={(e) => handleParameterChange("vaccineEfficacy", parseFloat(e.target.value))}
             style={{ width: "100%" }}
           />
         </div>
