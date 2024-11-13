@@ -10,14 +10,15 @@ import { Info } from "lucide-react";
 
 const tooltips = {
   vaccineEfficacy: "Effectiveness of the vaccine in preventing infection, reducing the infection rate in vaccinated individuals.",
-  vaccinationRate: "The percentage of the population that is vaccinated.",
-  initialInfected: "The initial proportion of infected individuals.",
-  R0: "Basic reproduction number indicating the infection rate.",
-  isolationRate: "Percentage of population that is isolated during the simulation.",
-  recoveryRate: "Probability of recovery for an infected person.",
-  days: "Number of days for which the simulation will run.",
-  populationSize: "Total number of individuals in the population.",
-  contactRange: "The range within which an infected person can spread the disease."
+  vaccinationRate: "Proportion of the population that is vaccinated, which affects susceptibility.",
+  initialInfected: "Initial count of infected individuals at the start. Sets the starting point of the infection curve.",
+  R0: "Basic reproduction number, representing the average number of people one infected individual will infect if no one is immune.",
+  isolationRate: "Proportion of the population that isolates to reduce infection spread. Lower isolation leads to higher infection spread.",
+  recoveryRate: "Rate at which infected individuals recover each day (proportion per day).",
+  days: "Duration of the simulation in days",
+  populationSize: "Total population size in the simulation. Affects the overall scale of the outbreak.",
+  contactRange: "The range within which an infected person can spread the disease.",
+  areaSize:"N/A"
 };
 
 export default function Home() {
@@ -79,9 +80,15 @@ export default function Home() {
 
         {/* Vaccination Rate */}
         <div>
-          <label>
-            Vaccination Rate ({Math.round(parameters.vaccinationRate * 100)}%)
-          </label>
+        <div style={{ display: "flex", alignItems: "center" }}>
+            <label>Vaccination Rate ({Math.round(parameters.vaccinationRate * 100)}%)</label>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info style={{ marginLeft: "8px", cursor: "pointer" }} size={16} />
+              </TooltipTrigger>
+              <TooltipContent>{tooltips.vaccinationRate}</TooltipContent>
+            </Tooltip>
+          </div>
           <input
             type="range"
             min="0"
@@ -97,9 +104,15 @@ export default function Home() {
 
         {/* Initial Infected */}
         <div>
-          <label>
-            Initial Infected ({Math.round(parameters.initialInfected * 100)}%)
-          </label>
+        <div style={{ display: "flex", alignItems: "center" }}>
+            <label>Initial Infected ({Math.round(parameters.initialInfected * 100)}%)</label>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info style={{ marginLeft: "8px", cursor: "pointer" }} size={16} />
+              </TooltipTrigger>
+              <TooltipContent>{tooltips.initialInfected}</TooltipContent>
+            </Tooltip>
+          </div>
           <input
             type="range"
             min="0"
@@ -115,7 +128,15 @@ export default function Home() {
 
         {/* R0 */}
         <div>
-          <label>R0 (Infection Rate): {parameters.R0}</label>
+        <div style={{ display: "flex", alignItems: "center" }}>
+            <label>R0 (Infection Rate): {parameters.R0}</label>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info style={{ marginLeft: "8px", cursor: "pointer" }} size={16} />
+              </TooltipTrigger>
+              <TooltipContent>{tooltips.R0}</TooltipContent>
+            </Tooltip>
+          </div>
           <input
             type="number"
             min="0.5"
@@ -136,9 +157,15 @@ export default function Home() {
 
         {/* Isolation Rate */}
         <div>
-          <label>
-            Isolation Rate ({Math.round(parameters.isolationRate * 100)}%)
-          </label>
+        <div style={{ display: "flex", alignItems: "center" }}>
+            <label>Isolation Rate ({Math.round(parameters.isolationRate * 100)}%)</label>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info style={{ marginLeft: "8px", cursor: "pointer" }} size={16} />
+              </TooltipTrigger>
+              <TooltipContent>{tooltips.isolationRate}</TooltipContent>
+            </Tooltip>
+          </div>
           <input
             type="range"
             min="0"
@@ -154,9 +181,15 @@ export default function Home() {
 
         {/* Recovery Rate */}
         <div>
-          <label>
-            Recovery Rate ({Math.round(parameters.recoveryRate * 100)}%)
-          </label>
+        <div style={{ display: "flex", alignItems: "center" }}>
+            <label>Recovery Rate ({Math.round(parameters.recoveryRate * 100)}%)</label>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info style={{ marginLeft: "8px", cursor: "pointer" }} size={16} />
+              </TooltipTrigger>
+              <TooltipContent>{tooltips.recoveryRate}</TooltipContent>
+            </Tooltip>
+          </div>
           <input
             type="range"
             min="0.01"
@@ -172,7 +205,15 @@ export default function Home() {
 
         {/* Days */}
         <div>
-          <label>Days ({parameters.days})</label>
+        <div style={{ display: "flex", alignItems: "center" }}>
+            <label>Days ({parameters.days})</label>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info style={{ marginLeft: "8px", cursor: "pointer" }} size={16} />
+              </TooltipTrigger>
+              <TooltipContent>{tooltips.days}</TooltipContent>
+            </Tooltip>
+          </div>
           <input
             type="number"
             min="1"
@@ -192,7 +233,15 @@ export default function Home() {
 
         {/* Population Size */}
         <div>
-          <label>Population Size ({parameters.populationSize})</label>
+        <div style={{ display: "flex", alignItems: "center" }}>
+            <label>Population Size ({parameters.populationSize})</label>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info style={{ marginLeft: "8px", cursor: "pointer" }} size={16} />
+              </TooltipTrigger>
+              <TooltipContent>{tooltips.populationSize}</TooltipContent>
+            </Tooltip>
+          </div>
           <input
             type="number"
             min="50"
@@ -213,9 +262,15 @@ export default function Home() {
 
         {/* Contact Range */}
         <div>
-          <label>
-            Contact Range: {parameters.contactRange[0]} - {parameters.contactRange[1]}
-          </label>
+        <div style={{ display: "flex", alignItems: "center" }}>
+            <label>Contact Range: {parameters.contactRange[0]} - {parameters.contactRange[1]}</label>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info style={{ marginLeft: "8px", cursor: "pointer" }} size={16} />
+              </TooltipTrigger>
+              <TooltipContent>{tooltips.contactRange}</TooltipContent>
+            </Tooltip>
+          </div>
           <div style={{ display: "flex", gap: "8px" }}>
             <input
               type="number"
@@ -258,7 +313,15 @@ export default function Home() {
 
         {/* Area Size */}
         <div>
-          <label>Area Size ({parameters.areaSize} units)</label>
+        <div style={{ display: "flex", alignItems: "center" }}>
+            <label>Area Size ({parameters.areaSize} units)</label>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info style={{ marginLeft: "8px", cursor: "pointer" }} size={16} />
+              </TooltipTrigger>
+              <TooltipContent>{tooltips.areaSize}</TooltipContent>
+            </Tooltip>
+          </div>
           <input
             type="number"
             min="10"
