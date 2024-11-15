@@ -21,9 +21,7 @@ const tooltips = {
   isolationRate: "Proportion of the population that isolates to reduce infection spread. Lower isolation leads to higher infection spread.",
   recoveryRate: "Rate at which infected individuals recover each day (proportion per day).",
   days: "Duration of the simulation in days",
-  populationSize: "Total population size in the simulation. Affects the overall scale of the outbreak.",
   contactRange: "The range within which an infected person can spread the disease.",
-  areaSize:"N/A"
 };
 
 interface SimulationControlsPopoverProps {
@@ -36,10 +34,8 @@ const SimulationControlsPop: React.FC<SimulationControlsPopoverProps> = ({
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [parameters, setParameters] = useState<SimulationParameters>(defaultParameters);
 
-  const handleParameterChange = (
-    key: keyof SimulationParameters,
-    value: number | [number, number]
-  ) => {
+  const handleParameterChange = (key: keyof SimulationParameters, value: number) => {
+    if (key === "populationSize" || key === "areaSize") return; // Ignore changes to these fields
     setParameters({
       ...parameters,
       [key]: value,
@@ -243,35 +239,6 @@ const SimulationControlsPop: React.FC<SimulationControlsPopoverProps> = ({
               />
             </div>
 
-            {/* Population Size */}
-            <div>
-            <div style={{ display: "flex", alignItems: "center" }}>
-            <label>Population Size ({parameters.populationSize})</label>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Info style={{ marginLeft: "8px", cursor: "pointer" }} size={16} />
-              </TooltipTrigger>
-              <TooltipContent>{tooltips.populationSize}</TooltipContent>
-            </Tooltip>
-          </div>
-              <input
-                type="number"
-                min="50"
-                max="10000"
-                step="50"
-                value={parameters.populationSize}
-                onChange={(e) =>
-                  handleParameterChange("populationSize", parseInt(e.target.value))
-                }
-                style={{
-                  width: "100%",
-                  padding: "8px",
-                  borderRadius: "4px",
-                  border: "1px solid #ccc",
-                }}
-              />
-            </div>
-
             {/* Contact Range */}
             <div>
             <div style={{ display: "flex", alignItems: "center" }}>
@@ -321,34 +288,6 @@ const SimulationControlsPop: React.FC<SimulationControlsPopoverProps> = ({
                   }}
                 />
               </div>
-            </div>
-
-            {/* Area Size */}
-            <div>
-            <div style={{ display: "flex", alignItems: "center" }}>
-            <label>Area Size ({parameters.areaSize} units)</label>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Info style={{ marginLeft: "8px", cursor: "pointer" }} size={16} />
-              </TooltipTrigger>
-              <TooltipContent>{tooltips.areaSize}</TooltipContent>
-            </Tooltip>
-          </div>
-              <input
-                type="number"
-                min="10"
-                max="200"
-                value={parameters.areaSize}
-                onChange={(e) =>
-                  handleParameterChange("areaSize", parseInt(e.target.value))
-                }
-                style={{
-                  width: "100%",
-                  padding: "8px",
-                  borderRadius: "4px",
-                  border: "1px solid #ccc",
-                }}
-              />
             </div>
           </div>
           <div className="flex justify-end mt-4">
