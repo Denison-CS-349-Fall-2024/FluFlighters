@@ -1,4 +1,12 @@
 // app/simulation/components/SimulationInstance.tsx
+
+/*
+SimulationInstance.tsx
+
+
+
+*/
+
 import { useEffect, useState, useRef } from "react";
 import PopulationCanvas from "./PopulationCanvas";
 import StatusChart from "./StatusChart";

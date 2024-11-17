@@ -1,4 +1,10 @@
 // app/simulation/components/SimulationControlsPopover.tsx
+
+/*
+SimulationControlsPopover.tsx
+
+
+*/
 "use client";
 
 import { useState } from "react";

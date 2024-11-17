@@ -1,7 +1,7 @@
 // app/page.tsx
 
 /*
-page.tsx
+page.tsx (app)
 
 Page.tsx serves as the main structure / foundation for the simulation page.
 This file's contents involve implemented links to the React framework, parameter UI design,
