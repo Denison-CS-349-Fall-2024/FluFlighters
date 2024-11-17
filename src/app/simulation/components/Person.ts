@@ -1,14 +1,25 @@
 // app/simulation/components/Person.ts
- // """
- //    Parameters:
- //    - population_size: Total population size in the simulation. Affects the overall scale of the outbreak.
- //    - initial_infected: Initial count of infected individuals at the start. Sets the starting point of the infection curve.
- //    - R0: Basic reproduction number, representing the average number of people one infected individual will infect if no one is immune.
- //    - recovery_rate: Rate at which infected individuals recover each day (proportion per day).
- //    - isolation_rate: Proportion of the population that isolates to reduce infection spread. Lower isolation leads to higher infection spread.
- //    - days: Duration of the simulation in days.
- //    - vaccination_rate: Proportion of the population that is vaccinated, which affects susceptibility.
- //    - vaccine_efficacy: Effectiveness of the vaccine in preventing infection, reducing the infection rate in vaccinated individuals.
+
+/*
+Person.ts
+
+Person.ts is the main simulator file that justifies the operations of the simulation's parameters.
+It utilizes an object-oriented approach of the class 'Person' and variables/states that determine
+if that person is infected, isolating, susceptible, or vaccinated. Implementations for the changes
+of states made to the Person object are under functions like 'tryToInfect', moving people visuals
+are updated based on the state changes accordingly.
+
+Here is a list of the user-modifiable parameters:
+  - population_size: Total population size in the simulation. Affects the overall scale of the outbreak.
+  - initial_infected: Initial count of infected individuals at the start. Sets the starting point of the infection curve.
+  - R0: Basic reproduction number, representing the average number of people one infected individual will infect if no one is immune.
+  - recovery_rate: Rate at which infected individuals recover each day (proportion per day).
+  - isolation_rate: Proportion of the population that isolates to reduce infection spread. Lower isolation leads to higher infection spread.
+  - days: Duration of the simulation in days.
+  - vaccination_rate: Proportion of the population that is vaccinated, which affects susceptibility.
+  - vaccine_efficacy: Effectiveness of the vaccine in preventing infection, reducing the infection rate in vaccinated individuals.
+
+*/    
 
 import { SimulationParameters } from "@/app/simulationParameters";
 
@@ -85,7 +96,6 @@ move(p5: any) {
     this.y = p5.constrain(this.y, 0, p5.height);
   }
 }
-
 
   // Method to show the person on the canvas with the appropriate color
   show(p5: any) {

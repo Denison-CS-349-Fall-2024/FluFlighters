@@ -1,4 +1,13 @@
 // app/layout.tsx
+
+/*
+layout.tsx
+
+The layout file is a simple implementation file for filling in page metadata and 
+linking the app with a CSS Tailwind theme (font and colors) that is implemented in 'globals.css'.
+
+*/
+
 import "./globals.css";
 import { Providers } from "./Providers";
 

@@ -1,4 +1,13 @@
 // app/SimulationContext.tsx
+
+/*
+SimulationContext.tsx
+
+SimulationContext designs the menu that adds new simulation instances onto the page, along with
+the baseline parameters needed to control the new simulation.
+
+*/
+
 "use client";
 
 import React, { createContext, useState, ReactNode } from "react";

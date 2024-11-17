@@ -1,6 +1,6 @@
-# Flu Fighter - Flu Infection Simulator and Web App
+# Flu Fighters - Flu Infection Simulator and Web App
 
-Flu Fighter is an educational, interactive web app that simulates the spread of influenza within a population based on user-defined factors. The app features a real-time environment to model how widespread or scarce flu infects and spreads amongst people, with many factors that can contribute or minimize its spread including (param1), (param2), and (param3). This customizability, interactiveness, and sandbox-approach to our simulation aims to educate the middle school grade level and above on how people's health and hygeine decisions influence the spread of flu and have great impacts on society. Actions like isolating when infected and getting an annual flu vaccine aid in decreased contagion and are modeled in the user-defined parameters that can be modified at will. 
+Flu Fighters is an educational, interactive web app that simulates the spread of influenza within a population based on user-defined factors. The app features a real-time environment to model how widespread or scarce flu infects and spreads amongst people, with many factors that can contribute or minimize its spread including (param1), (param2), and (param3). This customizability, interactiveness, and sandbox-approach to our simulation aims to educate the middle school grade level and above on how people's health and hygeine decisions influence the spread of flu and have great impacts on society. Actions like isolating when infected and getting an annual flu vaccine aid in decreased contagion and are modeled in the user-defined parameters that can be modified at will. 
 
 ## Key Features
 
