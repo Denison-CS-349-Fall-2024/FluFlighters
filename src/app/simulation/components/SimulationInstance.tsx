@@ -248,6 +248,7 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
         minHeight: "500px",
         display: "flex",
         flexDirection: "column",
+        boxSizing: "border-box", // Ensure padding and borders are included in width calculations
       }}
     >
       <div
@@ -262,19 +263,24 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
       >
         Simulation #{index}
       </div>
-
+  
+      {/* Container for Three Columns */}
       <div
         style={{
           display: "flex",
-          gap: "20px",
+          flexDirection: "row",
+          width: "100%",
           flexGrow: 1,
+          boxSizing: "border-box", // Include padding and borders in width
+          gap: "16px", // Add horizontal space between columns
         }}
       >
-        {/* StatusChart (Graph) */}
+        {/* Column 1: StatusChart (50% width) */}
         <div
           style={{
-            flex: "1",
+            width: "50%",
             padding: "16px",
+            boxSizing: "border-box",
             borderRadius: "8px",
             backgroundColor: "#fff",
             boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
@@ -284,23 +290,26 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
         >
           <StatusChart chartData={chartData} />
         </div>
-
-        {/* Right half container */}
+  
+        {/* Column 2: PopulationCanvas and Stats (25% width) */}
         <div
           style={{
-            flex: "1",
+            width: "25%",
             display: "flex",
             flexDirection: "column",
+            gap: "16px", // Add space between items in the column
+            boxSizing: "border-box",
           }}
         >
-          {/* PopulationCanvas (Simulation) */}
+          {/* PopulationCanvas Container */}
           <div
             style={{
-              flex: 1,
               padding: "16px",
               borderRadius: "8px",
               backgroundColor: "#fff",
+              boxSizing: "border-box",
               boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+              flexGrow: 1,
               display: "flex",
               flexDirection: "column",
             }}
@@ -311,14 +320,14 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
               parameters={parameters}
             />
           </div>
-
-          {/* Ongoing Results */}
+  
+          {/* Stats Container */}
           <div
             style={{
-              marginTop: "16px",
               padding: "16px",
               borderRadius: "8px",
               backgroundColor: "#fff",
+              boxSizing: "border-box",
               boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
             }}
           >
@@ -328,9 +337,23 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
             <p>Recovered: {recoveredPercentage}%</p>
           </div>
         </div>
+  
+        {/* Column 3: Empty (25% width) */}
+        <div
+          style={{
+            width: "25%",
+            padding: "16px",
+            boxSizing: "border-box",
+            // You can add styles here for the empty column
+          }}
+        >
+          {/* Empty for now */}
+        </div>
       </div>
     </div>
   );
+  
+
 };
 
 export default SimulationInstance;
