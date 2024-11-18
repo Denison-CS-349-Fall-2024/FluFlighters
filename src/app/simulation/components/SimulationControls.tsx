@@ -1,4 +1,13 @@
 // app/simulation/components/SimulationControls.tsx
+
+/*
+SimulationControls.tsx
+
+SimulationControls is a simple file for stating parameter objects and implementing their display
+on the webpage through HTML.
+
+*/
+
 import React from "react";
 
 type SimulationControlsProps = {

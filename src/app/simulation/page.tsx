@@ -1,4 +1,15 @@
 // app/simulation/page.tsx
+
+/*
+Page.tsx (app/simulation)
+
+simulation/Page.tsx is a file that stages the frontend simulation page that is displayed to
+users. It takes several functions and operations made by other components of the simulation and
+formats them to the frontend page. This file also brings additional functionality to adding new
+simluation instances and popover button on the page.
+
+*/
+
 "use client";
 
 import { useEffect, useState, useRef, useContext } from "react";

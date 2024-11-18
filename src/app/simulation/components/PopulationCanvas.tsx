@@ -1,4 +1,16 @@
 // app/simulation/components/PopulationCanvas.tsx
+
+/*
+PopulationCanvas.tsx
+
+PopulationCanvas is a general file that implements the Person visuals and animation. It utilizes
+React's tools to design a minimal interface that models human movement and, ideally, a top-down
+representation of the flu's spread. It states the Person props, their movement, and simple objects
+in the visual as well as handling frames and the length / 'days' the simulation and visuals keep 
+playing.
+
+*/
+
 import dynamic from "next/dynamic";
 import { useRef } from "react";
 import Person from "./Person";
