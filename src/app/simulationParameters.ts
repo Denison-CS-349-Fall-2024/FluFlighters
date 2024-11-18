@@ -23,5 +23,5 @@ export const defaultParameters: SimulationParameters = {
   populationSize: 100, // Hard-coded Value
   initialInfected: 0.05, // Changed from 5 to 0.05 to represent 5%
   contactRange: [5, 15], // Default range for daily contacts
-  areaSize: 1000,         // Hard-coded Value
+  areaSize: 600,         // Hard-coded Value
 };
