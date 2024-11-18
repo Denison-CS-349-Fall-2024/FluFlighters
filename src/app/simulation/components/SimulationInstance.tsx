@@ -25,6 +25,7 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
   index,
 }) => {
   const [people, setPeople] = useState<Person[]>([]);
+  const [statusesByDay, setStatusesByDay] = useState<string[][]>([]);
   const [chartData, setChartData] = useState<ChartData>({
     labels: [],
     datasets: [
@@ -34,31 +35,16 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
     ],
   });
 
-  useEffect(() => {
-    const newPeople: Person[] = [];
-    for (let i = 0; i < parameters.populationSize; i++) {
-      const x = Math.random() * parameters.areaSize;
-      const y = Math.random() * parameters.areaSize;
-      const vaccinated = Math.random() < parameters.vaccinationRate;
-      const isIsolated = Math.random() < parameters.isolationRate;
-      const dailyContacts = Math.floor(
-        Math.random() * (parameters.contactRange[1] - parameters.contactRange[0] + 1) + parameters.contactRange[0]
-      );
-      newPeople.push(new Person(x, y, vaccinated, 'susceptible', isIsolated, dailyContacts));
+  // Utility function to shuffle an array
+  const shuffleArray = (array: any[]) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
     }
-  
-    // Infect initial individuals
-    const initialInfectedCount = Math.max(1, Math.floor(parameters.populationSize * parameters.initialInfected));
-    for (let i = 0; i < initialInfectedCount; i++) {
-      const randomIndex = Math.floor(Math.random() * newPeople.length);
-      newPeople[randomIndex].status = 'infected';
-      newPeople[randomIndex].infectionDay = 0;
-    }
-  
-    setPeople(newPeople);
-  }, [parameters]);
-  
-  // Simulate infection dynamics for StatusChart
+    return array;
+  };
+
+  // Simulate infection dynamics for StatusChart and generate statusesByDay
   useEffect(() => {
     const simulateInfection = () => {
       const days = parameters.days;
@@ -81,6 +67,19 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
       const newSusceptible = [];
       const newInfected = [];
       const newRecovered = [];
+
+      const statusesByDay: string[][] = [];
+
+      // Generate people
+      const N = 500; // Number of dots in PopulationCanvas
+      const peopleArray: Person[] = [];
+      for (let i = 0; i < N; i++) {
+        const x = Math.random() * parameters.areaSize;
+        const y = Math.random() * parameters.areaSize;
+        const vaccinated = Math.random() < parameters.vaccinationRate;
+        const person = new Person(x, y, vaccinated, "susceptible");
+        peopleArray.push(person);
+      }
 
       // Simulate dynamics over days
       for (let day = 0; day <= days; day++) {
@@ -122,6 +121,25 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
         newSusceptible.push(totalSusceptible);
         newInfected.push(totalInfected);
         newRecovered.push(totalRecovered);
+
+        // For this day, generate statuses for people
+        const fracSusceptible = totalSusceptible / populationSize;
+        const fracInfected = totalInfected / populationSize;
+        const fracRecovered = totalRecovered / populationSize;
+
+        const numSusceptible = Math.round(N * fracSusceptible);
+        const numInfected = Math.round(N * fracInfected);
+        const numRecovered = N - numSusceptible - numInfected;
+
+        let statuses = [];
+        for (let i = 0; i < numSusceptible; i++) statuses.push("susceptible");
+        for (let i = 0; i < numInfected; i++) statuses.push("infected");
+        for (let i = 0; i < numRecovered; i++) statuses.push("recovered");
+
+        // Shuffle statuses to randomize distribution
+        statuses = shuffleArray(statuses);
+
+        statusesByDay.push(statuses);
       }
 
       // Update chart data state
@@ -133,6 +151,10 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
           { label: "Recovered", data: newRecovered, borderColor: "green", fill: false },
         ],
       });
+
+      // Update people and statusesByDay state
+      setPeople(peopleArray);
+      setStatusesByDay(statusesByDay);
     };
 
     simulateInfection();
@@ -179,8 +201,8 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
         >
           <PopulationCanvas
             people={people}
+            statusesByDay={statusesByDay}
             parameters={parameters}
-            updateChartData={() => {}}
           />
         </div>
 
