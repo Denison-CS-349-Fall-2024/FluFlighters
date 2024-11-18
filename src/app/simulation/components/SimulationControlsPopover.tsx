@@ -239,56 +239,6 @@ const SimulationControlsPop: React.FC<SimulationControlsPopoverProps> = ({
               />
             </div>
 
-            {/* Contact Range */}
-            <div>
-            <div style={{ display: "flex", alignItems: "center" }}>
-            <label>Contact Range: {parameters.contactRange[0]} - {parameters.contactRange[1]}</label>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Info style={{ marginLeft: "8px", cursor: "pointer" }} size={16} />
-              </TooltipTrigger>
-              <TooltipContent>{tooltips.contactRange}</TooltipContent>
-            </Tooltip>
-          </div>
-              <div style={{ display: "flex", gap: "8px" }}>
-                <input
-                  type="number"
-                  min="1"
-                  max="20"
-                  value={parameters.contactRange[0]}
-                  onChange={(e) =>
-                    handleParameterChange("contactRange", [
-                      parseInt(e.target.value),
-                      parameters.contactRange[1],
-                    ])
-                  }
-                  style={{
-                    width: "50%",
-                    padding: "8px",
-                    borderRadius: "4px",
-                    border: "1px solid #ccc",
-                  }}
-                />
-                <input
-                  type="number"
-                  min="1"
-                  max="20"
-                  value={parameters.contactRange[1]}
-                  onChange={(e) =>
-                    handleParameterChange("contactRange", [
-                      parameters.contactRange[0],
-                      parseInt(e.target.value),
-                    ])
-                  }
-                  style={{
-                    width: "50%",
-                    padding: "8px",
-                    borderRadius: "4px",
-                    border: "1px solid #ccc",
-                  }}
-                />
-              </div>
-            </div>
           </div>
           <div className="flex justify-end mt-4">
             <Button
