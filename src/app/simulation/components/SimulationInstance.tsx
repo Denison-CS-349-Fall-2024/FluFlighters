@@ -4,6 +4,7 @@ import PopulationCanvas from "./PopulationCanvas";
 import StatusChart from "./StatusChart";
 import Person from "./Person";
 import { SimulationParameters } from "../../simulationParameters";
+import SimulationParametersDisplay from "./SimulationParamtersDisplay";
 
 type ChartData = {
   labels: number[];
@@ -81,8 +82,8 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
       const N = 500; // Number of dots in PopulationCanvas
       const peopleArray: Person[] = [];
       for (let i = 0; i < N; i++) {
-        const x = Math.random() * parameters.areaSize;
-        const y = Math.random() * parameters.areaSize;
+        const x = Math.random() * 300;
+        const y = Math.random() * 300;
         const vaccinated = Math.random() < parameters.vaccinationRate;
         const person = new Person(x, y, vaccinated, "susceptible");
         peopleArray.push(person);
@@ -226,10 +227,7 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
       (status) => status === "recovered"
     ).length;
 
-    susceptiblePercentage = (
-      (susceptibleCount / totalPeople) *
-      100
-    ).toFixed(2);
+    susceptiblePercentage = ((susceptibleCount / totalPeople) * 100).toFixed(2);
     infectedPercentage = ((infectedCount / totalPeople) * 100).toFixed(2);
     recoveredPercentage = ((recoveredCount / totalPeople) * 100).toFixed(2);
   }
@@ -263,7 +261,7 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
       >
         Simulation #{index}
       </div>
-  
+
       {/* Container for Three Columns */}
       <div
         style={{
@@ -290,7 +288,7 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
         >
           <StatusChart chartData={chartData} />
         </div>
-  
+
         {/* Column 2: PopulationCanvas and Stats (25% width) */}
         <div
           style={{
@@ -320,7 +318,7 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
               parameters={parameters}
             />
           </div>
-  
+
           {/* Stats Container */}
           <div
             style={{
@@ -337,23 +335,22 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
             <p>Recovered: {recoveredPercentage}%</p>
           </div>
         </div>
-  
+
         {/* Column 3: Empty (25% width) */}
         <div
           style={{
             width: "25%",
             padding: "16px",
             boxSizing: "border-box",
+            height: "25%",
             // You can add styles here for the empty column
           }}
         >
-          {/* Empty for now */}
+          {<SimulationParametersDisplay parameters={parameters} />}
         </div>
       </div>
     </div>
   );
-  
-
 };
 
 export default SimulationInstance;

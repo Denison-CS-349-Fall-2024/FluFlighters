@@ -57,7 +57,7 @@ export default function PopulationCanvas({
 
     // Move and draw each person
     people.forEach((person) => {
-      person.move(p5, parameters.areaSize);
+      person.move(p5, 300);
       person.show(p5);
     });
 
