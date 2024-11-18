@@ -198,8 +198,8 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
         boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
         position: "relative",
         margin: "20px 0",
-        minHeight: "500px", // Prevent the container from being too short
-        display: "flex", // Enable flex properties
+        minHeight: "500px",
+        display: "flex",
         flexDirection: "column",
       }}
     >
@@ -216,43 +216,58 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
         Simulation #{index}
       </div>
 
-      <div style={{ display: "flex", gap: "20px", flexWrap: "wrap", flexGrow: 1 }}>
+      <div
+        style={{
+          display: "flex",
+          gap: "20px",
+          flexGrow: 1,
+        }}
+      >
         {/* StatusChart (Graph) */}
         <div
           style={{
-            flex: "1 1 500px",
+            flex: "1",
             padding: "16px",
             borderRadius: "8px",
             backgroundColor: "#fff",
             boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
-            minWidth: "300px",
             display: "flex",
             flexDirection: "column",
-            flexGrow: 1, // Allow the chart to grow
           }}
         >
           <StatusChart chartData={chartData} />
         </div>
 
-        {/* PopulationCanvas (Simulation) */}
+        {/* Right half container */}
         <div
           style={{
-            flex: "1 1 300px",
-            padding: "16px",
-            borderRadius: "8px",
-            backgroundColor: "#fff",
-            boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
-            minWidth: "300px",
+            flex: "1",
+            position: "relative",
             display: "flex",
-            flexDirection: "column",
-            flexGrow: 1, // Allow the canvas to grow
           }}
         >
-          <PopulationCanvas
-            people={people}
-            statusesByDay={statusesByDay}
-            parameters={parameters}
-          />
+          {/* PopulationCanvas (Simulation) */}
+          <div
+            style={{
+              position: "absolute",
+              top: "0",
+              left: "0",
+              width: "50%",  // Reduced width to 50%
+              height: "50%", // Reduced height to 50%
+              padding: "16px",
+              borderRadius: "8px",
+              backgroundColor: "#fff",
+              boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <PopulationCanvas
+              people={people}
+              statusesByDay={statusesByDay}
+              parameters={parameters}
+            />
+          </div>
         </div>
       </div>
     </div>
