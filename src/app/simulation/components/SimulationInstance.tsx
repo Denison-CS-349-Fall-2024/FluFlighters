@@ -50,15 +50,20 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
       const days = parameters.days;
       const populationSize = parameters.populationSize; // Hard-coded for consistent chart simulation
       const vaccinatedPopulation = populationSize * parameters.vaccinationRate;
-      const unvaccinatedPopulation = populationSize * (1 - parameters.vaccinationRate);
+      const unvaccinatedPopulation =
+        populationSize * (1 - parameters.vaccinationRate);
       const initialInfected = parameters.initialInfected * 100;
 
       // Initialize counts
-      let susceptibleVaccinated = vaccinatedPopulation - initialInfected * parameters.vaccinationRate;
-      let susceptibleUnvaccinated = unvaccinatedPopulation - initialInfected * (1 - parameters.vaccinationRate);
+      let susceptibleVaccinated =
+        vaccinatedPopulation - initialInfected * parameters.vaccinationRate;
+      let susceptibleUnvaccinated =
+        unvaccinatedPopulation -
+        initialInfected * (1 - parameters.vaccinationRate);
 
       let infectedVaccinated = initialInfected * parameters.vaccinationRate;
-      let infectedUnvaccinated = initialInfected * (1 - parameters.vaccinationRate);
+      let infectedUnvaccinated =
+        initialInfected * (1 - parameters.vaccinationRate);
 
       let recoveredVaccinated = 0;
       let recoveredUnvaccinated = 0;
@@ -85,34 +90,41 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
       for (let day = 0; day <= days; day++) {
         // Infection and recovery calculations
         const newInfectedVaccinated = Math.min(
-          (infectedVaccinated * parameters.R0 * parameters.vaccineEfficacy * susceptibleVaccinated) /
-            populationSize *
+          ((infectedVaccinated *
+            parameters.R0 *
+            parameters.vaccineEfficacy *
+            susceptibleVaccinated) /
+            populationSize) *
             (1 - parameters.isolationRate),
           susceptibleVaccinated
         );
 
         const newInfectedUnvaccinated = Math.min(
-          (infectedUnvaccinated * parameters.R0 * susceptibleUnvaccinated) /
-            populationSize *
+          ((infectedUnvaccinated * parameters.R0 * susceptibleUnvaccinated) /
+            populationSize) *
             (1 - parameters.isolationRate),
           susceptibleUnvaccinated
         );
 
-        const newRecoveredVaccinated = infectedVaccinated * parameters.recoveryRate;
-        const newRecoveredUnvaccinated = infectedUnvaccinated * parameters.recoveryRate;
+        const newRecoveredVaccinated =
+          infectedVaccinated * parameters.recoveryRate;
+        const newRecoveredUnvaccinated =
+          infectedUnvaccinated * parameters.recoveryRate;
 
         // Update counts
         susceptibleVaccinated -= newInfectedVaccinated;
         susceptibleUnvaccinated -= newInfectedUnvaccinated;
 
         infectedVaccinated += newInfectedVaccinated - newRecoveredVaccinated;
-        infectedUnvaccinated += newInfectedUnvaccinated - newRecoveredUnvaccinated;
+        infectedUnvaccinated +=
+          newInfectedUnvaccinated - newRecoveredUnvaccinated;
 
         recoveredVaccinated += newRecoveredVaccinated;
         recoveredUnvaccinated += newRecoveredUnvaccinated;
 
         // Combine vaccinated and unvaccinated groups
-        const totalSusceptible = susceptibleVaccinated + susceptibleUnvaccinated;
+        const totalSusceptible =
+          susceptibleVaccinated + susceptibleUnvaccinated;
         const totalInfected = infectedVaccinated + infectedUnvaccinated;
         const totalRecovered = recoveredVaccinated + recoveredUnvaccinated;
 
@@ -146,9 +158,24 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
       setChartData({
         labels: newLabels,
         datasets: [
-          { label: "Susceptible", data: newSusceptible, borderColor: "orange", fill: false },
-          { label: "Infected", data: newInfected, borderColor: "red", fill: false },
-          { label: "Recovered", data: newRecovered, borderColor: "green", fill: false },
+          {
+            label: "Susceptible",
+            data: newSusceptible,
+            borderColor: "orange",
+            fill: false,
+          },
+          {
+            label: "Infected",
+            data: newInfected,
+            borderColor: "red",
+            fill: false,
+          },
+          {
+            label: "Recovered",
+            data: newRecovered,
+            borderColor: "green",
+            fill: false,
+          },
         ],
       });
 
@@ -187,9 +214,23 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
       </div>
 
       <div style={{ display: "flex", gap: "20px" }}>
+        {/* StatusChart (Graph) - Larger */}
         <div
           style={{
-            flex: 1,
+            flex: 2, // Allocate more space to the chart
+            padding: "16px",
+            borderRadius: "8px",
+            backgroundColor: "#fff",
+            boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+          }}
+        >
+          <StatusChart chartData={chartData} />
+        </div>
+
+        {/* PopulationCanvas (Simulation) - Smaller */}
+        <div
+          style={{
+            flex: 1, // Allocate less space to the simulation
             display: "flex",
             flexDirection: "column",
             gap: "20px",
@@ -205,21 +246,70 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
             parameters={parameters}
           />
         </div>
-
-        <div
-          style={{
-            flex: 1,
-            padding: "16px",
-            borderRadius: "8px",
-            backgroundColor: "#fff",
-            boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
-          }}
-        >
-          <StatusChart chartData={chartData} />
-        </div>
       </div>
     </div>
   );
 };
 
 export default SimulationInstance;
+
+//   return (
+//     <div
+//       style={{
+//         border: "1px solid #e0e0e0",
+//         borderRadius: "12px",
+//         padding: "24px",
+//         backgroundColor: "#f5f5f5",
+//         color: "#333",
+//         boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+//         position: "relative",
+//         margin: "20px 0",
+//       }}
+//     >
+//       <div
+//         style={{
+//           position: "absolute",
+//           top: "16px",
+//           left: "16px",
+//           fontWeight: "500",
+//           fontSize: "16px",
+//           color: "#555",
+//         }}
+//       >
+//         Simulation #{index}
+//       </div>
+
+//       <div style={{ display: "flex", gap: "20px" }}>
+//         <div
+//           style={{
+//             flex: 1,
+//             padding: "16px",
+//             borderRadius: "8px",
+//             backgroundColor: "#fff",
+//             boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+//           }}
+//         >
+//           <StatusChart chartData={chartData} />
+//         </div>
+
+//         <div
+//           style={{
+//             flex: 0.5,
+//             padding: "16px",
+//             borderRadius: "8px",
+//             backgroundColor: "#fff",
+//             boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+//           }}
+//         >
+//           <PopulationCanvas
+//             people={people}
+//             statusesByDay={statusesByDay}
+//             parameters={parameters}
+//           />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default SimulationInstance;
