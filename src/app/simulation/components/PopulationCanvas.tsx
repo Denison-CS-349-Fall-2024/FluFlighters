@@ -28,8 +28,16 @@ export default function PopulationCanvas({
   const framesPerDay = 30; // Define frames per day
 
   const setup = (p5: any, canvasParentRef: Element) => {
-    p5.createCanvas(800, 600).parent(canvasParentRef);
+    const width = canvasParentRef.clientWidth;
+    const height = canvasParentRef.clientHeight;
+    p5.createCanvas(width, height).parent(canvasParentRef);
     p5.frameRate(framesPerDay);
+  };
+
+  const windowResized = (p5: any) => {
+    const width = p5.canvas.parentNode.clientWidth;
+    const height = p5.canvas.parentNode.clientHeight;
+    p5.resizeCanvas(width, height);
   };
 
   const draw = (p5: any) => {
@@ -63,5 +71,21 @@ export default function PopulationCanvas({
     }
   };
 
-  return <Sketch setup={setup} draw={draw} />;
+  return (
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <Sketch
+        setup={setup}
+        draw={draw}
+        windowResized={windowResized}
+        style={{ flexGrow: 1 }}
+      />
+    </div>
+  );
 }

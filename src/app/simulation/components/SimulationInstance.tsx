@@ -198,6 +198,9 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
         boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
         position: "relative",
         margin: "20px 0",
+        minHeight: "500px", // Prevent the container from being too short
+        display: "flex", // Enable flex properties
+        flexDirection: "column",
       }}
     >
       <div
@@ -213,31 +216,36 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
         Simulation #{index}
       </div>
 
-      <div style={{ display: "flex", gap: "20px" }}>
-        {/* StatusChart (Graph) - Larger */}
+      <div style={{ display: "flex", gap: "20px", flexWrap: "wrap", flexGrow: 1 }}>
+        {/* StatusChart (Graph) */}
         <div
           style={{
-            flex: 2, // Allocate more space to the chart
+            flex: "1 1 500px",
             padding: "16px",
             borderRadius: "8px",
             backgroundColor: "#fff",
             boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+            minWidth: "300px",
+            display: "flex",
+            flexDirection: "column",
+            flexGrow: 1, // Allow the chart to grow
           }}
         >
           <StatusChart chartData={chartData} />
         </div>
 
-        {/* PopulationCanvas (Simulation) - Smaller */}
+        {/* PopulationCanvas (Simulation) */}
         <div
           style={{
-            flex: 1, // Allocate less space to the simulation
-            display: "flex",
-            flexDirection: "column",
-            gap: "20px",
+            flex: "1 1 300px",
             padding: "16px",
             borderRadius: "8px",
             backgroundColor: "#fff",
             boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+            minWidth: "300px",
+            display: "flex",
+            flexDirection: "column",
+            flexGrow: 1, // Allow the canvas to grow
           }}
         >
           <PopulationCanvas
@@ -252,64 +260,3 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
 };
 
 export default SimulationInstance;
-
-//   return (
-//     <div
-//       style={{
-//         border: "1px solid #e0e0e0",
-//         borderRadius: "12px",
-//         padding: "24px",
-//         backgroundColor: "#f5f5f5",
-//         color: "#333",
-//         boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-//         position: "relative",
-//         margin: "20px 0",
-//       }}
-//     >
-//       <div
-//         style={{
-//           position: "absolute",
-//           top: "16px",
-//           left: "16px",
-//           fontWeight: "500",
-//           fontSize: "16px",
-//           color: "#555",
-//         }}
-//       >
-//         Simulation #{index}
-//       </div>
-
-//       <div style={{ display: "flex", gap: "20px" }}>
-//         <div
-//           style={{
-//             flex: 1,
-//             padding: "16px",
-//             borderRadius: "8px",
-//             backgroundColor: "#fff",
-//             boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
-//           }}
-//         >
-//           <StatusChart chartData={chartData} />
-//         </div>
-
-//         <div
-//           style={{
-//             flex: 0.5,
-//             padding: "16px",
-//             borderRadius: "8px",
-//             backgroundColor: "#fff",
-//             boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
-//           }}
-//         >
-//           <PopulationCanvas
-//             people={people}
-//             statusesByDay={statusesByDay}
-//             parameters={parameters}
-//           />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default SimulationInstance;

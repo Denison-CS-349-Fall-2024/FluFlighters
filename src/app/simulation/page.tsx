@@ -44,19 +44,25 @@ export default function Simulation() {
         flexDirection: "column",
         gap: "20px",
         padding: "20px",
+        height: "100vh", // Set the container to 90% of viewport height
+        overflow: "auto", // Enable scrolling if content overflows
       }}
     >
       {/* Popover Button Section */}
       <div style={{ alignSelf: "center", marginTop: "20px" }}>
         <SimulationControlsPop onStartSimulation={addSimulation} />
       </div>
-      {simulations.map((sim, index) => (
-        <SimulationInstance
-          key={sim.id}
-          parameters={sim.parameters}
-          index={simulations.length - index} // Assign unique index starting from 1
-        />
-      ))}
+
+      {/* Container for Simulation Instances */}
+      <div style={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
+        {simulations.map((sim, index) => (
+          <SimulationInstance
+            key={sim.id}
+            parameters={sim.parameters}
+            index={simulations.length - index} // Assign unique index starting from 1
+          />
+        ))}
+      </div>
     </div>
   );
 }

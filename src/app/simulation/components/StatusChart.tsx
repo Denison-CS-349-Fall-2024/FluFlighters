@@ -1,3 +1,4 @@
+// app/simulation/components/StatusChart.tsx
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -26,9 +27,21 @@ type StatusChartProps = {
 
 export default function StatusChart({ chartData }: StatusChartProps) {
   return (
-    <div style={{ width: "800px" }}>
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <h3>Status Over Time</h3>
-      <Line data={chartData} />
+      <div style={{ flexGrow: 1 }}>
+        <Line
+          data={chartData}
+          options={{ responsive: true, maintainAspectRatio: false }}
+        />
+      </div>
     </div>
   );
 }
