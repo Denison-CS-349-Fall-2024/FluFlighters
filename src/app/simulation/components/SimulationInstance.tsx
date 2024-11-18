@@ -1,5 +1,5 @@
 // app/simulation/components/SimulationInstance.tsx
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import PopulationCanvas from "./PopulationCanvas";
 import StatusChart from "./StatusChart";
 import Person from "./Person";
@@ -35,6 +35,8 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
     ],
   });
 
+  const [currentDay, setCurrentDay] = useState(0);
+
   // Utility function to shuffle an array
   const shuffleArray = (array: any[]) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -52,7 +54,7 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
       const vaccinatedPopulation = populationSize * parameters.vaccinationRate;
       const unvaccinatedPopulation =
         populationSize * (1 - parameters.vaccinationRate);
-      const initialInfected = parameters.initialInfected * 100;
+      const initialInfected = parameters.initialInfected * populationSize;
 
       // Initialize counts
       let susceptibleVaccinated =
@@ -187,6 +189,51 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
     simulateInfection();
   }, [parameters]);
 
+  // Update currentDay over time
+  useEffect(() => {
+    if (statusesByDay.length > 0) {
+      setCurrentDay(0);
+      const interval = setInterval(() => {
+        setCurrentDay((prevDay) => {
+          if (prevDay < statusesByDay.length - 1) {
+            return prevDay + 1;
+          } else {
+            clearInterval(interval);
+            return prevDay;
+          }
+        });
+      }, 1000); // update every second
+
+      return () => clearInterval(interval);
+    }
+  }, [statusesByDay]);
+
+  // Compute percentages for currentDay
+  let susceptiblePercentage = "0.00";
+  let infectedPercentage = "0.00";
+  let recoveredPercentage = "0.00";
+
+  if (statusesByDay.length > 0 && currentDay < statusesByDay.length) {
+    const currentStatuses = statusesByDay[currentDay];
+    const totalPeople = currentStatuses.length;
+    const susceptibleCount = currentStatuses.filter(
+      (status) => status === "susceptible"
+    ).length;
+    const infectedCount = currentStatuses.filter(
+      (status) => status === "infected"
+    ).length;
+    const recoveredCount = currentStatuses.filter(
+      (status) => status === "recovered"
+    ).length;
+
+    susceptiblePercentage = (
+      (susceptibleCount / totalPeople) *
+      100
+    ).toFixed(2);
+    infectedPercentage = ((infectedCount / totalPeople) * 100).toFixed(2);
+    recoveredPercentage = ((recoveredCount / totalPeople) * 100).toFixed(2);
+  }
+
   return (
     <div
       style={{
@@ -242,18 +289,14 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
         <div
           style={{
             flex: "1",
-            position: "relative",
             display: "flex",
+            flexDirection: "column",
           }}
         >
           {/* PopulationCanvas (Simulation) */}
           <div
             style={{
-              position: "absolute",
-              top: "0",
-              left: "0",
-              width: "50%",  // Reduced width to 50%
-              height: "50%", // Reduced height to 50%
+              flex: 1,
               padding: "16px",
               borderRadius: "8px",
               backgroundColor: "#fff",
@@ -267,6 +310,22 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
               statusesByDay={statusesByDay}
               parameters={parameters}
             />
+          </div>
+
+          {/* Ongoing Results */}
+          <div
+            style={{
+              marginTop: "16px",
+              padding: "16px",
+              borderRadius: "8px",
+              backgroundColor: "#fff",
+              boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+            }}
+          >
+            <h3>Day {currentDay}</h3>
+            <p>Susceptible: {susceptiblePercentage}%</p>
+            <p>Infected: {infectedPercentage}%</p>
+            <p>Recovered: {recoveredPercentage}%</p>
           </div>
         </div>
       </div>
