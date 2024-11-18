@@ -1,5 +1,5 @@
 // app/simulation/components/SimulationInstance.tsx
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import PopulationCanvas from "./PopulationCanvas";
 import StatusChart from "./StatusChart";
 import Person from "./Person";
@@ -35,6 +35,8 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
     ],
   });
 
+  const [currentDay, setCurrentDay] = useState(0);
+
   // Utility function to shuffle an array
   const shuffleArray = (array: any[]) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -52,7 +54,7 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
       const vaccinatedPopulation = populationSize * parameters.vaccinationRate;
       const unvaccinatedPopulation =
         populationSize * (1 - parameters.vaccinationRate);
-      const initialInfected = parameters.initialInfected * 100;
+      const initialInfected = parameters.initialInfected * populationSize;
 
       // Initialize counts
       let susceptibleVaccinated =
@@ -187,6 +189,51 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
     simulateInfection();
   }, [parameters]);
 
+  // Update currentDay over time
+  useEffect(() => {
+    if (statusesByDay.length > 0) {
+      setCurrentDay(0);
+      const interval = setInterval(() => {
+        setCurrentDay((prevDay) => {
+          if (prevDay < statusesByDay.length - 1) {
+            return prevDay + 1;
+          } else {
+            clearInterval(interval);
+            return prevDay;
+          }
+        });
+      }, 1000); // update every second
+
+      return () => clearInterval(interval);
+    }
+  }, [statusesByDay]);
+
+  // Compute percentages for currentDay
+  let susceptiblePercentage = "0.00";
+  let infectedPercentage = "0.00";
+  let recoveredPercentage = "0.00";
+
+  if (statusesByDay.length > 0 && currentDay < statusesByDay.length) {
+    const currentStatuses = statusesByDay[currentDay];
+    const totalPeople = currentStatuses.length;
+    const susceptibleCount = currentStatuses.filter(
+      (status) => status === "susceptible"
+    ).length;
+    const infectedCount = currentStatuses.filter(
+      (status) => status === "infected"
+    ).length;
+    const recoveredCount = currentStatuses.filter(
+      (status) => status === "recovered"
+    ).length;
+
+    susceptiblePercentage = (
+      (susceptibleCount / totalPeople) *
+      100
+    ).toFixed(2);
+    infectedPercentage = ((infectedCount / totalPeople) * 100).toFixed(2);
+    recoveredPercentage = ((recoveredCount / totalPeople) * 100).toFixed(2);
+  }
+
   return (
     <div
       style={{
@@ -201,6 +248,7 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
         minHeight: "500px",
         display: "flex",
         flexDirection: "column",
+        boxSizing: "border-box", // Ensure padding and borders are included in width calculations
       }}
     >
       <div
@@ -215,19 +263,24 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
       >
         Simulation #{index}
       </div>
-
+  
+      {/* Container for Three Columns */}
       <div
         style={{
           display: "flex",
-          gap: "20px",
+          flexDirection: "row",
+          width: "100%",
           flexGrow: 1,
+          boxSizing: "border-box", // Include padding and borders in width
+          gap: "16px", // Add horizontal space between columns
         }}
       >
-        {/* StatusChart (Graph) */}
+        {/* Column 1: StatusChart (50% width) */}
         <div
           style={{
-            flex: "1",
+            width: "50%",
             padding: "16px",
+            boxSizing: "border-box",
             borderRadius: "8px",
             backgroundColor: "#fff",
             boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
@@ -237,27 +290,26 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
         >
           <StatusChart chartData={chartData} />
         </div>
-
-        {/* Right half container */}
+  
+        {/* Column 2: PopulationCanvas and Stats (25% width) */}
         <div
           style={{
-            flex: "1",
-            position: "relative",
+            width: "25%",
             display: "flex",
+            flexDirection: "column",
+            gap: "16px", // Add space between items in the column
+            boxSizing: "border-box",
           }}
         >
-          {/* PopulationCanvas (Simulation) */}
+          {/* PopulationCanvas Container */}
           <div
             style={{
-              position: "absolute",
-              top: "0",
-              left: "0",
-              width: "50%",  // Reduced width to 50%
-              height: "50%", // Reduced height to 50%
               padding: "16px",
               borderRadius: "8px",
               backgroundColor: "#fff",
+              boxSizing: "border-box",
               boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+              flexGrow: 1,
               display: "flex",
               flexDirection: "column",
             }}
@@ -268,10 +320,40 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
               parameters={parameters}
             />
           </div>
+  
+          {/* Stats Container */}
+          <div
+            style={{
+              padding: "16px",
+              borderRadius: "8px",
+              backgroundColor: "#fff",
+              boxSizing: "border-box",
+              boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+            }}
+          >
+            <h3>Day {currentDay}</h3>
+            <p>Susceptible: {susceptiblePercentage}%</p>
+            <p>Infected: {infectedPercentage}%</p>
+            <p>Recovered: {recoveredPercentage}%</p>
+          </div>
+        </div>
+  
+        {/* Column 3: Empty (25% width) */}
+        <div
+          style={{
+            width: "25%",
+            padding: "16px",
+            boxSizing: "border-box",
+            // You can add styles here for the empty column
+          }}
+        >
+          {/* Empty for now */}
         </div>
       </div>
     </div>
   );
+  
+
 };
 
 export default SimulationInstance;
