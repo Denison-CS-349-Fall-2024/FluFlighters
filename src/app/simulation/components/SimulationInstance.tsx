@@ -56,17 +56,87 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
     }
   
     setPeople(newPeople);
-  
-    setChartData({
-      labels: [],
-      datasets: [
-        { label: "Susceptible", data: [], borderColor: "blue", fill: false },
-        { label: "Infected", data: [], borderColor: "red", fill: false },
-        { label: "Recovered", data: [], borderColor: "green", fill: false },
-      ],
-    });
   }, [parameters]);
   
+  // Simulate infection dynamics for StatusChart
+  useEffect(() => {
+    const simulateInfection = () => {
+      const days = parameters.days;
+      const populationSize = parameters.populationSize; // Hard-coded for consistent chart simulation
+      const vaccinatedPopulation = populationSize * parameters.vaccinationRate;
+      const unvaccinatedPopulation = populationSize * (1 - parameters.vaccinationRate);
+      const initialInfected = parameters.initialInfected * 100;
+
+      // Initialize counts
+      let susceptibleVaccinated = vaccinatedPopulation - initialInfected * parameters.vaccinationRate;
+      let susceptibleUnvaccinated = unvaccinatedPopulation - initialInfected * (1 - parameters.vaccinationRate);
+
+      let infectedVaccinated = initialInfected * parameters.vaccinationRate;
+      let infectedUnvaccinated = initialInfected * (1 - parameters.vaccinationRate);
+
+      let recoveredVaccinated = 0;
+      let recoveredUnvaccinated = 0;
+
+      const newLabels = [];
+      const newSusceptible = [];
+      const newInfected = [];
+      const newRecovered = [];
+
+      // Simulate dynamics over days
+      for (let day = 0; day <= days; day++) {
+        // Infection and recovery calculations
+        const newInfectedVaccinated = Math.min(
+          (infectedVaccinated * parameters.R0 * parameters.vaccineEfficacy * susceptibleVaccinated) /
+            populationSize *
+            (1 - parameters.isolationRate),
+          susceptibleVaccinated
+        );
+
+        const newInfectedUnvaccinated = Math.min(
+          (infectedUnvaccinated * parameters.R0 * susceptibleUnvaccinated) /
+            populationSize *
+            (1 - parameters.isolationRate),
+          susceptibleUnvaccinated
+        );
+
+        const newRecoveredVaccinated = infectedVaccinated * parameters.recoveryRate;
+        const newRecoveredUnvaccinated = infectedUnvaccinated * parameters.recoveryRate;
+
+        // Update counts
+        susceptibleVaccinated -= newInfectedVaccinated;
+        susceptibleUnvaccinated -= newInfectedUnvaccinated;
+
+        infectedVaccinated += newInfectedVaccinated - newRecoveredVaccinated;
+        infectedUnvaccinated += newInfectedUnvaccinated - newRecoveredUnvaccinated;
+
+        recoveredVaccinated += newRecoveredVaccinated;
+        recoveredUnvaccinated += newRecoveredUnvaccinated;
+
+        // Combine vaccinated and unvaccinated groups
+        const totalSusceptible = susceptibleVaccinated + susceptibleUnvaccinated;
+        const totalInfected = infectedVaccinated + infectedUnvaccinated;
+        const totalRecovered = recoveredVaccinated + recoveredUnvaccinated;
+
+        // Store results for chart
+        newLabels.push(day);
+        newSusceptible.push(totalSusceptible);
+        newInfected.push(totalInfected);
+        newRecovered.push(totalRecovered);
+      }
+
+      // Update chart data state
+      setChartData({
+        labels: newLabels,
+        datasets: [
+          { label: "Susceptible", data: newSusceptible, borderColor: "orange", fill: false },
+          { label: "Infected", data: newInfected, borderColor: "red", fill: false },
+          { label: "Recovered", data: newRecovered, borderColor: "green", fill: false },
+        ],
+      });
+    };
+
+    simulateInfection();
+  }, [parameters]);
 
   return (
     <div
@@ -110,26 +180,7 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
           <PopulationCanvas
             people={people}
             parameters={parameters}
-            updateChartData={(susceptible, infected, recovered, day) => {
-              setChartData((prevData) => ({
-                ...prevData,
-                labels: [...prevData.labels, day],
-                datasets: [
-                  {
-                    ...prevData.datasets[0],
-                    data: [...prevData.datasets[0].data, susceptible],
-                  },
-                  {
-                    ...prevData.datasets[1],
-                    data: [...prevData.datasets[1].data, infected],
-                  },
-                  {
-                    ...prevData.datasets[2],
-                    data: [...prevData.datasets[2].data, recovered],
-                  },
-                ],
-              }));
-            }}
+            updateChartData={() => {}}
           />
         </div>
 
