@@ -69,6 +69,51 @@ export default function PopulationCanvas({
         p5.noLoop(); // Stop the simulation after the specified number of days
       }
     }
+
+    // Draw Legend
+    drawLegend(p5);
+  };
+
+  // Function to draw the legend
+  const drawLegend = (p5: any) => {
+    const legendX = 10;
+    const legendY = 10;
+    const shapeSize = 10;
+    const spacing = 20;
+
+    // Define statuses and their corresponding colors and shapes
+    const legendItems = [
+      { label: "Susceptible", shape: "circle", color: [100, 200, 255] },
+      { label: "Infected", shape: "triangle", color: [255, 100, 100] },
+      { label: "Recovered", shape: "square", color: [0, 255, 0] },
+    ];
+
+    p5.fill(0);
+    p5.textSize(12);
+    p5.textAlign(p5.LEFT, p5.CENTER);
+
+    legendItems.forEach((item, index) => {
+      const yPosition = legendY + index * spacing;
+
+      // Draw shape
+      p5.fill(...item.color);
+      p5.noStroke();
+      if (item.shape === "circle") {
+        p5.ellipse(legendX, yPosition, shapeSize, shapeSize);
+      } else if (item.shape === "triangle") {
+        p5.push();
+        p5.translate(legendX, yPosition);
+        p5.rotate(p5.frameCount / 100.0); // Optional: Rotate for dynamic effect
+        p5.triangle(-shapeSize / 2, shapeSize / 2, shapeSize / 2, shapeSize / 2, 0, -shapeSize / 2);
+        p5.pop();
+      } else if (item.shape === "square") {
+        p5.rect(legendX - shapeSize / 2, yPosition - shapeSize / 2, shapeSize, shapeSize);
+      }
+
+      // Draw label
+      p5.fill(0);
+      p5.text(item.label, legendX + shapeSize + 5, yPosition);
+    });
   };
 
   return (

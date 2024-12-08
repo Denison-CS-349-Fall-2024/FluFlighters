@@ -79,7 +79,7 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
       const statusesByDay: string[][] = [];
 
       // Generate people
-      const N = 500; // Number of dots in PopulationCanvas
+      const N = 100; // Number of dots in PopulationCanvas
       const peopleArray: Person[] = [];
       for (let i = 0; i < N; i++) {
         const x = Math.random() * 300;

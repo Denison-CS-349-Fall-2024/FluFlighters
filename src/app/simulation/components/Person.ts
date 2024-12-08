@@ -39,11 +39,45 @@ export default class Person {
     this.y = p5.constrain(this.y, 0, areaSize);
   }
 
-  // Display the person
+  // Display the person with different shapes based on status
   show(p5: any) {
-    if (this.status === "susceptible") p5.fill(100, 200, 255); // Blue
-    else if (this.status === "infected") p5.fill(255, 100, 100); // Red
-    else if (this.status === "recovered") p5.fill(0, 255, 0); // Green
-    p5.ellipse(this.x, this.y, 8, 8);
+    // Set stroke for border
+    p5.stroke(0); // Black border
+    p5.strokeWeight(1); // Thin border
+
+    if (this.status === "susceptible") {
+      p5.fill(100, 200, 255); // Blue
+      p5.noStroke(); // Remove border if desired
+      p5.ellipse(this.x, this.y, 8, 8); // Circle with border
+      p5.stroke(0); // Re-enable stroke for consistency
+      p5.strokeWeight(1);
+      p5.noFill();
+      p5.ellipse(this.x, this.y, 8, 8); // Draw border
+    } else if (this.status === "infected") {
+      p5.fill(255, 100, 100); // Red
+      p5.noStroke(); // Remove border if desired
+      // Draw Triangle
+      p5.push();
+      p5.translate(this.x, this.y);
+      p5.rotate(p5.frameCount / 100.0); // Optional: Rotate for visual effect
+      p5.triangle(-4, 4, 4, 4, 0, -4);
+      p5.pop();
+      p5.stroke(0); // Re-enable stroke for border
+      p5.strokeWeight(1);
+      p5.noFill();
+      p5.push();
+      p5.translate(this.x, this.y);
+      p5.rotate(p5.frameCount / 100.0); // Ensure border matches rotation
+      p5.triangle(-4, 4, 4, 4, 0, -4);
+      p5.pop();
+    } else if (this.status === "recovered") {
+      p5.fill(0, 255, 0); // Green
+      p5.noStroke(); // Remove border if desired
+      p5.rect(this.x - 4, this.y - 4, 8, 8); // Square with border
+      p5.stroke(0); // Re-enable stroke for consistency
+      p5.strokeWeight(1);
+      p5.noFill();
+      p5.rect(this.x - 4, this.y - 4, 8, 8); // Draw border
+    }
   }
 }
