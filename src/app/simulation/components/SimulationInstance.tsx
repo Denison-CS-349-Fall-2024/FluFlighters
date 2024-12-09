@@ -51,7 +51,7 @@ const SimulationInstance: React.FC<SimulationInstanceProps> = ({
   useEffect(() => {
     const simulateInfection = () => {
       const days = parameters.days;
-      const populationSize = parameters.populationSize; // Hard-coded for consistent chart simulation
+      const populationSize = 5000; // Hard-coded for consistent chart simulation
       const vaccinatedPopulation = populationSize * parameters.vaccinationRate;
       const unvaccinatedPopulation =
         populationSize * (1 - parameters.vaccinationRate);
