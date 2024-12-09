@@ -46,3 +46,4 @@ C:\Users\hbgyufu\source\repos\FluFighter\FluFighter\obj\Release\net8.0\refint\Fl
 C:\Users\hbgyufu\source\repos\FluFighter\FluFighter\obj\Release\net8.0\FluFighter.pdb
 C:\Users\hbgyufu\source\repos\FluFighter\FluFighter\obj\Release\net8.0\FluFighter.genruntimeconfig.cache
 C:\Users\hbgyufu\source\repos\FluFighter\FluFighter\obj\Release\net8.0\ref\FluFighter.dll
+C:\Users\hbgyufu\source\repos\FluFighter\FluFighter\obj\Release\net8.0\FluFighter.sourcelink.json

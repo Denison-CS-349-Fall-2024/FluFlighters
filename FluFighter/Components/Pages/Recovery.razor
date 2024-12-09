@@ -1,5 +1,5 @@
 ﻿@page "/flu-education/recovery"
-
+@inject NavigationManager Navigation
 <div class="content-container">
     <div class="header-section">
         <img src="/images/pill.png" alt="Recovery Icon" class="flu-icon" />
@@ -18,6 +18,9 @@
     <p>
         Most people recover from the flu within one to two weeks, but it’s important to monitor for any worsening symptoms and contact a healthcare provider if necessary.
     </p>
+    <div class="navigation-buttons">
+        <button @onclick="GoToPreviousPage">Previous</button>
+    </div>
 </div>
 
 <style>
@@ -78,4 +81,30 @@
     .recovery-list li {
         margin-bottom: 10px; /* Space between list items */
     }
+    /* Navigation Buttons */
+    .navigation-buttons {
+        display: flex;
+        justify-content: space-between; /* Align buttons to opposite sides */
+        margin-top: 30px;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        color: #FFFFFF;
+        background-color: #007ACC;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #005A99;
+        }
 </style>
+@code {
+    private void GoToPreviousPage()
+    {
+        Navigation.NavigateTo("/flu-education/treatment"); // Change to the actual previous page path
+    }
+}

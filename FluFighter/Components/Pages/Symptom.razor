@@ -1,5 +1,5 @@
 ﻿@page "/flu-education/symptoms"
-
+@inject NavigationManager Navigation
 <div class="content-container">
     <div class="header-section">
         <img src="/images/bacteria.png" alt="Symptoms Icon" class="flu-icon" />
@@ -18,6 +18,10 @@
         <li>Fatigue (tiredness)</li>
         <li>Some people may have vomiting and diarrhea, though this is more common in children than adults.</li>
     </ul>
+    <div class="navigation-buttons">
+        <button @onclick="GoToPreviousPage">Previous</button>
+        <button @onclick="GoToNextPage">Next</button>
+    </div>
 </div>
 
 <style>
@@ -78,4 +82,35 @@
     .symptom-list li {
         margin-bottom: 10px; /* Space between list items */
     }
+    /* Navigation Buttons */
+    .navigation-buttons {
+        display: flex;
+        justify-content: space-between; /* Align buttons to opposite sides */
+        margin-top: 30px;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        color: #FFFFFF;
+        background-color: #007ACC;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #005A99;
+        }
 </style>
+@code {
+    private void GoToPreviousPage()
+    {
+        Navigation.NavigateTo("/flu-education/what-is-flu"); // Change to the actual previous page path
+    }
+
+    private void GoToNextPage()
+    {
+        Navigation.NavigateTo("/flu-education/causes"); // Change to the actual next page path
+    }
+}

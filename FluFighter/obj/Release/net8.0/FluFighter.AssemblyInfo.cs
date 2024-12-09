@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FluFighter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9ef9b93ae600d08cd3ec9583df08e6312f5dfcb")]
 [assembly: System.Reflection.AssemblyProductAttribute("FluFighter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FluFighter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -46,3 +46,4 @@ C:\Users\hbgyufu\source\repos\FluFighter\FluFighter\bin\Debug\net8.0\Microsoft.E
 C:\Users\hbgyufu\source\repos\FluFighter\FluFighter\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 C:\Users\hbgyufu\source\repos\FluFighter\FluFighter\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\hbgyufu\source\repos\FluFighter\FluFighter\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\hbgyufu\source\repos\FluFighter\FluFighter\obj\Debug\net8.0\FluFighter.sourcelink.json

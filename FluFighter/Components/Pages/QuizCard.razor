@@ -56,14 +56,15 @@
         cursor: pointer;
     }
 
-    .next-btn:hover {
-        box-shadow: -1.5px 1.5px 10px rgba(0,0,0,0.3);
-    }
+        .next-btn:hover {
+            box-shadow: -1.5px 1.5px 10px rgba(0,0,0,0.3);
+        }
 </style>
 
 <div class="container">
     <div class="quiz">
         @if (questionIndex < Questions.Count())
+
         {
             <div class="app-title">
                 Quizzing!
@@ -73,25 +74,39 @@
             </div>
             <div class="quiz-body">
                 @foreach (var option in Questions[questionIndex].Options)
+
                 {
                     <OptionCard Option="@option" OnOptionSelected="OptionSelected"></OptionCard>
                 }
+
+                <div style="margin-top:8px;padding:10px;background-color:orange;border-radius:5px;">you have answered @CurrentQuestionCount/@Questions?.Count</div>
             </div>
         }
+
         else
+
         {
             <div class="app-title">
                 @if (score > (Questions.Count / 2))
+
                 {
                     <img src="https://img.icons8.com/ios/100/000000/prize--v1.png" />
                 }
+
                 else
+
                 {
                     <img src="https://img.icons8.com/color/96/000000/lose.png" />
                 }
             </div>
             <div class="app-title">
                 @(score > (Questions.Count() / 2) ? "Congratulation" : "Better Luck Next Time")
+            </div>
+            <div style="border:1px solid #ccc;padding:15px;border-radius:5px;">
+                @foreach (var item in QuestionCorrect)
+                {
+                    <p><span style="color:green">@item.Answer</span> - <span style="color:blue">@item.AnswerSelected</span></p>
+                }
             </div>
             <div class="quiz-header">
                 <b>You scored @score points!</b>

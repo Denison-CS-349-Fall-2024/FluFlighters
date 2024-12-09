@@ -1,5 +1,5 @@
 ﻿@page "/flu-education/what-is-flu"
-
+@inject NavigationManager Navigation
 <div class="content-container">
     <div class="header-section">
         <img src="/images/sneezing.png" alt="Flu Icon" class="flu-icon" />
@@ -13,6 +13,9 @@
         The flu spreads mainly by droplets made when people with flu cough, sneeze, or talk.
         These droplets can land in the mouths or noses of people who are nearby or possibly be inhaled into the lungs.
     </p>
+    <div class="navigation-buttons">
+        <button @onclick="GoToNextPage">Next</button>
+    </div>
 </div>
 
 <style>
@@ -60,4 +63,30 @@
         margin-bottom: 20px; /* Larger margin between paragraphs */
         text-align: center; /* Center-align text */
     }
+    /* Navigation Buttons */
+    .navigation-buttons {
+        display: flex;
+        justify-content: space-between; /* Align buttons to opposite sides */
+        margin-top: 30px;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        color: #FFFFFF;
+        background-color: #007ACC;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #005A99;
+        }
 </style>
+@code {
+    private void GoToNextPage()
+    {
+        Navigation.NavigateTo("/flu-education/symptoms"); // Change to the actual next page path
+    }
+}

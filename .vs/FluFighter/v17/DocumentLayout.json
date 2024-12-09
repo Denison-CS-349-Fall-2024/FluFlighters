@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8767E921-FF63-4C63-ABEF-BCC9E3C84D3A}|FluFighter\\FluFighter.csproj|c:\\users\\hbgyufu\\source\\repos\\flufighter\\flufighter\\components\\pages\\about.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8767E921-FF63-4C63-ABEF-BCC9E3C84D3A}|FluFighter\\FluFighter.csproj|solutionrelative:flufighter\\components\\pages\\about.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8767E921-FF63-4C63-ABEF-BCC9E3C84D3A}|FluFighter\\FluFighter.csproj|c:\\users\\hbgyufu\\source\\repos\\flufighter\\flufighter\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8767E921-FF63-4C63-ABEF-BCC9E3C84D3A}|FluFighter\\FluFighter.csproj|solutionrelative:flufighter\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8767E921-FF63-4C63-ABEF-BCC9E3C84D3A}|FluFighter\\FluFighter.csproj|c:\\users\\hbgyufu\\source\\repos\\flufighter\\flufighter\\components\\layout\\navmenu.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{8767E921-FF63-4C63-ABEF-BCC9E3C84D3A}|FluFighter\\FluFighter.csproj|solutionrelative:flufighter\\components\\layout\\navmenu.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8767E921-FF63-4C63-ABEF-BCC9E3C84D3A}|FluFighter\\FluFighter.csproj|c:\\users\\hbgyufu\\source\\repos\\flufighter\\flufighter\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8767E921-FF63-4C63-ABEF-BCC9E3C84D3A}|FluFighter\\FluFighter.csproj|solutionrelative:flufighter\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8767E921-FF63-4C63-ABEF-BCC9E3C84D3A}|FluFighter\\FluFighter.csproj|c:\\users\\hbgyufu\\source\\repos\\flufighter\\flufighter\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8767E921-FF63-4C63-ABEF-BCC9E3C84D3A}|FluFighter\\FluFighter.csproj|solutionrelative:flufighter\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8767E921-FF63-4C63-ABEF-BCC9E3C84D3A}|FluFighter\\FluFighter.csproj|c:\\users\\hbgyufu\\source\\repos\\flufighter\\flufighter\\components\\pages\\about.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8767E921-FF63-4C63-ABEF-BCC9E3C84D3A}|FluFighter\\FluFighter.csproj|solutionrelative:flufighter\\components\\pages\\about.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8767E921-FF63-4C63-ABEF-BCC9E3C84D3A}|FluFighter\\FluFighter.csproj|c:\\users\\hbgyufu\\source\\repos\\flufighter\\flufighter\\components\\pages\\module.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -26,62 +30,87 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "About.razor",
-              "DocumentMoniker": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Pages\\About.razor",
-              "RelativeDocumentMoniker": "FluFighter\\Components\\Pages\\About.razor",
-              "ToolTip": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Pages\\About.razor",
-              "RelativeToolTip": "FluFighter\\Components\\Pages\\About.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-21T06:36:08.174Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "NavMenu.razor",
               "DocumentMoniker": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "FluFighter\\Components\\Layout\\NavMenu.razor",
               "ToolTip": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Layout\\NavMenu.razor",
               "RelativeToolTip": "FluFighter\\Components\\Layout\\NavMenu.razor",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAACIAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACIAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-21T06:30:12.911Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Module.razor",
-              "DocumentMoniker": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Pages\\Module.razor",
-              "RelativeDocumentMoniker": "FluFighter\\Components\\Pages\\Module.razor",
-              "ToolTip": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Pages\\Module.razor",
-              "RelativeToolTip": "FluFighter\\Components\\Pages\\Module.razor",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAAAAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-21T06:29:39.909Z",
+              "WhenOpened": "2024-12-09T10:43:02.964Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "NavMenu.razor.css",
+              "DocumentMoniker": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Layout\\NavMenu.razor.css",
+              "RelativeDocumentMoniker": "FluFighter\\Components\\Layout\\NavMenu.razor.css",
+              "ToolTip": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Layout\\NavMenu.razor.css",
+              "RelativeToolTip": "FluFighter\\Components\\Layout\\NavMenu.razor.css",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-12-09T10:42:55.839Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Home.razor",
               "DocumentMoniker": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "FluFighter\\Components\\Pages\\Home.razor",
               "ToolTip": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Pages\\Home.razor",
               "RelativeToolTip": "FluFighter\\Components\\Pages\\Home.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-21T06:27:08.974Z",
+              "WhenOpened": "2024-12-09T10:08:55.582Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "About.razor",
+              "DocumentMoniker": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Pages\\About.razor",
+              "RelativeDocumentMoniker": "FluFighter\\Components\\Pages\\About.razor",
+              "ToolTip": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Pages\\About.razor",
+              "RelativeToolTip": "FluFighter\\Components\\Pages\\About.razor",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-09T10:08:24.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Module.razor",
+              "DocumentMoniker": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Pages\\Module.razor",
+              "RelativeDocumentMoniker": "FluFighter\\Components\\Pages\\Module.razor",
+              "ToolTip": "C:\\Users\\hbgyufu\\source\\repos\\FluFighter\\FluFighter\\Components\\Pages\\Module.razor",
+              "RelativeToolTip": "FluFighter\\Components\\Pages\\Module.razor",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-09T09:58:00.899Z",
               "EditorCaption": ""
             }
           ]

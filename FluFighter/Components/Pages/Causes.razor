@@ -1,4 +1,5 @@
 ﻿@page "/flu-education/causes"
+@inject NavigationManager Navigation
 
 <div class="content-container">
     <div class="header-section">
@@ -15,22 +16,26 @@
         These droplets can land in the mouths or noses of people who are nearby or possibly be inhaled into the lungs.
         Less often, a person might get the flu by touching a surface or object that has flu virus on it and then touching their mouth, nose, or eyes.
     </p>
+    <div class="navigation-buttons">
+        <button @onclick="GoToPreviousPage">Previous</button>
+        <button @onclick="GoToNextPage">Next</button>
+    </div>
 </div>
 
 <style>
     /* Overall Page Background */
     body {
-        background-color: #F0F8FF; /* Soft light blue background */
+        background-color: #F0F8FF;
     }
 
     /* Content Container */
     .content-container {
-        background-color: #FFFFFF; /* White background */
-        padding: 40px; /* Increased padding */
-        border-radius: 15px; /* Softer edges */
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow */
-        max-width: 1000px; /* Wider container */
-        margin: 100px auto; /* More space above and below */
+        background-color: #FFFFFF;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        max-width: 1000px;
+        margin: 100px auto;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
@@ -38,28 +43,61 @@
     .header-section {
         display: flex;
         align-items: center;
-        justify-content: center; /* Center content horizontally */
-        margin-bottom: 30px; /* More space between header and paragraph */
+        justify-content: center;
+        margin-bottom: 30px;
     }
 
     .flu-icon {
-        width: 80px; /* Larger icon */
+        width: 80px;
         height: 80px;
-        margin-right: 20px; /* Increased space between icon and title */
+        margin-right: 20px;
     }
 
     /* Title Styling */
     h1 {
-        font-size: 2.5rem; /* Larger font size for main title */
+        font-size: 2.5rem;
         color: #333;
     }
 
     /* Paragraph Styling */
     p {
-        font-size: 1.3rem; /* Increased font size */
-        line-height: 1.8; /* More line height for better readability */
+        font-size: 1.3rem;
+        line-height: 1.8;
         color: #555;
-        margin-bottom: 20px; /* Larger margin between paragraphs */
-        text-align: center; /* Center-align text */
+        margin-bottom: 20px;
+        text-align: center;
     }
+
+    /* Navigation Buttons */
+    .navigation-buttons {
+        display: flex;
+        justify-content: space-between; /* Align buttons to opposite sides */
+        margin-top: 30px;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        color: #FFFFFF;
+        background-color: #007ACC;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #005A99;
+        }
 </style>
+
+@code {
+    private void GoToPreviousPage()
+    {
+        Navigation.NavigateTo("/flu-education/symptoms"); // Change to the actual previous page path
+    }
+
+    private void GoToNextPage()
+    {
+        Navigation.NavigateTo("/flu-education/prevention"); // Change to the actual next page path
+    }
+}
