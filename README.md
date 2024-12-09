@@ -1,30 +1,35 @@
-# Flu Fighters - Flu Infection Simulator and Web App
+# Flu Fighters - Flu Infection Simulator and Web App 
 
-Flu Fighters is an educational, interactive web app that simulates the spread of influenza within a population based on user-defined factors. The app features a real-time environment to model how widespread or scarce flu infects and spreads amongst people, with many factors that can contribute or minimize its spread including (param1), (param2), and (param3). This customizability, interactiveness, and sandbox-approach to our simulation aims to educate the middle school grade level and above on how people's health and hygeine decisions influence the spread of flu and have great impacts on society. Actions like isolating when infected and getting an annual flu vaccine aid in decreased contagion and are modeled in the user-defined parameters that can be modified at will. 
+Flu Fighters is an educational, interactive web app that simulates the spread of influenza within a population based on user-defined factors. The app features a real-time environment to model how widespread or scarce flu infects and spreads amongst people, with many factors that can contribute or minimize its spread including vaccination rates, isolation rates, and vaccine efficacy. This customizability, interactiveness, and sandbox-approach to our simulation aims to educate the middle school grade level and above on how people's health and hygeinic decisions influence the spread of flu and have great impacts on society. Actions like isolating when infected and getting an annual flu vaccine aid in decreased contagion and are modeled in the user-defined parameters that can be modified at will. 
 
 ## Key Features
 
-( when at completion, update with solidified features )
+Flu Fighters features a rich, simulation-geared environment where users start with a series of editable parameters and run a simulation of how influenza spreads amongst a population. There is also the ability to add new simulations after running an initial one to do comparisons on their results based on the different parameters you set. Flu Fighters also has other pages dedicated to providing detailed information on the flu as well.
 
-#### Interactive Sandbox 
+#### Interactive Sandbox :microscope:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Our web app seeks to enhance the learning of how influenza spreads across a population through an open sandbox approach for higher interactivity. Hands-on learning can provide a solidified foundation where users can tweak and have full control of the simulation's parameters to see how those changes reflect in the simulations' outputs.
 
-#### Educational Content
+#### Educational Content :books:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Flu Fighters outside of the simulation page provides in-depth breakdowns of how influenza affects people, its symptoms, treatment, and prevention methods. Detailed information gives the necessary background for our simulation and what is being represented.
 
-## Technical Design
+## Technical Design 
 
-( light breakdown of the framework / design of the app )
+Flu Fighters is based on the React framework, JavaScript, and TypeScript. The breakdown of its architecture is split between parameter operations and the graphical frontend representing the output of those parameter operations correctly. Within the src folder is the majority of Flu Fighters' development outside of the React host and contains other directories for our fonts and the simulation resources.
 
----
+#### Application Directory :hammer:
 
-### Older README Content
+For the specific files in /src/app, the implementation for the parameters are stored. There is also frontend development in React for structuring Flu Fighters' simluation page structure, metadata, and context menus for the editable parameters.
+
+#### Simulation Directory :arrow_forward:
+
+The /src/app/simulation directory is the main directory that contains the main implementation of the simulation visuals. Components of the visuals are stored in the 'components' directory and contain files that bridge the parameters' operations together, calculate the state changes of people in the sim, and the frontend features.
+
+
+## Local Hosting Instructions
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
 
 First download necessary packages
 
