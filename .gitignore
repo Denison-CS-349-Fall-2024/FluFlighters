@@ -2,5 +2,5 @@
 /.next/
 /.pnp
 .pnp.js
-/out/
+# /out/
 .DS_Store
