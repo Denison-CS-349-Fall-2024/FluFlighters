@@ -18,6 +18,6 @@ export const defaultParameters: SimulationParameters = {
   recoveryRate: 0.1,
   isolationRate: 0.5,
   days: 20,
-  populationSize: 100,
+  populationSize: 5000, // Hard-coded Value
   initialInfected: 0.05, // Changed from 5 to 0.05 to represent 5%
 };

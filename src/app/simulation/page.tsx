@@ -30,6 +30,21 @@ export default function Simulation() {
 
   // State management
   const [simulations, setSimulations] = useState<SimulationData[]>([]);
+  const [containerHeight, setContainerHeight] = useState(0); // Initialize with default value
+
+  // Update height dynamically on window resize
+  useEffect(() => {
+    const updateHeight = () => {
+      setContainerHeight(window.innerHeight);
+    };
+
+    // Set the initial height
+    updateHeight();
+
+    // Update height on window resize
+    window.addEventListener("resize", updateHeight);
+    return () => window.removeEventListener("resize", updateHeight);
+  }, []);
 
   // Initialize the first simulation
   useEffect(() => {
@@ -55,19 +70,34 @@ export default function Simulation() {
         flexDirection: "column",
         gap: "20px",
         padding: "20px",
+        height: `${containerHeight}px`, // Use dynamic height
+        minHeight: "100vh", // Prevent shrinking below viewport height
+        maxHeight: "100vh", // Prevent vertical overflow growth
+        overflow: "auto", // Enable scrolling if needed
       }}
     >
       {/* Popover Button Section */}
       <div style={{ alignSelf: "center", marginTop: "20px" }}>
         <SimulationControlsPop onStartSimulation={addSimulation} />
       </div>
-      {simulations.map((sim, index) => (
-        <SimulationInstance
-          key={sim.id}
-          parameters={sim.parameters}
-          index={simulations.length - index} // Assign unique index starting from 1
-        />
-      ))}
+
+      {/* Container for Simulation Instances */}
+      <div
+        style={{
+          flexGrow: 1,
+          flexShrink: 0, // Prevent shrinking
+          overflowY: "auto", // Vertical scrolling
+          width: "100%", // Stabilize width during resizing
+        }}
+      >
+        {simulations.map((sim, index) => (
+          <SimulationInstance
+            key={sim.id}
+            parameters={sim.parameters}
+            index={simulations.length - index} // Assign unique index starting from 1
+          />
+        ))}
+      </div>
     </div>
   );
 }

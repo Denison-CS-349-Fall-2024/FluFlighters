@@ -1,2 +1,6 @@
 /node_modules
-/.next
+/.next/
+/.pnp
+.pnp.js
+/out/
+.DS_Store
