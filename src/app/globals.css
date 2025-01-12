@@ -1,3 +1,11 @@
+/*
+globals.css
+
+Simple file for font and color globals, as well as integration with Tailwind resources that will
+be used through the simulation page.
+
+*/
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
